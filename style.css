@@ -11,7 +11,6 @@ body {
   color: #333;
 }
 
-/* Smooth scroll for whole page */
 html {
   scroll-behavior: smooth;
 }
@@ -67,7 +66,84 @@ html {
   to   { transform: rotate(45deg) scale(1.1); }
 }
 
-/* ================= NAVBAR & HERO ================= */
+/* ================= NAVBAR ================= */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3); /* transparent */
+  backdrop-filter: blur(10px); /* glass blur */
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+nav .logo {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+nav .logo span {
+  color: #ff9800;
+}
+
+/* Navbar items */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Hover underline (single effect) */
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #00ffff;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* Active link */
+nav ul li a.active {
+  color: #ffd700;
+}
+
+nav ul li a.active::after {
+  width: 100%;
+  background: #ffd700;
+}
+
+/* ================= HERO ================= */
 .hero {
   height: 100vh;
   position: relative;
@@ -82,72 +158,6 @@ html {
   top: 0;
   left: 0;
   z-index: -1;
-}
-
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: linear-gradient(
-        135deg,
-        rgba(0, 0, 80, 0.8),
-        rgba(0, 0, 30, 0.6)
-  );
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 50px;
-  z-index: 1000;
-}
-
-nav .logo {
-  color: #fff;
-  font-size: 28px;
-  font-weight: 600;
-}
-
-nav .logo span {
-  color: #ff9800;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-}
-
-nav ul li {
-  margin-left: 20px;
-}
-
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 18px;
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-/* Hover effect: gradient underline + color change */
-nav ul li a::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  left: 0;
-  bottom: -5px;
-  background: linear-gradient(90deg, #00c6ff, #0072ff);
-  transition: width 0.3s ease;
-}
-
-nav ul li a:hover {
-  color: #00c6ff;
-}
-
-nav ul li a:hover::after {
-  width: 100%;
 }
 
 .hero-text {
@@ -221,11 +231,11 @@ section {
 
 /* ================= SERVICES ================= */
 .services {
-   background: linear-gradient(
-        135deg,
-        rgba(0, 0, 80, 0.8),
-        rgba(0, 0, 30, 0.6)
-      );
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 80, 0.8),
+    rgba(0, 0, 30, 0.6)
+  );
   text-align: center;
   padding: 60px 20px;
 }
@@ -250,11 +260,11 @@ section {
 
 /* ================= PORTFOLIO ================= */
 .portfolio {
-   background: linear-gradient(
-        135deg,
-        rgba(0, 0, 80, 0.8),
-        rgba(0, 0, 30, 0.6)
-      );
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 80, 0.8),
+    rgba(0, 0, 30, 0.6)
+  );
   text-align: center;
   padding: 60px 20px;
 }
@@ -277,11 +287,11 @@ section {
 
 /* ================= CONTACT ================= */
 .contact {
-   background: linear-gradient(
-        135deg,
-        rgba(0, 0, 80, 0.8),
-        rgba(0, 0, 30, 0.6)
-      );
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 80, 0.8),
+    rgba(0, 0, 30, 0.6)
+  );
   color: #fff;
   text-align: center;
   padding: 60px 20px;
@@ -318,10 +328,10 @@ section {
 /* ================= FOOTER ================= */
 footer {
   background: linear-gradient(
-        135deg,
-        rgba(0, 0, 80, 0.8),
-        rgba(0, 0, 30, 0.6)
-      );
+    135deg,
+    rgba(0, 0, 80, 0.8),
+    rgba(0, 0, 30, 0.6)
+  );
   color: #fff;
   text-align: center;
   padding: 20px;
@@ -335,8 +345,8 @@ footer a {
   transition: color 0.3s;
 }
 
-footer a:hover { 
-  color: #fff; 
+footer a:hover {
+  color: #fff;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -345,56 +355,3 @@ footer a:hover {
   .about { flex-direction: column; }
   .hero-text h1 { font-size: 32px; }
 }
-html {
-  scroll-behavior: smooth;
-}
-
-/* offset for fixed navbar */
-section {
-  scroll-margin-top: 100px;
-}
-
-/* nav links normal state */
-nav a {
-  color: white;
-  text-decoration: none;
-  padding: 10px 15px;
-  transition: color 0.3s, border-bottom 0.3s;
-}
-
-/* hover effect */
-nav a:hover {
-  color: #00ffff; /* light cyan hover */
-  border-bottom: 2px solid #00ffff;
-}
-
-/* active link highlight */
-nav a.active {
-  color: #ffd700; /* golden color */
-  border-bottom: 2px solid #ffd700;
-}
-// Typing Text Effect
-const texts = ["Lead Generation Specialist", "Web Research Expert", "Freelancer"];
-let count = 0;
-let index = 0;
-let currentText = "";
-let letter = "";
-
-(function type() {
-  if (count === texts.length) {
-    count = 0;
-  }
-  currentText = texts[count];
-  letter = currentText.slice(0, ++index);
-
-  document.querySelector(".typing-text").textContent = letter;
-
-  if (letter.length === currentText.length) {
-    count++;
-    index = 0;
-    setTimeout(type, 1500); // ruk kar next text start hoga
-  } else {
-    setTimeout(type, 100);
-  }
-})();
-
