@@ -125,16 +125,14 @@
 
   <!-- FOOTER -->
   <footer>
-    <section id="contact" class="contact-section">
+   <section id="contact" class="contact-section">
   <div class="container">
     <h2><span class="white-text">Contact</span> Me</h2>
-    <p>
+    <p class="contact-info">
       Gmail: 
-      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=amirshahzad37925@gmail.com">amirshahzad37925@gmail.com</a> 
-      | 
       <a href="https://mail.google.com/mail/?view=cm&fs=1&to=amirshahzad37925@gmail.com" target="_blank">
-        <i class="fab fa-google"></i>
-      </a>
+        amirshahzad37925@gmail.com
+      </a> 
       | 
       Phone: <a href="tel:+923063337925">+92 306 3337 925</a>
     </p>
@@ -150,21 +148,39 @@
 </section>
 
 <style>
-  .social-icons a,
-  p a {
-    color: #FFA500; /* default white */
+  /* Contact info (Gmail + Phone) */
+  .contact-info {
+    font-size: 20px;
+    font-weight: bold;
+    color: #FFA500;
+  }
+
+  .contact-info a {
+    color: #FFA500;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 5px;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  .contact-info a:hover {
+    color: #1da1f2;
+    transform: scale(1.1);
+  }
+
+  /* Social icons */
+  .social-icons a {
+    color: #FFA500;
     font-size: 20px;
     margin: 0 10px;
     transition: transform 0.3s ease, color 0.3s ease;
   }
 
-  .social-icons a:hover,
-  p a:hover {
-    color: #1da1f2; /* hover color */
+  .social-icons a:hover {
+    color: #1da1f2;
     transform: scale(1.2);
   }
 </style>
-
 
     <p style="margin:0; font-size:14px; color:#aaa;">© 2025 Aamir Shahzad | All Rights Reserved</p>
   </footer>
