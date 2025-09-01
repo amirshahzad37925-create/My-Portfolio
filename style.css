@@ -345,3 +345,32 @@ footer a:hover {
   .about { flex-direction: column; }
   .hero-text h1 { font-size: 32px; }
 }
+html {
+  scroll-behavior: smooth;
+}
+
+/* offset for fixed navbar */
+section {
+  scroll-margin-top: 100px;
+}
+
+/* nav links normal state */
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: color 0.3s, border-bottom 0.3s;
+}
+
+/* hover effect */
+nav a:hover {
+  color: #00ffff; /* light cyan hover */
+  border-bottom: 2px solid #00ffff;
+}
+
+/* active link highlight */
+nav a.active {
+  color: #ffd700; /* golden color */
+  border-bottom: 2px solid #ffd700;
+}
+
