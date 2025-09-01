@@ -106,15 +106,23 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="contact">
-    <h2>Get in <span>Touch</span></h2>
-    <form>
-      <input type="text" placeholder="Name*" required>
-      <input type="email" placeholder="Email*" required>
-      <textarea placeholder="Message*" required></textarea>
+<section id="contact" class="contact">
+  <h2>Get in <span>Touch</span></h2>
+  <form action="https://formsubmit.co/amirshahzad37925@gmail.com" method="POST">
+      
+      <!-- Hidden settings -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="New Contact Message from Portfolio">
+      <input type="hidden" name="_next" value="https://amirshahzad37925-create.github.io/My-Portfolio/thankyou.html">
+
+      <!-- User inputs -->
+      <input type="text" name="name" placeholder="Name*" required>
+      <input type="email" name="email" placeholder="Email*" required>
+      <textarea name="message" placeholder="Message*" required></textarea>
       <button type="submit" class="btn">Send Message</button>
-    </form>
-  </section>
+  </form>
+</section>
+
 
   <!-- FOOTER -->
   <footer>
