@@ -354,6 +354,6 @@ footer a:hover {
   .about { flex-direction: column; }
   .hero-text h1 { font-size: 32px; }
 }
-.highlight {
-  color: #FFA500; /* Orange */
+..hero-text h1 .highlight {
+  color: #FFA500 !important;
 }
