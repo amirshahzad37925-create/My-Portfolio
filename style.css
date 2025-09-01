@@ -73,7 +73,6 @@ nav {
   left: 0;
   width: 100%;
   background: rgba(0, 0, 0, 0.3); /* transparent */
-  backdrop-filter: blur(10px); /* glass blur */
   padding: 15px 20px;
   display: flex;
   justify-content: space-between;
