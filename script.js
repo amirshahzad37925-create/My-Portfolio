@@ -32,5 +32,3 @@ tsParticles.load("particles-js", {
     }
   }
 });
-
-
