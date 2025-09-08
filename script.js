@@ -1,65 +1,145 @@
-// tsParticles config
-tsParticles.load("particles-js", {
-  background: {
-    color: { value: "#000080" }
-  },
-  particles: {
-    number: { value: 90, density: { enable: true, area: 800 } },
-    color: { value: "#ffffff" },
-    links: { enable: true, distance: 150, color: "#ffffff", opacity: 0.5, width: 1 },
-    move: { enable: true, speed: 2, direction: "none", outModes: { default: "out" } },
-    size: { value: { min: 1, max: 3 } }
-  },
-  interactivity: {
-    events: { onHover: { enable: true, mode: "grab" }, onClick: { enable: true, mode: "push" } },
-    modes: { grab: { distance: 200, links: { opacity: 0.8 } } }
-  }
-});
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Digital Marketing & Lead Generation</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
 
-// ===== Scroll Active Link Highlight (only if sections exist) =====
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav a");
+<!-- Preloader -->
+<div id="preloader">
+  <div class="loader-square"></div>
+</div>
 
-if (sections.length > 0) {
-  window.addEventListener("scroll", () => {
-    let current = "";
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop - 120;
-      const sectionHeight = section.clientHeight;
-      if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-        current = section.getAttribute("id");
-      }
-    });
+<!-- HERO SECTION -->
+<header class="hero" id="home">
+  <div id="particles-js"></div>
+  <nav>
+    <h2 class="logo">MY<span>Portfolio</span></h2>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="hero-text">
+    <h4>Welcome</h4>
+    <h1>I’m <span class="highlight">Aamir Shahzad</span></h1>
+    <h2 class="typing-text"></h2>
+    <p>Specialized in Lead Generation, List Building, Sourcing and Social Media Marketing.</p>
+    <a href="#contact" class="btn">Hire Me</a>
+  </div>
+</header>
 
-    navLinks.forEach((link) => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === "#" + current) {
-        link.classList.add("active");
-      }
-    });
+<!-- ABOUT SECTION -->
+<section id="about" class="about">
+  <div class="about-img">
+    <img src="https://i.postimg.cc/6QzjYwy5/Whats-App-Image-2025-09-01-at-9-17-04-AM.jpg" alt="Lead Generation Specialist">
+  </div>
+  <div class="about-text">
+    <h2>About <span>Me</span></h2>
+    <p> Myself <strong>Aamir Shahzad</strong> working as a <strong>Lead Generation Specialist</strong> with expertise in providing <strong>manually verified fresh data</strong> tailored to client needs. Whether it’s <strong>B2B or B2C leads</strong>, I ensure accuracy and relevance for maximum business growth. </p>
+    <p> I specialize in delivering leads across multiple industries including: Real Estate, E-commerce, Finance, Healthcare, and Education. Along with Lead Generation, I also provide <strong>Lead List Building</strong> and <strong>Web Research services</strong> to help businesses connect with the right audience. </p>
+    <ul class="info">
+      <li><strong>Expertise:</strong> Lead Generation Specialist, LinkedIn, List Building, Sourcing</li>
+      <li><strong>Email:</strong> amirshahzad37925@gmail.com</li>
+      <li><strong>Phone:</strong> +92 306 3337 925</li>
+      <li><strong>Freelance:</strong> Available</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services">
+  <h2><span style="color:white;">My</span> <span>Services</span></h2>
+  <div class="service-container">
+    <div class="service-box">
+      <h3>Lead Generation</h3>
+      <p>Helping businesses capture potential clients through smart funnels and campaigns.</p>
+    </div>
+    <div class="service-box">
+      <h3>Lead List Building</h3>
+      <p>Creating engaging ads and content strategies to boost online visibility and conversions.</p>
+    </div>
+    <div class="service-box">
+      <h3>Email Marketing</h3>
+      <p>Designing and executing campaigns that nurture leads and drive repeat sales.</p>
+    </div>
+    <div class="service-box">
+      <h3>SEO Optimization</h3>
+      <p>Improving website rankings with proven search engine strategies and keyword targeting.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="portfolio">
+  <h2><span style="color:white;">My</span> <span>Work</span></h2>
+  <div class="portfolio-container">
+    <img src="https://i.postimg.cc/BZwWJ5ZQ/Screenshot-2025-08-16-120554.png" alt="Lead Generation">
+    <img src="https://i.postimg.cc/j50HHFhd/Screenshot-2025-08-16-130718.png">
+    <img src="https://i.postimg.cc/3rZXG90Y/Screenshot-2025-08-16-130606.png" alt="lead Generation">
+    <img src="https://i.postimg.cc/CLQfC2hT/Screenshot-2025-09-01-094027-1000-rows.png" alt="Lead Generation">
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <h2>Get in <span>Touch</span></h2>
+  <form action="https://formsubmit.co/amirshahzad37925@gmail.com" method="POST">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="New Contact Message from Portfolio">
+    <input type="hidden" name="_next" value="https://amirshahzad37925-create.github.io/My-Portfolio/thankyou.html">
+
+    <input type="text" name="name" placeholder="Name*" required>
+    <input type="email" name="email" placeholder="Email*" required>
+    <textarea name="message" placeholder="Message*" required></textarea>
+    <button type="submit" class="btn">Send Message</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <section class="contact-section">
+    <div class="container">
+      <h2><span class="white-text">Contact</span> Me</h2>
+      <p class="contact-info">
+        Gmail: 
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=amirshahzad37925@gmail.com" target="_blank">
+          amirshahzad37925@gmail.com
+        </a> 
+        | 
+        Phone: <a href="tel:+923063337925">+92 306 3337 925</a>
+      </p>
+
+      <div class="social-icons">
+        <a href="https://www.facebook.com/aamir.ibn.al.mazhar" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://x.com/Aamir3337925" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/aamir_ibnalmazhar/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://medium.com/@amirshahzad37925" target="_blank"><i class="fab fa-medium"></i></a>
+        <a href="https://join.skype.com/invite/LkkvzG3eqi7S" target="_blank"><i class="fab fa-skype"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <p style="margin:0; font-size:14px; color:#aaa;">© 2025 Aamir Shahzad | All Rights Reserved</p>
+</footer>
+
+<script>
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      document.getElementById("preloader").style.display = "none";
+    }, 2000);
   });
-}
-
-// Typing Text Effect
-const texts = ["Lead Generation Specialist", "Web Research Expert", "Freelancer"];
-let count = 0;
-let index = 0;
-let currentText = "";
-let letter = "";
-
-(function type() {
-  if (count === texts.length) count = 0;
-  currentText = texts[count];
-  letter = currentText.slice(0, ++index);
-
-  const typingTextElement = document.querySelector(".typing-text");
-  if (typingTextElement) typingTextElement.textContent = letter;
-
-  if (letter.length === currentText.length) {
-    count++;
-    index = 0;
-    setTimeout(type, 1500);
-  } else {
-    setTimeout(type, 100);
-  }
-})();
+</script>
+<script src="script.js"></script>
+</body>
+</html>
