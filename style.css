@@ -357,3 +357,13 @@ footer a:hover {
 ..hero-text h1 .highlight {
   color: #FFA500 !important;
 }
+.section-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.section-link:hover {
+  background: rgba(255,255,255,0.1);
+  transition: 0.3s;
+  cursor: pointer;
+}
