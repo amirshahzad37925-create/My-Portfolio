@@ -1,14 +1,4 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>Portfolio</title>
-  <link rel="stylesheet" href="./style.css">
-
-</head>
-<body>
-<!-- partial:index.partial.html -->
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -17,39 +7,35 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <!-- tsParticles CDN -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Preloader -->
-<div id="preloader">
-  <div class="loader-square"></div>
-</div>
+  <div id="preloader">
+    <div class="loader-square"></div>
+  </div>
 
   <!-- HERO SECTION -->
   <header class="hero" id="home">
-    <!-- particles background -->
     <div id="particles-js"></div>
     <nav>
       <h2 class="logo">MY<span>Portfolio</span></h2>
       <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
     <div class="hero-text">
-  <h4>Welcome</h4>
-  <h1>I’m <span class="highlight">Aamir Shahzad</span></h1>
-  <!-- 👇 yahan dynamic typing text aaega -->
-  <h2 class="typing-text"></h2>
-  <p>Specialized in Lead Generation, List Building, Sourcing and Social Media Marketing.</p>
-  <a href="#contact" class="btn">Hire Me</a>
-</div>
+      <h4>Welcome</h4>
+      <h1>I’m <span class="highlight">Aamir Shahzad</span></h1>
+      <h2 class="typing-text"></h2>
+      <p>Specialized in Lead Generation, List Building, Sourcing and Social Media Marketing.</p>
+      <a href="contact.html" class="btn">Hire Me</a>
+    </div>
   </header>
 
   <!-- ABOUT SECTION -->
@@ -59,8 +45,7 @@
     </div>
     <div class="about-text">
       <h2>About <span>Me</span></h2>
-      <p> Myself <strong>Aamir Shahzad</strong> working as a <strong>Lead Generation Specialist</strong> with expertise in providing <strong>manually verified fresh data</strong> tailored to client needs. Whether it’s <strong>B2B or B2C leads</strong>, I ensure accuracy and relevance for maximum business growth. </p>
-      <p> I specialize in delivering leads across multiple industries including: Real Estate, E-commerce, Finance, Healthcare, and Education. Along with Lead Generation, I also provide <strong>Lead List Building</strong> and <strong>Web Research services</strong> to help businesses connect with the right audience. </p>
+      <p> Myself <strong>Aamir Shahzad</strong> working as a <strong>Lead Generation Specialist</strong> with expertise in providing <strong>manually verified fresh data</strong> tailored to client needs. </p>
       <ul class="info">
         <li><strong>Expertise:</strong> Lead Generation Specialist, LinkedIn, List Building, Sourcing</li>
         <li><strong>Email:</strong> amirshahzad37925@gmail.com</li>
@@ -70,134 +55,78 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- SERVICES (Clickable) -->
   <section id="services" class="services">
-    <h2><span style="color:white;">My</span> <span>Services</span></h2>
-    <div class="service-container">
-      <div class="service-box">
-        <h3>Lead Generation</h3>
-        <p>Helping businesses capture potential clients through smart funnels and campaigns.</p>
+    <a href="services.html" class="section-link">
+      <h2><span style="color:white;">My</span> <span>Services</span></h2>
+      <div class="service-container">
+        <div class="service-box">
+          <h3>Lead Generation</h3>
+          <p>Helping businesses capture potential clients through smart funnels and campaigns.</p>
+        </div>
+        <div class="service-box">
+          <h3>Lead List Building</h3>
+          <p>Creating engaging ads and content strategies to boost online visibility and conversions.</p>
+        </div>
+        <div class="service-box">
+          <h3>Email Marketing</h3>
+          <p>Designing and executing campaigns that nurture leads and drive repeat sales.</p>
+        </div>
+        <div class="service-box">
+          <h3>SEO Optimization</h3>
+          <p>Improving website rankings with proven search engine strategies and keyword targeting.</p>
+        </div>
       </div>
-      <div class="service-box">
-        <h3>Lead List Building</h3>
-        <p>Creating engaging ads and content strategies to boost online visibility and conversions.</p>
-      </div>
-      <div class="service-box">
-        <h3>Email Marketing</h3>
-        <p>Designing and executing campaigns that nurture leads and drive repeat sales.</p>
-      </div>
-      <div class="service-box">
-        <h3>SEO Optimization</h3>
-        <p>Improving website rankings with proven search engine strategies and keyword targeting.</p>
-      </div>
-    </div>
+    </a>
   </section>
 
-  <!-- PORTFOLIO -->
+  <!-- PORTFOLIO (Clickable) -->
   <section id="portfolio" class="portfolio">
-    <h2><span style="color:white;">My</span> <span>Work</span></h2>
-    <div class="portfolio-container">
-      <img src="https://i.postimg.cc/BZwWJ5ZQ/Screenshot-2025-08-16-120554.png" alt="Lead Generation">
-      <img src="https://i.postimg.cc/j50HHFhd/Screenshot-2025-08-16-130718.png">
-      <img src="https://i.postimg.cc/3rZXG90Y/Screenshot-2025-08-16-130606.png" alt="lead Generation">
-      <img src="https://i.postimg.cc/CLQfC2hT/Screenshot-2025-09-01-094027-1000-rows.png" alt="Lead Generation">
-    </div>
+    <a href="portfolio.html" class="section-link">
+      <h2><span style="color:white;">My</span> <span>Work</span></h2>
+      <div class="portfolio-container">
+        <img src="https://i.postimg.cc/BZwWJ5ZQ/Screenshot-2025-08-16-120554.png" alt="Lead Generation">
+        <img src="https://i.postimg.cc/j50HHFhd/Screenshot-2025-08-16-130718.png">
+        <img src="https://i.postimg.cc/3rZXG90Y/Screenshot-2025-08-16-130606.png" alt="lead Generation">
+        <img src="https://i.postimg.cc/CLQfC2hT/Screenshot-2025-09-01-094027-1000-rows.png" alt="Lead Generation">
+      </div>
+    </a>
   </section>
 
-  <!-- CONTACT -->
-<section id="contact" class="contact">
-  <h2>Get in <span>Touch</span></h2>
-  <form action="https://formsubmit.co/amirshahzad37925@gmail.com" method="POST">
-      
-      <!-- Hidden settings -->
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_subject" value="New Contact Message from Portfolio">
-      <input type="hidden" name="_next" value="https://amirshahzad37925-create.github.io/My-Portfolio/thankyou.html">
-
-      <!-- User inputs -->
-      <input type="text" name="name" placeholder="Name*" required>
-      <input type="email" name="email" placeholder="Email*" required>
-      <textarea name="message" placeholder="Message*" required></textarea>
-      <button type="submit" class="btn">Send Message</button>
-  </form>
-</section>
-
+  <!-- CONTACT (Clickable) -->
+  <section id="contact" class="contact">
+    <a href="contact.html" class="section-link">
+      <h2>Get in <span>Touch</span></h2>
+      <p>Click here to contact me via form or social media links.</p>
+    </a>
+  </section>
 
   <!-- FOOTER -->
   <footer>
-   <section id="contact" class="contact-section">
-  <div class="container">
-    <h2><span class="white-text">Contact</span> Me</h2>
-    <p class="contact-info">
-      Gmail: 
-      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=amirshahzad37925@gmail.com" target="_blank">
-        amirshahzad37925@gmail.com
-      </a> 
-      | 
-      Phone: <a href="tel:+923063337925">+92 306 3337 925</a>
-    </p>
-
-    <div class="social-icons">
-      <a href="https://www.facebook.com/aamir.ibn.al.mazhar" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://x.com/Aamir3337925" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.instagram.com/aamir_ibnalmazhar/" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://medium.com/@amirshahzad37925" target="_blank"><i class="fab fa-medium"></i></a>
-      <a href="https://join.skype.com/invite/LkkvzG3eqi7S" target="_blank"><i class="fab fa-skype"></i></a>
+    <div class="container">
+      <h2><span class="white-text">Contact</span> Me</h2>
+      <p class="contact-info">
+        Gmail: <a href="mailto:amirshahzad37925@gmail.com">amirshahzad37925@gmail.com</a> |
+        Phone: <a href="tel:+923063337925">+92 306 3337 925</a>
+      </p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/aamir.ibn.al.mazhar" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://x.com/Aamir3337925" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/aamir_ibnalmazhar/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://medium.com/@amirshahzad37925" target="_blank"><i class="fab fa-medium"></i></a>
+        <a href="https://join.skype.com/invite/LkkvzG3eqi7S" target="_blank"><i class="fab fa-skype"></i></a>
+      </div>
     </div>
-  </div>
-</section>
-
-<style>
-  /* Contact info (Gmail + Phone) */
-  .contact-info {
-    font-size: 19px;
-    font-weight: normal;
-    color: #fff;
-  }
-
-  .contact-info a {
-    color: #FFA500;
-    font-size: 17px;
-    font-weight: normal;
-    margin: 0 5px;
-    transition: transform 0.3s ease, color 0.3s ease;
-  }
-
-  .contact-info a:hover {
-    color: #1da1f2;
-    transform: scale(1.1);
-  }
-
-  /* Social icons */
-  .social-icons a {
-    color: #FFA500;
-    font-size: 22px;
-    margin: 0 10px;
-    transition: transform 0.3s ease, color 0.3s ease;
-  }
-
-  .social-icons a:hover {
-    color: #1da1f2;
-    transform: scale(1.2);
-  }
-</style>
-
     <p style="margin:0; font-size:14px; color:#aaa;">© 2025 Aamir Shahzad | All Rights Reserved</p>
   </footer>
-  <!-- ===== Footer End ===== -->
 
-  <!-- Preloader Hide Script -->
+  <!-- Preloader Hide -->
   <script>
     window.addEventListener("load", () => {
       setTimeout(() => {
         document.getElementById("preloader").style.display = "none";
-      }, 2000); // 2 seconds
+      }, 2000);
     });
   </script>
-</body>
-</html>
-<!-- partial -->
-  <script  src="./script.js"></script>
-
 </body>
 </html>
