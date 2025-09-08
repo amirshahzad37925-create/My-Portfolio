@@ -1,3 +1,6 @@
+Let's start by creating the **index.html** file first with all the effects intact and links to other pages:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,18 +8,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio - Digital Marketing & Lead Generation</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <!-- Preloader -->
-  <div id="preloader">
-    <div class="loader-square"></div>
-  </div>
+  <div id="preloader"><div class="loader-square"></div></div>
 
-  <!-- HERO SECTION -->
   <header class="hero" id="home">
     <div id="particles-js"></div>
     <nav>
@@ -38,7 +36,6 @@
     </div>
   </header>
 
-  <!-- ABOUT SECTION -->
   <section id="about" class="about">
     <div class="about-img">
       <img src="https://i.postimg.cc/6QzjYwy5/Whats-App-Image-2025-09-01-at-9-17-04-AM.jpg" alt="Lead Generation Specialist">
@@ -55,32 +52,18 @@
     </div>
   </section>
 
-  <!-- SERVICES (Clickable) -->
   <section id="services" class="services">
     <a href="services.html" class="section-link">
       <h2><span style="color:white;">My</span> <span>Services</span></h2>
       <div class="service-container">
-        <div class="service-box">
-          <h3>Lead Generation</h3>
-          <p>Helping businesses capture potential clients through smart funnels and campaigns.</p>
-        </div>
-        <div class="service-box">
-          <h3>Lead List Building</h3>
-          <p>Creating engaging ads and content strategies to boost online visibility and conversions.</p>
-        </div>
-        <div class="service-box">
-          <h3>Email Marketing</h3>
-          <p>Designing and executing campaigns that nurture leads and drive repeat sales.</p>
-        </div>
-        <div class="service-box">
-          <h3>SEO Optimization</h3>
-          <p>Improving website rankings with proven search engine strategies and keyword targeting.</p>
-        </div>
+        <div class="service-box"><h3>Lead Generation</h3><p>Helping businesses capture potential clients through smart funnels and campaigns.</p></div>
+        <div class="service-box"><h3>Lead List Building</h3><p>Creating engaging ads and content strategies to boost online visibility and conversions.</p></div>
+        <div class="service-box"><h3>Email Marketing</h3><p>Designing and executing campaigns that nurture leads and drive repeat sales.</p></div>
+        <div class="service-box"><h3>SEO Optimization</h3><p>Improving website rankings with proven search engine strategies and keyword targeting.</p></div>
       </div>
     </a>
   </section>
 
-  <!-- PORTFOLIO (Clickable) -->
   <section id="portfolio" class="portfolio">
     <a href="portfolio.html" class="section-link">
       <h2><span style="color:white;">My</span> <span>Work</span></h2>
@@ -93,7 +76,6 @@
     </a>
   </section>
 
-  <!-- CONTACT (Clickable) -->
   <section id="contact" class="contact">
     <a href="contact.html" class="section-link">
       <h2>Get in <span>Touch</span></h2>
@@ -101,7 +83,6 @@
     </a>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="container">
       <h2><span class="white-text">Contact</span> Me</h2>
@@ -120,13 +101,7 @@
     <p style="margin:0; font-size:14px; color:#aaa;">© 2025 Aamir Shahzad | All Rights Reserved</p>
   </footer>
 
-  <!-- Preloader Hide -->
-  <script>
-    window.addEventListener("load", () => {
-      setTimeout(() => {
-        document.getElementById("preloader").style.display = "none";
-      }, 2000);
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
+```
