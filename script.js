@@ -1,4 +1,8 @@
+// tsParticles config
 tsParticles.load("particles-js", {
+  background: {
+    color: { value: "#000080" } // same blue background like Hunarmand Punjab
+  },
   particles: {
     number: { value: 90, density: { enable: true, area: 800 } },
     color: { value: "#ffffff" },
@@ -20,14 +24,15 @@ tsParticles.load("particles-js", {
   },
   interactivity: {
     events: {
-      onHover: { enable: true, mode: "grab" },
-      onClick: { enable: true, mode: "push" }
+      onHover: { enable: true, mode: "grab" }, // cursor ke pass lines kheenchengi
+      onClick: { enable: true, mode: "push" }  // click karne pe naye particles aayenge
     },
     modes: {
       grab: { distance: 200, links: { opacity: 0.8 } }
     }
   }
 });
+
 
 // ===== Scroll Active Link Highlight =====
 const sections = document.querySelectorAll("section");
