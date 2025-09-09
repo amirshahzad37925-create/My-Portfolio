@@ -327,20 +327,22 @@ section {
 .portfolio-container img {
   width: 100%;
   border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
   cursor: pointer;
 }
 
-/* Hover effect (strong selector) */
+/* Hover effect */
 .portfolio-container img:hover {
-  transform: scale(1.05) !important;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4) !important;
+  transform: scale(1.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  filter: brightness(1.1);
 }
 
-/* Click (press) effect (strong selector) */
+/* Click (press) effect */
 .portfolio-container img:active {
-  transform: scale(0.95) !important;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.6) !important;
+  transform: scale(0.95);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+  filter: brightness(0.95);
 }
 
 /* ================= CONTACT ================= */
@@ -428,23 +430,4 @@ footer a:hover {
   background: rgba(255,255,255,0.1);
   transition: 0.3s;
   cursor: pointer;
-}
-
-/* ================= FORCE PORTFOLIO EFFECT ================= */
-.portfolio-container img {
-  width: 100%;
-  border-radius: 12px;
-  transition: all 0.4s ease-in-out !important;
-  cursor: pointer;
-  display: block; /* ensure img behaves like block */
-}
-
-.portfolio-container img:hover {
-  transform: scale(1.08) !important;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5) !important;
-}
-
-.portfolio-container img:active {
-  transform: scale(0.95) !important;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.7) !important;
 }
