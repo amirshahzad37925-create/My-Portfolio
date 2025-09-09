@@ -326,7 +326,22 @@ section {
 .portfolio-container img {
   width: 100%;
   border-radius: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
+
+/* Hover effect */
+.portfolio-container img: hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* Click (active) effect */
+.portfolio-container img: active {
+  transform: scale(0.98);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
+
 
 /* ================= CONTACT ================= */
 .contact {
