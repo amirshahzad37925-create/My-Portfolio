@@ -107,14 +107,39 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// ===== Review Slider =====
-let reviews = document.querySelectorAll(".review");
-let currentReview = 0;
+// ===== Counter Animation (with IntersectionObserver) =====
+const counters = document.querySelectorAll(".counter");
 
-function showNextReview() {
-  reviews[currentReview].classList.remove("active");
-  currentReview = (currentReview + 1) % reviews.length;
-  reviews[currentReview].classList.add("active");
-}
-setInterval(showNextReview, 4000); // 4s me next review
+const startCounter = (counter) => {
+  let target = +counter.getAttribute("data-target");
+  let count = 0;
+  let speed = target / 60; // ~1 second animation
+
+  let updateCount = () => {
+    if (count < target) {
+      count += speed;
+      counter.innerText = Math.floor(count);
+      requestAnimationFrame(updateCount);
+    } else {
+      counter.innerText = target;
+    }
+  };
+  updateCount();
+};
+
+const observer = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        startCounter(entry.target);
+        observer.unobserve(entry.target); // ek bar run hoga
+      }
+    });
+  },
+  { threshold: 0.5 } // jab 50% section screen me hoga tab run karega
+);
+
+counters.forEach(counter => {
+  observer.observe(counter);
+});
 
