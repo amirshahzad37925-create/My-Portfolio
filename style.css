@@ -323,6 +323,7 @@ section {
   margin-top: 30px;
 }
 
+/* Default state */
 .portfolio-container img {
   width: 100%;
   border-radius: 12px;
@@ -330,18 +331,17 @@ section {
   cursor: pointer;
 }
 
-/* Hover effect */
-.portfolio-container img: hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+/* Hover effect (strong selector) */
+.portfolio-container img:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4) !important;
 }
 
-/* Click (press) effect */
-.portfolio-container img: active {
-  transform: scale(0.95);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+/* Click (press) effect (strong selector) */
+.portfolio-container img:active {
+  transform: scale(0.95) !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.6) !important;
 }
-
 
 /* ================= CONTACT ================= */
 .contact {
