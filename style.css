@@ -431,3 +431,55 @@ footer a:hover {
   transition: 0.3s;
   cursor: pointer;
 }
+
+/* ================= COUNTER SECTION ================= */
+.counter-section {
+  background: linear-gradient(135deg, rgba(0, 0, 80, 0.8), rgba(0, 0, 30, 0.6));
+  text-align: center;
+  padding: 60px 20px;
+  color: #fff;
+}
+.counter-section h2 span { color: #ff9800; }
+.counter-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+.counter-box h3 {
+  font-size: 2.5rem;
+  color: #ff9800;
+  margin-bottom: 10px;
+}
+.counter-box p { font-size: 1rem; }
+
+/* ================= REVIEWS SECTION ================= */
+.reviews {
+  background: #ffffff;
+  text-align: center;
+  padding: 60px 20px;
+}
+.reviews h2 span { color: #ff9800; }
+.review-slider {
+  max-width: 700px;
+  margin: 40px auto;
+  position: relative;
+}
+.review {
+  display: none;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+}
+.review.active {
+  display: block;
+  animation: fadeIn 1s ease-in-out;
+}
+.review h4 {
+  margin-top: 15px;
+  color: #ff9800;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
