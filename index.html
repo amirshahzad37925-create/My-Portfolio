@@ -106,6 +106,17 @@
   </div>
 </section>
 
+<!-- PORTFOLIO -->
+<section id="portfolio" class="portfolio">
+  <h2><span style="color:white;">My</span> <span>Work</span></h2>
+  <div class="portfolio-container">
+    <img src="https://i.postimg.cc/BZwWJ5ZQ/Screenshot-2025-08-16-120554.png" alt="Lead Generation">
+    <img src="https://i.postimg.cc/j50HHFhd/Screenshot-2025-08-16-130718.png">
+    <img src="https://i.postimg.cc/3rZXG90Y/Screenshot-2025-08-16-130606.png" alt="lead Generation">
+    <img src="https://i.postimg.cc/CLQfC2hT/Screenshot-2025-09-01-094027-1000-rows.png" alt="Lead Generation">
+  </div>
+</section>
+
 <!-- COUNTER SECTION -->
 <section id="counter" class="counter-section">
   <h2><span style="color:white;">My</span> <span>Stats</span></h2>
@@ -119,24 +130,13 @@
       <p>Happy Clients</p>
     </div>
     <div class="counter-box">
-      <h3 class="counter" data-target="5">0</h3>
+      <h3 class="counter" data-target="2">0</h3>
       <p>Years Experience</p>
     </div>
     <div class="counter-box">
       <h3 class="counter" data-target="100">0</h3>
       <p>Positive Reviews</p>
     </div>
-  </div>
-</section>
-
-<!-- PORTFOLIO -->
-<section id="portfolio" class="portfolio">
-  <h2><span style="color:white;">My</span> <span>Work</span></h2>
-  <div class="portfolio-container">
-    <img src="https://i.postimg.cc/BZwWJ5ZQ/Screenshot-2025-08-16-120554.png" alt="Lead Generation">
-    <img src="https://i.postimg.cc/j50HHFhd/Screenshot-2025-08-16-130718.png">
-    <img src="https://i.postimg.cc/3rZXG90Y/Screenshot-2025-08-16-130606.png" alt="lead Generation">
-    <img src="https://i.postimg.cc/CLQfC2hT/Screenshot-2025-09-01-094027-1000-rows.png" alt="Lead Generation">
   </div>
 </section>
 
@@ -209,5 +209,103 @@
   });
 </script>
 <script src="script.js"></script>
+
+<script>
+// ================= COUNTER ANIMATION =================
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".counter");
+  const speed = 200; // lower = faster
+
+  const animateCounters = () => {
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute("data-target");
+        const count = +counter.innerText;
+
+        const increment = Math.ceil(target / speed);
+
+        if (count < target) {
+          counter.innerText = count + increment;
+          setTimeout(updateCount, 30);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCount();
+    });
+  };
+
+  // Run animation when section is in viewport
+  const section = document.querySelector(".counter-section");
+  let started = false;
+  window.addEventListener("scroll", () => {
+    const sectionTop = section.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    if (sectionTop < windowHeight && !started) {
+      animateCounters();
+      started = true;
+    }
+  });
+});
+
+// ================= REVIEWS SLIDER =================
+let currentReview = 0;
+const reviews = document.querySelectorAll(".review");
+
+function showReview(index) {
+  reviews.forEach((review, i) => {
+    review.classList.remove("active");
+    if (i === index) {
+      review.classList.add("active");
+    }
+  });
+}
+
+function nextReview() {
+  currentReview = (currentReview + 1) % reviews.length;
+  showReview(currentReview);
+}
+
+function prevReview() {
+  currentReview = (currentReview - 1 + reviews.length) % reviews.length;
+  showReview(currentReview);
+}
+
+// Auto change review every 5s
+setInterval(nextReview, 5000);
+
+// Show first review on load
+showReview(currentReview);
+</script>
+
+<!-- REVIEWS SECTION -->
+<section class="reviews">
+  <h2><span>Client</span> Reviews</h2>
+  <div class="review-slider">
+
+    <div class="review active">
+      <p>"Amazing experience! The lead generation strategy boosted my business in just 2 weeks."</p>
+      <h4>- Ali Khan, CEO</h4>
+    </div>
+
+    <div class="review">
+      <p>"Very professional and responsive. Highly recommended for anyone looking to grow online."</p>
+      <h4>- Sarah Ahmed, Entrepreneur</h4>
+    </div>
+
+    <div class="review">
+      <p>"Delivered exactly what I needed, and even more. Definitely working again together!"</p>
+      <h4>- John Smith, Startup Founder</h4>
+    </div>
+
+  </div>
+
+  <!-- Optional Manual Buttons -->
+  <div class="review-controls">
+    <button onclick="prevReview()">⬅ Prev</button>
+    <button onclick="nextReview()">Next ➡</button>
+  </div>
+</section>
+
 </body>
 </html>
