@@ -1,8 +1,6 @@
 // tsParticles config
 tsParticles.load("particles-js", {
-  background: {
-    color: { value: "#000080" } // same blue background like Hunarmand Punjab
-  },
+  background: { color: { value: "#000080" } },
   particles: {
     number: { value: 90, density: { enable: true, area: 800 } },
     color: { value: "#ffffff" },
@@ -24,8 +22,8 @@ tsParticles.load("particles-js", {
   },
   interactivity: {
     events: {
-      onHover: { enable: true, mode: "grab" }, // cursor ke pass lines kheenchengi
-      onClick: { enable: true, mode: "push" }  // click karne pe naye particles aayenge
+      onHover: { enable: true, mode: "grab" },
+      onClick: { enable: true, mode: "push" }
     },
     modes: {
       grab: { distance: 200, links: { opacity: 0.8 } }
@@ -40,7 +38,7 @@ const navLinks = document.querySelectorAll("nav a");
 window.addEventListener("scroll", () => {
   let current = "";
   sections.forEach((section) => {
-    const sectionTop = section.offsetTop - 120; // navbar ki height adjust
+    const sectionTop = section.offsetTop - 120;
     const sectionHeight = section.clientHeight;
     if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
       current = section.getAttribute("id");
@@ -54,7 +52,8 @@ window.addEventListener("scroll", () => {
     }
   });
 });
-// Typing Text Effect
+
+// ===== Typing Text Effect =====
 const texts = ["Lead Generation Specialist", "Web Research Expert", "Freelancer"];
 let count = 0;
 let index = 0;
@@ -62,9 +61,7 @@ let currentText = "";
 let letter = "";
 
 (function type() {
-  if (count === texts.length) {
-    count = 0;
-  }
+  if (count === texts.length) count = 0;
   currentText = texts[count];
   letter = currentText.slice(0, ++index);
 
@@ -73,47 +70,19 @@ let letter = "";
   if (letter.length === currentText.length) {
     count++;
     index = 0;
-    setTimeout(type, 1500); // ruk kar next text start hoga
+    setTimeout(type, 1500);
   } else {
     setTimeout(type, 100);
   }
 })();
 
-// ===== Counter Animation =====
-const counters = document.querySelectorAll(".counter");
-let counterStarted = false;
-
-window.addEventListener("scroll", () => {
-  const counterSection = document.querySelector("#counter");
-  const sectionTop = counterSection.offsetTop - window.innerHeight + 100;
-
-  if (!counterStarted && window.scrollY > sectionTop) {
-    counters.forEach(counter => {
-      let target = +counter.getAttribute("data-target");
-      let count = 0;
-      let speed = target / 60; // 60 frames ≈ 1 second
-      let updateCount = () => {
-        if (count < target) {
-          count += speed;
-          counter.innerText = Math.floor(count);
-          requestAnimationFrame(updateCount);
-        } else {
-          counter.innerText = target;
-        }
-      };
-      updateCount();
-    });
-    counterStarted = true;
-  }
-});
-
-// ===== Counter Animation (with IntersectionObserver) =====
+// ===== Counter Animation (IntersectionObserver) =====
 const counters = document.querySelectorAll(".counter");
 
 const startCounter = (counter) => {
   let target = +counter.getAttribute("data-target");
   let count = 0;
-  let speed = target / 60; // ~1 second animation
+  let speed = target / 60;
 
   let updateCount = () => {
     if (count < target) {
@@ -132,14 +101,39 @@ const observer = new IntersectionObserver(
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         startCounter(entry.target);
-        observer.unobserve(entry.target); // ek bar run hoga
+        observer.unobserve(entry.target);
       }
     });
   },
-  { threshold: 0.5 } // jab 50% section screen me hoga tab run karega
+  { threshold: 0.5 }
 );
 
-counters.forEach(counter => {
-  observer.observe(counter);
-});
+counters.forEach(counter => observer.observe(counter));
 
+// ===== Reviews Slider =====
+let currentReview = 0;
+const reviews = document.querySelectorAll(".review");
+
+function showReview(index) {
+  reviews.forEach((review, i) => {
+    review.style.display = i === index ? "block" : "none";
+  });
+}
+
+function nextReview() {
+  currentReview = (currentReview + 1) % reviews.length;
+  showReview(currentReview);
+}
+
+function prevReview() {
+  currentReview = (currentReview - 1 + reviews.length) % reviews.length;
+  showReview(currentReview);
+}
+
+// Auto-slide every 5s
+setInterval(nextReview, 5000);
+
+// First review visible
+if (reviews.length > 0) {
+  showReview(currentReview);
+}
