@@ -78,3 +78,43 @@ let letter = "";
     setTimeout(type, 100);
   }
 })();
+
+// ===== Counter Animation =====
+const counters = document.querySelectorAll(".counter");
+let counterStarted = false;
+
+window.addEventListener("scroll", () => {
+  const counterSection = document.querySelector("#counter");
+  const sectionTop = counterSection.offsetTop - window.innerHeight + 100;
+
+  if (!counterStarted && window.scrollY > sectionTop) {
+    counters.forEach(counter => {
+      let target = +counter.getAttribute("data-target");
+      let count = 0;
+      let speed = target / 60; // 60 frames ≈ 1 second
+      let updateCount = () => {
+        if (count < target) {
+          count += speed;
+          counter.innerText = Math.floor(count);
+          requestAnimationFrame(updateCount);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCount();
+    });
+    counterStarted = true;
+  }
+});
+
+// ===== Review Slider =====
+let reviews = document.querySelectorAll(".review");
+let currentReview = 0;
+
+function showNextReview() {
+  reviews[currentReview].classList.remove("active");
+  currentReview = (currentReview + 1) % reviews.length;
+  reviews[currentReview].classList.add("active");
+}
+setInterval(showNextReview, 4000); // 4s me next review
+
