@@ -1,6 +1,4 @@
-// tsParticles config
 tsParticles.load("particles-js", {
-  background: { color: { value: "#000080" } },
   particles: {
     number: { value: 90, density: { enable: true, area: 800 } },
     color: { value: "#ffffff" },
