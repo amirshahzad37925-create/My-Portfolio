@@ -456,7 +456,7 @@ footer a:hover {
 
 /* ================= REVIEWS SECTION ================= */
 .reviews {
-  background: #ffffff;
+  background: linear-gradient(135deg, rgba(0, 0, 80, 0.8), rgba(0, 0, 30, 0.6));
   text-align: center;
   padding: 60px 20px;
 }
@@ -470,7 +470,7 @@ footer a:hover {
   display: none;
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #333;
+  color: #fff;
 }
 .review.active {
   display: block;
