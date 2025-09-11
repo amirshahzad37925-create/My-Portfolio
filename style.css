@@ -379,12 +379,12 @@ footer {
   text-decoration: none;
 }
 
-.footer-contact p a:hover {
+.footer-contact p a: hover {
   color: #ff9800;
 }
 
-/* Slim Send Email Bar */
-.footer-email-bar {
+/* Slim Send message Bar */
+.footer-message-bar {
   max-width: 600px;
   margin: 20px auto 40px;
   text-align: center;
@@ -393,12 +393,12 @@ footer {
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.footer-email-bar.show {
+.footer-message-bar.show {
   opacity: 1;
   transform: translateY(0);
 }
 
-.footer-email-bar form {
+.footer-message-bar form {
   display: flex;
   justify-content: center;
   background: rgba(255, 255, 255, 0.1);
@@ -407,7 +407,7 @@ footer {
   backdrop-filter: blur(5px);
 }
 
-.footer-email-bar input {
+.footer-message-bar input {
   flex: 1;
   padding: 12px 15px;
   border: none;
@@ -418,11 +418,11 @@ footer {
   color: #fff;
 }
 
-.footer-email-bar input::placeholder {
+.footer-message-bar input::placeholder {
   color: #ddd;
 }
 
-.footer-email-bar button {
+.footer-message-bar button {
   background: #ff9800;
   color: #fff;
   border: none;
@@ -433,7 +433,7 @@ footer {
   transition: background 0.3s;
 }
 
-.footer-email-bar button:hover {
+.footer-message-bar button: hover {
   background: #e68900;
 }
 
