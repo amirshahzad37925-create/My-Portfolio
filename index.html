@@ -176,30 +176,82 @@
 
 <!-- FOOTER -->
 <footer>
-  <section class="contact-section">
-    <div class="container">
-      <h2><span class="white-text">Contact</span> Me</h2>
-      <p class="contact-info">
-        Gmail: 
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=amirshahzad37925@gmail.com" target="_blank">
-          amirshahzad37925@gmail.com
-        </a> 
-        | 
-        Phone: <a href="tel:+923063337925">+92 306 3337 925</a>
-      </p>
-
-      <div class="social-icons">
-        <a href="https://www.facebook.com/aamir.ibn.al.mazhar" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://x.com/Aamir3337925" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.instagram.com/aamir_ibnalmazhar/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://medium.com/@amirshahzad37925" target="_blank"><i class="fab fa-medium"></i></a>
-        <a href="https://join.skype.com/invite/LkkvzG3eqi7S" target="_blank"><i class="fab fa-skype"></i></a>
-      </div>
+  <!-- Top: Contact Info -->
+  <div class="footer-top">
+    <div class="footer-contact">
+      <i class="fas fa-phone"></i>
+      <p><a href="tel:+923063337925">+92 306 3337 925</a></p>
     </div>
-  </section>
+    <div class="footer-contact">
+      <i class="fas fa-envelope"></i>
+      <p><a href="mailto:amirshahzad37925@gmail.com">amirshahzad37925@gmail.com</a></p>
+    </div>
+    <div class="footer-contact">
+      <i class="fas fa-map-marker-alt"></i>
+      <p>Bahawalpur, Pakistan</p>
+    </div>
+  </div>
 
-  <p style="margin:0; font-size:14px; color:#aaa;">© 2025 Aamir Shahzad | All Rights Reserved</p>
+  <hr>
+
+  <!-- Middle: Links + Contact Form -->
+  <div class="footer-main">
+    <div class="footer-col">
+      <h3>About</h3>
+      <ul>
+        <li><a href="#about">My Story</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Resources</h3>
+      <ul>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#privacy-policy">Privacy Policy</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="footer-col contact-form">
+      <h3>Contact Me</h3>
+      <form action="mailto:amirshahzad37925@gmail.com" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="3" placeholder="Your Message" required></textarea>
+        <button type="submit">Send <i class="fas fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bottom: Social + Copyright -->
+  <div class="footer-bottom">
+    <div class="social-icons">
+      <a href="https://www.facebook.com/aamir.ibn.al.mazhar" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://x.com/Aamir3337925" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.instagram.com/aamir_ibnalmazhar/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://medium.com/@amirshahzad37925" target="_blank"><i class="fab fa-medium"></i></a>
+      <a href="https://join.skype.com/invite/LkkvzG3eqi7S" target="_blank"><i class="fab fa-skype"></i></a>
+    </div>
+    <p>© 2025 Aamir Shahzad | All Rights Reserved | <a href="#privacy-policy">Privacy Policy</a></p>
+  </div>
+
+  <!-- Privacy Policy (hidden section) -->
+  <section id="privacy-policy" style="display:none; background:#000; padding:20px; margin-top:20px; color:#fff;">
+    <h2>Privacy Policy</h2>
+    <p>
+      Your privacy is important. Any personal information (like name, email, or messages) shared
+      This website will only be used to respond to your inquiries.  
+      We do not share, sell, or misuse your information in any way.
+    </p>
+    <p>
+      By contacting me, you agree that I can reply using the provided email.  
+      For more details, feel free to reach out at:  
+      <a href="mailto:amirshahzad37925@gmail.com">amirshahzad37925@gmail.com</a>
+    </p>
+  </section>
 </footer>
+
 
 <script>
   window.addEventListener("load", () => {
