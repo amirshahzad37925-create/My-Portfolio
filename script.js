@@ -57,7 +57,7 @@ window.addEventListener("scroll", () => {
 });
 
 // ===== Typing Text Effect =====
-const texts = ["Lead Generation Specialist", "Sourcing Expert", "Digital Marketing Expert"];
+const texts = ["Lead Generation Specialist", "Web Research Expert", "Freelancer"];
 let count = 0;
 let index = 0;
 let currentText = "";
