@@ -21,6 +21,29 @@ html {
   top: 0;
   left: 0;
   width: 100%;
+  height: 100%;/* ================= GENERAL STYLES ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  color: #333;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ================= PRELOADER ================= */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
   background: linear-gradient(45deg, #ff512f, #dd2476);
   display: flex;
@@ -298,51 +321,6 @@ section {
 .service-points li: hover i {
   transform: scale(1.2);
   transition: transform 0.2s ease, color 0.3s ease;
-}
-
-
-/* ================= PORTFOLIO ================= */
-.portfolio {
-  background: linear-gradient(
-    135deg,
-    rgba(0, 0, 80, 0.8),
-    rgba(0, 0, 30, 0.6)
-  );
-  text-align: center;
-  padding: 60px 20px;
-}
-
-.portfolio h2 span {
-  color: #ff9800;
-}
-
-.portfolio-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
-}
-
-/* Default state */
-.portfolio-container img {
-  width: 100%;
-  border-radius: 12px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
-  cursor: pointer;
-}
-
-/* Hover effect */
-.portfolio-container img:hover {
-  transform: scale(1.08);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-  filter: brightness(1.1);
-}
-
-/* Click (press) effect */
-.portfolio-container img:active {
-  transform: scale(0.95);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.6);
-  filter: brightness(0.95);
 }
 
 
