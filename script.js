@@ -1,8 +1,12 @@
 // ================= PRELOADER =================
 window.addEventListener("load", () => {
   const preloader = document.getElementById("preloader");
-  if (preloader) preloader.style.display = "none";
+  preloader.classList.add("hidden"); // smooth fade-out
+  setTimeout(() => {
+    preloader.style.display = "none"; // completely remove after fade
+  }, 800); // matches CSS transition
 });
+
 
 // ================= PARTICLES BACKGROUND =================
 tsParticles.load("particles-js", {
