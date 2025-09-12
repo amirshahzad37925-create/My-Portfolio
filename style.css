@@ -130,7 +130,7 @@ nav ul li a::after {
   transition: width 0.3s ease;
 }
 
-nav ul li a:hover {
+nav ul li a: hover {
   color: #00ffff;
 }
 
@@ -184,6 +184,17 @@ nav ul li a.active {
   color: #FFD700;
 }
 
+/* ===== TYPING TEXT EFFECT ===== */
+.hero-text .typing-text {
+  font-size: 28px;       /* h2 size ke barabar */
+  color: #ffffff;         /* white color */
+  font-weight: 500;
+  display: inline-block;
+  margin: 10px 0;        /* spacing between h1 aur next line */
+  min-height: 35px;       /* slide effect ke liye thoda space reserve */
+}
+
+/* ===== HERO BUTTON ===== */
 .hero-text .btn {
   background: #ff9800;
   color: #fff;
@@ -195,7 +206,7 @@ nav ul li a.active {
   transition: 0.3s;
 }
 
-.hero-text .btn:hover {
+.hero-text .btn: hover {
   background: #ff5722;
 }
 
