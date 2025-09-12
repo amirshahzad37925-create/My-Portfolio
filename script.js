@@ -1,8 +1,12 @@
+// ================= PRELOADER =================
+window.addEventListener("load", () => {
+  const preloader = document.getElementById("preloader");
+  if (preloader) preloader.style.display = "none";
+});
+
 // ================= PARTICLES BACKGROUND =================
 tsParticles.load("particles-js", {
-  background: {
-    color: { value: "#000080" } // navy blue background
-  },
+  background: { color: { value: "#000080" } },
   particles: {
     number: { value: 90, density: { enable: true, area: 800 } },
     color: { value: "#ffffff" },
@@ -27,16 +31,8 @@ tsParticles.load("particles-js", {
       onHover: { enable: true, mode: "grab" },
       onClick: { enable: true, mode: "push" }
     },
-    modes: {
-      grab: { distance: 200, links: { opacity: 0.8 } }
-    }
+    modes: { grab: { distance: 200, links: { opacity: 0.8 } } }
   }
-});
-
-// ================= PRELOADER =================
-window.addEventListener("load", () => {
-  const preloader = document.getElementById("preloader");
-  preloader.style.display = "none";
 });
 
 // ================= SCROLL ACTIVE LINK =================
@@ -45,68 +41,65 @@ const navLinks = document.querySelectorAll("nav a");
 
 window.addEventListener("scroll", () => {
   let current = "";
-  sections.forEach((section) => {
+  sections.forEach(section => {
     const sectionTop = section.offsetTop - 120;
     const sectionHeight = section.clientHeight;
     if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
       current = section.getAttribute("id");
     }
   });
-
-  navLinks.forEach((link) => {
+  navLinks.forEach(link => {
     link.classList.remove("active");
-    if (link.getAttribute("href") === "#" + current) {
-      link.classList.add("active");
-    }
+    if (link.getAttribute("href") === "#" + current) link.classList.add("active");
   });
 });
 
 // ================= SMOOTH SCROLL =================
-navLinks.forEach((link) => {
-  link.addEventListener("click", (e) => {
+navLinks.forEach(link => {
+  link.addEventListener("click", e => {
     e.preventDefault();
     const target = document.querySelector(link.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 });
 
-// ================= TYPING TEXT EFFECT =================
+// ================= TYPING TEXT EFFECT WITH 5S INTERVAL =================
 const texts = ["Lead Generation Specialist", "Web Research Expert", "Freelancer"];
 let count = 0;
 let index = 0;
 let currentText = "";
-let letter = "";
+const typingEl = document.querySelector(".typing-text");
 
-(function type() {
-  if (count === texts.length) count = 0;
+function typeText() {
+  if (!typingEl) return;
   currentText = texts[count];
-  letter = currentText.slice(0, ++index);
+  typingEl.textContent = currentText.slice(0, index + 1);
+  index++;
 
-  document.querySelector(".typing-text").textContent = letter;
-
-  if (letter.length === currentText.length) {
-    count++;
-    index = 0;
-    setTimeout(type, 1500);
+  if (index === currentText.length) {
+    setTimeout(() => {
+      index = 0;
+      count = (count + 1) % texts.length;
+      typeText();
+    }, 5000); // 5-second pause
   } else {
-    setTimeout(type, 100);
+    setTimeout(typeText, 100); // typing speed
   }
-})();
+}
+
+if (typingEl) typeText();
 
 // ================= COUNTER ANIMATION =================
 const counters = document.querySelectorAll(".counter");
 
 const startCounter = (counter) => {
   let target = +counter.getAttribute("data-target");
-  let count = 0;
+  let countNum = 0;
   let speed = target / 60;
-
-  let updateCount = () => {
-    if (count < target) {
-      count += speed;
-      counter.innerText = Math.floor(count);
+  const updateCount = () => {
+    if (countNum < target) {
+      countNum += speed;
+      counter.innerText = Math.floor(countNum);
       requestAnimationFrame(updateCount);
     } else {
       counter.innerText = target;
@@ -115,17 +108,14 @@ const startCounter = (counter) => {
   updateCount();
 };
 
-const observer = new IntersectionObserver(
-  (entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        startCounter(entry.target);
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.5 }
-);
+const observer = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      startCounter(entry.target);
+      obs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
 
 counters.forEach(counter => observer.observe(counter));
 
@@ -134,9 +124,7 @@ let currentReview = 0;
 const reviews = document.querySelectorAll(".review");
 
 function showReview(index) {
-  reviews.forEach((review, i) => {
-    review.classList.toggle("active", i === index);
-  });
+  reviews.forEach((review, i) => review.classList.toggle("active", i === index));
 }
 
 function nextReview() {
@@ -144,23 +132,14 @@ function nextReview() {
   showReview(currentReview);
 }
 
-function prevReview() {
-  currentReview = (currentReview - 1 + reviews.length) % reviews.length;
-  showReview(currentReview);
-}
-
 // Auto-slide every 5s
 setInterval(nextReview, 5000);
-
-// First review visible
-if (reviews.length > 0) {
-  showReview(currentReview);
-}
+if (reviews.length > 0) showReview(currentReview);
 
 // ================= PORTFOLIO LIGHTBOX =================
 const portfolioImages = document.querySelectorAll(".portfolio-container img");
 
-portfolioImages.forEach((img) => {
+portfolioImages.forEach(img => {
   img.addEventListener("click", () => {
     const lightbox = document.createElement("div");
     lightbox.classList.add("lightbox");
@@ -171,8 +150,6 @@ portfolioImages.forEach((img) => {
     `;
     document.body.appendChild(lightbox);
 
-    lightbox.addEventListener("click", () => {
-      document.body.removeChild(lightbox);
-    });
+    lightbox.addEventListener("click", () => document.body.removeChild(lightbox));
   });
 });
