@@ -130,7 +130,7 @@ nav ul li a::after {
   transition: width 0.3s ease;
 }
 
-nav ul li a: hover {
+nav ul li a:hover {
   color: #00ffff;
 }
 
@@ -206,7 +206,7 @@ nav ul li a.active {
   transition: 0.3s;
 }
 
-.hero-text .btn: hover {
+.hero-text .btn:hover {
   background: #00ffff;
 }
 
@@ -317,7 +317,7 @@ nav ul li a.active {
   flex-shrink: 0;
 }
 
-.service-points li: hover i {
+.service-points li:hover i {
   transform: scale(1.2);
   color: #ff5722;
   transition: transform 0.3s ease;
@@ -349,7 +349,7 @@ nav ul li a.active {
   cursor: pointer;
 }
 
-.portfolio-container img: hover {
+.portfolio-container img:hover {
   transform: scale(1.08);
   box-shadow: 0 10px 25px rgba(0,0,0,0.5);
   filter: brightness(1.1);
@@ -520,7 +520,7 @@ footer a: hover {
   transition: color 0.3s, transform 0.3s;
 }
 
-.social-icons a: hover {
+.social-icons a:hover {
   color: #fff;
   transform: scale(1.2);   /* thoda zoom effect on hover */
 }
