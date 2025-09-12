@@ -329,13 +329,13 @@ nav ul li a.active {
   cursor: pointer;
 }
 
-.portfolio-container img:hover {
+.portfolio-container img: hover {
   transform: scale(1.08);
   box-shadow: 0 10px 25px rgba(0,0,0,0.5);
   filter: brightness(1.1);
 }
 
-.portfolio-container img:active {
+.portfolio-container img: active {
   transform: scale(0.95);
   box-shadow: 0 5px 15px rgba(0,0,0,0.6);
   filter: brightness(0.95);
