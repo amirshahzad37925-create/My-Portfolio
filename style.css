@@ -32,7 +32,15 @@ section {
   justify-content: center;
   align-items: center;
   z-index: 99999;
+  opacity: 1;               /* added */
+  transition: opacity 0.8s ease; /* added for smooth fade */
 }
+
+#preloader.hidden {
+  opacity: 0;              /* fade out */
+  pointer-events: none;    /* prevent clicks while hidden */
+}
+
 
 .loader-square {
   width: 60px;
