@@ -319,7 +319,7 @@ nav ul li a.active {
 
 .service-points li:hover i {
   transform: scale(1.2);
-  color: #ff5722;
+  color: #ff9800;
   transition: transform 0.3s ease;
 }
 
