@@ -207,7 +207,7 @@ nav ul li a.active {
 }
 
 .hero-text .btn:hover {
-  background: #39FF1F;
+  background: ##00D100;
 }
 
 /* ================= ABOUT ================= */
@@ -462,7 +462,7 @@ nav ul li a.active {
 }
 
 .contact button:hover {
-  background: #FEE820;
+  background: ##00D100;
 }
 
 /* ================= FOOTER ================= */
@@ -482,15 +482,13 @@ footer .container {
 footer h2 {
   font-size: 28px;
   margin-bottom: 15px;
-}
-
-footer h2 .white-text {
   color: #fff;
 }
 
 footer h2 span {
   color: #ff9800;
 }
+
 footer .contact-info {
   font-size: 16px;
   margin-bottom: 20px;
