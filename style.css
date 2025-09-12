@@ -483,6 +483,24 @@ footer a {
 footer a:hover {
   color: #fff;
 }
+.social-icons {
+  display: flex;           /* icons ko horizontal line me laayega */
+  justify-content: center; /* center align */
+  gap: 15px;               /* icons ke beech space */
+  margin-top: 15px;
+}
+
+.social-icons a {
+  color: #ff9800;
+  font-size: 22px;         /* slightly bigger */
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+  color: #fff;
+  transform: scale(1.2);   /* thoda zoom effect on hover */
+}
+
 
 /* ================= RESPONSIVE ================= */
 @media(max-width: 768px) {
