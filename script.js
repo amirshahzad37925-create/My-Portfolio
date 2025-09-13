@@ -157,3 +157,37 @@ portfolioImages.forEach(img => {
     lightbox.addEventListener("click", () => document.body.removeChild(lightbox));
   });
 });
+
+// ================= PORTFOLIO SEE MORE =================
+const seeMoreBtn = document.getElementById("seeMoreBtn");
+const hiddenItems = document.querySelectorAll(".portfolio-item.hidden");
+
+seeMoreBtn.addEventListener("click", () => {
+  hiddenItems.forEach(item => item.classList.remove("hidden"));
+  seeMoreBtn.style.display = "none"; // hide button after click
+});
+
+// ================= PORTFOLIO DETAILS POPUP =================
+const portfolioItems = document.querySelectorAll(".portfolio-item");
+
+portfolioItems.forEach(item => {
+  item.addEventListener("click", () => {
+    const title = item.getAttribute("data-title");
+    const desc = item.getAttribute("data-desc");
+    const imgSrc = item.querySelector("img").src;
+
+    const lightbox = document.createElement("div");
+    lightbox.classList.add("lightbox");
+    lightbox.innerHTML = `
+      <div class="lightbox-content">
+        <img src="${imgSrc}" alt="${title}">
+        <h3>${title}</h3>
+        <p>${desc}</p>
+      </div>
+    `;
+    document.body.appendChild(lightbox);
+
+    // Close on click
+    lightbox.addEventListener("click", () => document.body.removeChild(lightbox));
+  });
+});
