@@ -445,6 +445,15 @@ nav ul li a.active {
   position: relative;
   animation: popUp 0.3s ease;
 }
+
+.modal-content img {
+  max-width: 100%;
+  max-height: 250px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  object-fit: cover;
+}
+
 .modal-content h3 { 
   margin-bottom: 15px; 
   color: #000080; 
