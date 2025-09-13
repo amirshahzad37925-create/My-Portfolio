@@ -568,13 +568,18 @@ nav ul li a.active {
 /* Bottom Section */
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 20px;
+  padding: 8px 0;        /* slim padding */
+  text-align: center;    /* sab center aligned */
+}
+
+.social-icons {
+  margin-bottom: 5px;    /* icons aur text ke beech thoda gap */
 }
 
 .social-icons a {
   color: orange;
-  font-size: 20px;
-  margin: 0 10px;
+  font-size: 16px;       /* balanced icon size */
+  margin: 0 6px;         /* kam spacing between icons */
   transition: 0.3s;
 }
 
@@ -583,8 +588,9 @@ nav ul li a.active {
 }
 
 .footer-bottom p {
-  margin-top: 10px;
-  font-size: 14px;
+  margin: 0;             /* extra space hata diya */
+  font-size: 13px;       /* thoda chhota font for neat look */
+  line-height: 1.4;      /* readable but compact */
 }
 
 .footer-bottom a {
@@ -595,6 +601,7 @@ nav ul li a.active {
 .footer-bottom a:hover {
   color: #fff;
 }
+
 
 /* ================= RESPONSIVE ================= */
 @media(max-width: 768px) {
