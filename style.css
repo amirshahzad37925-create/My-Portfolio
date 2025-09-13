@@ -21,39 +21,24 @@ section {
 }
 
 /* ================= PRELOADER ================= */
-/* Preloader Styles */
+/* Loader Styles */
 #preloader {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #2c003e, #0b0c2a);
+  background: linear-gradient(135deg, #141e30, #243b55);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   z-index: 9999;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
 }
 
-.spinner {
-  width: 60px;
-  height: 60px;
-  border: 6px solid rgba(255, 255, 255, 0.2);
-  border-top: 6px solid orange;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Hide animation smoothly */
 #preloader.fade-out {
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.6s ease, visibility 0.6s ease;
 }
 
 /* ================= NAVBAR ================= */
@@ -122,8 +107,14 @@ nav ul li a.active {
 
 /* ================= HERO ================= */
 .hero {
-  height: 100vh;
   position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #0d0d0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   overflow: hidden;
 }
 
