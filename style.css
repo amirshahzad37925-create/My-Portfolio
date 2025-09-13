@@ -479,130 +479,97 @@ nav ul li a.active {
   background: #00D100;
 }
 
-/* ================= FOOTER ================= */
-/* ===== Footer Styles ===== */
-.footer {
-  background: #0b0b45;
-  color: #fff;
+/* Footer Top with Image Background */
+.footer-top {
+  background: url('https://i.postimg.cc/hjWF6XGP/Gulzar-Mahal.jpg') no-repeat center center/cover;
   text-align: center;
-  padding: 40px 20px 10px;
+  padding: 30px 10px;
   position: relative;
-  font-family: 'Poppins', sans-serif;
+  color: #fff;
 }
 
-.footer-top {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
+.footer-top .overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for text clarity */
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
 }
 
 .footer-info {
   display: flex;
   justify-content: center;
-  gap: 50px;
-  margin-bottom: 20px;
   flex-wrap: wrap;
+  gap: 30px;
 }
 
-.info-item {
+.footer-info .info-item {
   display: flex;
   align-items: center;
-  gap: 8px;
-  color: #fff;
+  gap: 10px;
   font-size: 16px;
 }
 
-.info-item i {
-  color: orange;
-  font-size: 20px;
+.footer-info .info-item a {
+  color: #fff;
+  text-decoration: none;
 }
 
-.footer-image img {
-  width: 100%;
-  max-width: 600px;
-  margin-top: 10px;
-  border-radius: 10px;
-  opacity: 0.5;
+.footer-info .info-item a:hover {
+  text-decoration: underline;
 }
 
 /* Footer Links */
 .footer-links {
   display: flex;
   justify-content: center;
-  gap: 80px;
-  margin: 30px 0;
-  flex-wrap: wrap;
+  gap: 50px;
+  background: #222;
+  padding: 20px 10px;
+  color: #fff;
 }
 
-.link-section h4 {
-  color: orange;
+.footer-links h4 {
   margin-bottom: 10px;
-  font-size: 18px;
 }
 
-.link-section ul {
+.footer-links ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
-.link-section ul li {
-  margin: 5px 0;
-}
-
-.link-section ul li a {
+.footer-links ul li a {
   color: #fff;
   text-decoration: none;
-  transition: 0.3s;
-}
-
-.link-section ul li a:hover {
-  color: orange;
-}
-
-/* Social Links */
-.social-links {
-  margin: 15px 0;
-}
-
-.social-links a {
-  margin: 0 8px;
-  color: #fff;
-  font-size: 18px;
-  transition: 0.3s;
-}
-
-.social-links a:hover {
-  color: orange;
-}
-
-/* Footer Bottom */
-.footer-bottom p {
-  margin-top: 10px;
   font-size: 14px;
 }
 
-.footer-bottom p a {
-  color: orange;
-  text-decoration: none;
-}
-
-.footer-bottom p a:hover {
+.footer-links ul li a:hover {
   text-decoration: underline;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .footer-info {
-    flex-direction: column;
-    gap: 15px;
-  }
-  .footer-links {
-    flex-direction: column;
-    gap: 20px;
-  }
+/* Footer Bottom */
+.footer-bottom {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
 }
 
+.footer-bottom .social-links {
+  margin-bottom: 10px;
+}
+
+.footer-bottom .social-links a {
+  color: #fff;
+  margin: 0 8px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.footer-bottom .social-links a:hover {
+  color: #ffcc00;
+}
 
 
 /* ================= RESPONSIVE ================= */
