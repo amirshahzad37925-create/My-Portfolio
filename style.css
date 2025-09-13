@@ -207,7 +207,8 @@ nav ul li a.active {
 }
 
 .hero-text .btn:hover {
-  background: #00D100;
+  background: #fff; 
+  color: #ff9800;
 }
 
 /* ================= ABOUT ================= */
@@ -580,7 +581,8 @@ nav ul li a.active {
 }
 
 .contact button:hover {
-  background: #00D100;
+  background: #fff; 
+  color: #ff9800;
 }
 
 /* Footer Base */
