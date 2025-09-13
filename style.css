@@ -480,69 +480,129 @@ nav ul li a.active {
 }
 
 /* ================= FOOTER ================= */
-footer {
-  background: linear-gradient(135deg, rgba(0, 0, 80, 0.85), rgba(0, 0, 30, 0.7));
+/* ===== Footer Styles ===== */
+.footer {
+  background: #0b0b45;
   color: #fff;
   text-align: center;
-  padding: 40px 20px; /* thoda upar niche padding */
-  margin-top: 20px;
+  padding: 40px 20px 10px;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
 }
 
-footer .container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-footer h2 {
-  font-size: 28px;
-  margin-bottom: 15px;
-  color: #fff;
-}
-
-footer h2 span {
-  color: #ff9800;
-}
-
-footer .contact-info {
-  font-size: 16px;
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 20px;
 }
 
-footer a {
-  color: #ff9800;
-  margin: 0 10px;
+.footer-info {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.info-item i {
+  color: orange;
+  font-size: 20px;
+}
+
+.footer-image img {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 10px;
+  border-radius: 10px;
+  opacity: 0.5;
+}
+
+/* Footer Links */
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.link-section h4 {
+  color: orange;
+  margin-bottom: 10px;
   font-size: 18px;
+}
+
+.link-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.link-section ul li {
+  margin: 5px 0;
+}
+
+.link-section ul li a {
+  color: #fff;
   text-decoration: none;
-  transition: color 0.3s, transform 0.3s;
+  transition: 0.3s;
 }
 
-footer a: hover {
+.link-section ul li a:hover {
+  color: orange;
+}
+
+/* Social Links */
+.social-links {
+  margin: 15px 0;
+}
+
+.social-links a {
+  margin: 0 8px;
   color: #fff;
-  transform: scale(1.2);
+  font-size: 18px;
+  transition: 0.3s;
 }
 
-/* ================= SOCIAL ICONS ================= */
-.social-icons {
-  display: flex;           /* icons ko horizontal line me laayega */
-  justify-content: center; /* center align */
-  gap: 15px;               /* icons ke beech space */
-  margin-top: 15px;
+.social-links a:hover {
+  color: orange;
 }
 
-.social-icons a {
-  color: #ff9800;
-  font-size: 22px;         /* slightly bigger */
-  transition: color 0.3s, transform 0.3s;
+/* Footer Bottom */
+.footer-bottom p {
+  margin-top: 10px;
+  font-size: 14px;
 }
 
-.social-icons a:hover {
-  color: #fff;
-  transform: scale(1.2);   /* thoda zoom effect on hover */
+.footer-bottom p a {
+  color: orange;
+  text-decoration: none;
 }
 
-.social-icons a i {
-  vertical-align: middle;
+.footer-bottom p a:hover {
+  text-decoration: underline;
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-info {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .footer-links {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
 
 
 /* ================= RESPONSIVE ================= */
