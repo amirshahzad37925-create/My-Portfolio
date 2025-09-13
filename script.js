@@ -140,36 +140,38 @@ function nextReview() {
 setInterval(nextReview, 5000);
 if (reviews.length > 0) showReview(currentReview);
 
-// ================= PORTFOLIO SEE MORE =================
+// ===== Portfolio See More Button =====
 const seeMoreBtn = document.getElementById("seeMoreBtn");
-const hiddenItems = document.querySelectorAll(".portfolio-item.hidden");
+const hiddenProjects = document.querySelectorAll(".portfolio-item.hidden");
 
 seeMoreBtn.addEventListener("click", () => {
-  hiddenItems.forEach(item => item.classList.remove("hidden"));
-  seeMoreBtn.style.display = "none"; // hide button after click
+  hiddenProjects.forEach(item => item.classList.toggle("hidden"));
+  seeMoreBtn.textContent =
+    seeMoreBtn.textContent === "See More" ? "See Less" : "See More";
 });
 
-// ================= PORTFOLIO DETAILS POPUP =================
-const portfolioItems = document.querySelectorAll(".portfolio-item");
+// ===== Portfolio Modal =====
+const modal = document.getElementById("portfolioModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalDesc = document.getElementById("modalDesc");
+const modalImg = document.getElementById("modalImg");
+const closeBtn = document.querySelector(".close");
 
-portfolioItems.forEach(item => {
+document.querySelectorAll(".portfolio-item").forEach(item => {
   item.addEventListener("click", () => {
-    const title = item.getAttribute("data-title");
-    const desc = item.getAttribute("data-desc");
-    const imgSrc = item.querySelector("img").src;
-
-    const lightbox = document.createElement("div");
-    lightbox.classList.add("lightbox");
-    lightbox.innerHTML = `
-      <div class="lightbox-content">
-        <img src="${imgSrc}" alt="${title}">
-        <h3>${title}</h3>
-        <p>${desc}</p>
-      </div>
-    `;
-    document.body.appendChild(lightbox);
-
-    // Close on click
-    lightbox.addEventListener("click", () => document.body.removeChild(lightbox));
+    modalTitle.textContent = item.getAttribute("data-title");
+    modalDesc.textContent = item.getAttribute("data-desc");
+    modalImg.src = item.querySelector("img").src;
+    modal.style.display = "flex";
   });
+});
+
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
 });
