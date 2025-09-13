@@ -481,7 +481,7 @@ nav ul li a.active {
 
 /* Footer Base */
 .footer {
-  background: linear-gradient(135deg, #0b0c2a, #1a1a40);
+  background: linear-gradient(135deg, #2c003e, #0b0c2a);
   color: #fff;
   padding: 40px 20px;
   text-align: center;
@@ -492,7 +492,7 @@ nav ul li a.active {
 .footer-top {
   display: flex;
   justify-content: center;
-  gap: 60px; /* thoda zyada space */
+  gap: 60px;
   margin-bottom: 40px;
   flex-wrap: wrap;
   text-align: center;
@@ -502,29 +502,15 @@ nav ul li a.active {
   flex: 1 1 200px;
 }
 
-.icon-circle {
-  width: 70px;
-  height: 70px;
-  border: 2px solid rgba(255, 165, 0, 0.6); /* orange transparent border */
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto 10px;
-  transition: 0.3s;
-}
-
-.icon-circle i {
-  font-size: 28px;
+.contact-item i {
+  font-size: 40px; /* big icons */
   color: orange;
+  margin-bottom: 10px;
+  display: block;
   transition: 0.3s;
 }
 
-.icon-circle:hover {
-  border-color: white;
-}
-
-.icon-circle:hover i {
+.contact-item i:hover {
   color: white;
 }
 
