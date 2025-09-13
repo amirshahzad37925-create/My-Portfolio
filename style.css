@@ -561,14 +561,14 @@ nav ul li a.active {
 }
 
 .footer-bottom .social-links a {
-  color: #fff;
+  color: #ffcc00;
   margin: 0 8px;
   text-decoration: none;
   font-size: 16px;
 }
 
 .footer-bottom .social-links a:hover {
-  color: #ffcc00;
+  color: #fff;
 }
 
 
