@@ -481,41 +481,41 @@ nav ul li a.active {
 
 /* Footer Top with Image Background */
 .footer-top {
-  background: url('https://i.postimg.cc/hjWF6XGP/Gulzar-Mahal.jpg') no-repeat center center/cover;
-  text-align: center;
-  padding: 30px 10px;
   position: relative;
+  background: url('https://i.postimg.cc/hjWF6XGP/Gulzar-Mahal.jpg') no-repeat center center/cover;
+  padding: 20px 0;
+  text-align: center;
   color: #fff;
 }
 
 .footer-top .overlay {
-  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for text clarity */
-  padding: 20px;
-  border-radius: 10px;
-  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark transparent layer */
+  z-index: 1;
 }
 
 .footer-info {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
+  position: relative;
+  z-index: 2; /* Text upar dikhne ke liye */
 }
 
 .footer-info .info-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 16px;
+  display: inline-block;
+  margin: 0 20px;
 }
 
 .footer-info .info-item a {
   color: #fff;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .footer-info .info-item a:hover {
-  text-decoration: underline;
+  color: orange;
 }
 
 /* Footer Links */
