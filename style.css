@@ -493,7 +493,7 @@ nav ul li a.active {
   display: flex;
   justify-content: center;
   gap: 60px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   flex-wrap: wrap;
   text-align: center;
 }
@@ -503,7 +503,7 @@ nav ul li a.active {
 }
 
 .contact-item i {
-  font-size: 40px; /* big icons */
+  font-size: 35px; /* big icons */
   color: orange;
   margin-bottom: 10px;
   display: block;
@@ -522,15 +522,15 @@ nav ul li a.active {
 
 .contact-item a,
 .contact-item span {
-  color: grey;
-  font-size: 14px;
+  color: white;
+  font-size: 16px;
   text-decoration: none;
   transition: 0.3s;
 }
 
 .contact-item a:hover,
 .contact-item span:hover {
-  color: white;
+  color: orange;
 }
 
 /* Middle Links */
