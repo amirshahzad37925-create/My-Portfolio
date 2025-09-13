@@ -479,10 +479,9 @@ nav ul li a.active {
   background: #00D100;
 }
 
-/* Footer Top with Image Background */
 /* Footer Base */
 .footer {
-  background: #0b0c2a; /* dark blue background */
+  background: linear-gradient(135deg, #0b0c2a, #1a1a40);
   color: #fff;
   padding: 40px 20px;
   text-align: center;
@@ -493,27 +492,59 @@ nav ul li a.active {
 .footer-top {
   display: flex;
   justify-content: center;
-  gap: 40px;
-  margin-bottom: 30px;
+  gap: 60px; /* thoda zyada space */
+  margin-bottom: 40px;
   flex-wrap: wrap;
+  text-align: center;
 }
 
-.footer-top i {
-  color: orange;
-  margin-right: 10px;
+.contact-item {
+  flex: 1 1 200px;
 }
 
-.footer-top a, 
-.footer-top span {
+.icon-circle {
+  width: 70px;
+  height: 70px;
+  border: 2px solid rgba(255, 165, 0, 0.6); /* orange transparent border */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 10px;
+  transition: 0.3s;
+}
+
+.icon-circle i {
+  font-size: 28px;
   color: orange;
+  transition: 0.3s;
+}
+
+.icon-circle:hover {
+  border-color: white;
+}
+
+.icon-circle:hover i {
+  color: white;
+}
+
+.contact-item h5 {
+  font-size: 16px;
+  color: orange;
+  margin: 5px 0;
+}
+
+.contact-item a,
+.contact-item span {
+  color: grey;
+  font-size: 14px;
   text-decoration: none;
   transition: 0.3s;
 }
 
-.footer-top a:hover, 
-.footer-top span:hover, 
-.footer-top i:hover {
-  color: #fff;
+.contact-item a:hover,
+.contact-item span:hover {
+  color: white;
 }
 
 /* Middle Links */
@@ -578,7 +609,6 @@ nav ul li a.active {
 .footer-bottom a:hover {
   color: #fff;
 }
-
 
 /* ================= RESPONSIVE ================= */
 @media(max-width: 768px) {
