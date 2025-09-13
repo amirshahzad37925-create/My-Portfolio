@@ -140,24 +140,6 @@ function nextReview() {
 setInterval(nextReview, 5000);
 if (reviews.length > 0) showReview(currentReview);
 
-// ================= PORTFOLIO LIGHTBOX =================
-const portfolioImages = document.querySelectorAll(".portfolio-container img");
-
-portfolioImages.forEach(img => {
-  img.addEventListener("click", () => {
-    const lightbox = document.createElement("div");
-    lightbox.classList.add("lightbox");
-    lightbox.innerHTML = `
-      <div class="lightbox-content">
-        <img src="${img.src}" alt="Portfolio Image">
-      </div>
-    `;
-    document.body.appendChild(lightbox);
-
-    lightbox.addEventListener("click", () => document.body.removeChild(lightbox));
-  });
-});
-
 // ================= PORTFOLIO SEE MORE =================
 const seeMoreBtn = document.getElementById("seeMoreBtn");
 const hiddenItems = document.querySelectorAll(".portfolio-item.hidden");
