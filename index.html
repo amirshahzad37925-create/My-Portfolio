@@ -105,266 +105,56 @@
     </div>
   </section>
 
- <!-- ================= PORTFOLIO ================= -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Section</title>
-  <style>
-    /* ===== Portfolio Section ===== */
-    .portfolio {
-      background: linear-gradient(135deg, rgba(0, 0, 80, 0.85), rgba(0, 0, 30, 0.7));
-      text-align: center;
-      padding: 70px 20px;
-      color: #fff;
-    }
-
-    .portfolio h2 {
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
-
-    .portfolio h2 span {
-      color: #ff9800;
-    }
-
-    .portfolio-container {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);   /* Desktop: 4 per row */
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    @media (max-width: 992px) {
-      .portfolio-container {
-        grid-template-columns: repeat(2, 1fr); /* Tablet: 2 per row */
-      }
-    }
-
-    @media (max-width: 576px) {
-      .portfolio-container {
-        grid-template-columns: 1fr;            /* Mobile: 1 per row */
-      }
-    }
-
-    .portfolio-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      cursor: pointer;
-    }
-
-    .portfolio-item img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 12px;
-      transition: transform 0.4s ease, filter 0.4s ease;
-    }
-
-    .portfolio-item:hover img {
-      transform: scale(1.05);
-      filter: brightness(0.8) blur(1px);
-    }
-
-    .portfolio-item .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-weight: bold;
-      background: rgba(255, 255, 255, 0.2);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      border-radius: 12px;
-    }
-
-    .portfolio-item:hover .overlay {
-      opacity: 1;
-    }
-
-    /* Hide extra projects */
-    .hidden {
-      display: none;
-    }
-
-    /* See More Button */
-    .see-more {
-      margin-top: 20px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      background: #ff9800;
-      color: #fff;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .see-more:hover {
-      background: #e68900;
-    }
-
-    /* ===== Modal ===== */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .modal-content {
-      background: #fff;
-      color: #000;
-      padding: 20px;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 500px;
-      text-align: center;
-      position: relative;
-      animation: fadeIn 0.3s ease;
-    }
-
-    .modal-content h3 {
-      margin-bottom: 10px;
-    }
-
-    .modal-content p {
-      font-size: 15px;
-      color: #333;
-    }
-
-    .close {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 22px;
-      font-weight: bold;
-      cursor: pointer;
-      color: #000;
-    }
-
-    @keyframes fadeIn {
-      from {opacity: 0; transform: scale(0.8);}
-      to {opacity: 1; transform: scale(1);}
-    }
-  </style>
-</head>
-<body>
-
-  <!-- ================= PORTFOLIO ================= -->
-  <section id="portfolio" class="portfolio">
-    <h2 class="section-title">My <span>Portfolio</span></h2>
-    <div class="portfolio-container">
-      <!-- Example Project 1 -->
-      <div class="portfolio-item" data-title="Project 1" data-desc="Description for Project 1">
-        <img src="https://i.postimg.cc/BZwWJ5ZQ/Screenshot-2025-08-16-120554.png" alt="Project 1">
-        <div class="overlay">Click to view</div>
-      </div>
-
-      <div class="portfolio-item" data-title="Project 2" data-desc="Description for Project 2">
-        <img src="https://i.postimg.cc/j50HHFhd/Screenshot-2025-08-16-130718.png" alt="Project 2">
-        <div class="overlay">Click to view</div>
-      </div>
-
-      <div class="portfolio-item" data-title="Project 3" data-desc="Description for Project 3">
-        <img src="https://i.postimg.cc/3rZXG90Y/Screenshot-2025-08-16-130606.png" alt="Project 3">
-        <div class="overlay">Click to view</div>
-      </div>
-
-      <div class="portfolio-item" data-title="Project 4" data-desc="Description for Project 4">
-        <img src="https://i.postimg.cc/CLQfC2hT/Screenshot-2025-09-01-094027-1000-rows.png" alt="Project 4">
-        <div class="overlay">Click to view</div>
-      </div>
-
-      <!-- Hidden projects -->
-      <div class="portfolio-item hidden" data-title="Project 5" data-desc="Description for Project 5">
-        <img src="https://i.postimg.cc/x8q6RxTB/Facebook-SS.png" alt="Project 5">
-        <div class="overlay">Click to view</div>
-      </div>
-
-      <div class="portfolio-item hidden" data-title="Project 6" data-desc="Description for Project 6">
-        <img src="https://i.postimg.cc/wBHFPTjX/Twitter-SS.png" alt="Project 6">
-        <div class="overlay">Click to view</div>
-      </div>
-
-      <div class="portfolio-item hidden" data-title="Project 7" data-desc="Description for Project 7">
-        <img src="https://i.postimg.cc/pTLCWG8y/instagram-ss.png" alt="Project 7">
-        <div class="overlay">Click to view</div>
-      </div>
-
-      <div class="portfolio-item hidden" data-title="Project 8" data-desc="Description for Project 8">
-        <img src="https://i.postimg.cc/8P6HzrFd/Medium-SS.png" alt="Project 8">
-        <div class="overlay">Click to view</div>
-      </div>
+  <!-- ===== PORTFOLIO SECTION ===== -->
+<section id="portfolio" class="portfolio">
+  <h2 class="section-title">My <span>Portfolio</span></h2>
+  <div class="portfolio-container">
+    <div class="portfolio-item" data-title="Project 1" data-desc="Description for Project 1">
+      <img src="https://i.postimg.cc/BZwWJ5ZQ/Screenshot-2025-08-16-120554.png" alt="Project 1">
+      <div class="overlay">Click to view</div>
     </div>
 
-    <!-- See More Button -->
-    <button id="seeMoreBtn" class="see-more">See More</button>
-  </section>
+    <div class="portfolio-item" data-title="Project 2" data-desc="Description for Project 2">
+      <img src="https://i.postimg.cc/j50HHFhd/Screenshot-2025-08-16-130718.png" alt="Project 2">
+      <div class="overlay">Click to view</div>
+    </div>
 
-  <!-- ================= MODAL ================= -->
-  <div id="portfolioModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h3 id="modalTitle">Project Title</h3>
-      <p id="modalDesc">Project description yahan show hoga.</p>
+    <div class="portfolio-item" data-title="Project 3" data-desc="Description for Project 3">
+      <img src="https://i.postimg.cc/3rZXG90Y/Screenshot-2025-08-16-130606.png" alt="Project 3">
+      <div class="overlay">Click to view</div>
+    </div>
+
+    <div class="portfolio-item" data-title="Project 4" data-desc="Description for Project 4">
+      <img src="https://i.postimg.cc/CLQfC2hT/Screenshot-2025-09-01-094027-1000-rows.png" alt="Project 4">
+      <div class="overlay">Click to view</div>
+    </div>
+
+    <!-- Hidden Projects -->
+    <div class="portfolio-item hidden" data-title="Project 5" data-desc="Description for Project 5">
+      <img src="https://i.postimg.cc/x8q6RxTB/Facebook-SS.png" alt="Project 5">
+      <div class="overlay">Click to view</div>
+    </div>
+
+    <div class="portfolio-item hidden" data-title="Project 6" data-desc="Description for Project 6">
+      <img src="https://i.postimg.cc/wBHFPTjX/Twitter-SS.png" alt="Project 6">
+      <div class="overlay">Click to view</div>
+    </div>
+
+    <div class="portfolio-item hidden" data-title="Project 7" data-desc="Description for Project 7">
+      <img src="https://i.postimg.cc/pTLCWG8y/instagram-ss.png" alt="Project 7">
+      <div class="overlay">Click to view</div>
+    </div>
+
+    <div class="portfolio-item hidden" data-title="Project 8" data-desc="Description for Project 8">
+      <img src="https://i.postimg.cc/8P6HzrFd/Medium-SS.png" alt="Project 8">
+      <div class="overlay">Click to view</div>
     </div>
   </div>
 
-  <script>
-    // ==== SEE MORE BUTTON ====
-    const seeMoreBtn = document.getElementById("seeMoreBtn");
-    const hiddenItems = document.querySelectorAll(".portfolio-item.hidden");
+  <button id="seeMoreBtn" class="see-more">See More</button>
+</section>
 
-    seeMoreBtn.addEventListener("click", () => {
-      hiddenItems.forEach(item => item.classList.remove("hidden"));
-      seeMoreBtn.style.display = "none"; // button hide
-    });
-
-    // ==== MODAL HANDLING ====
-    const modal = document.getElementById("portfolioModal");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalDesc = document.getElementById("modalDesc");
-    const closeBtn = document.querySelector(".close");
-
-    document.querySelectorAll(".portfolio-item").forEach(item => {
-      item.addEventListener("click", () => {
-        modal.style.display = "flex";
-        modalTitle.textContent = item.getAttribute("data-title");
-        modalDesc.textContent = item.getAttribute("data-desc");
-      });
-    });
-
-    closeBtn.addEventListener("click", () => {
-      modal.style.display = "none";
-    });
-
-    window.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        modal.style.display = "none";
-      }
-    });
-  </script>
-</body>
-</html>
-
-
-<!-- ================= MODAL ================= -->
+<!-- ===== MODAL ===== -->
 <div id="portfolioModal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
