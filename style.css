@@ -603,7 +603,7 @@ nav ul li a.active {
   flex-wrap: wrap;
   text-align: center;
   border-bottom: 1px solid rgba(255,255,255,0.1); /* 👈 ye line add karein */
-  padding-bottom: 25px; /* thoda spacing */
+  padding-bottom: 20px; /* thoda spacing */
 }
 
 
