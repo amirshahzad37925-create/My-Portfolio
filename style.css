@@ -669,9 +669,9 @@ nav ul li a.active {
 /* Right side group (About + Resources) */
 .footer-right {
   display: flex;
-  gap: 60px;                 /* About aur Resources ke beech space */
-  justify-content: flex-end; /* right align */
+  gap: 60px;
   flex: 1 1 300px;
+  justify-content: center;   /* pehle flex-end tha */
 }
 
 .footer-col h4 {
