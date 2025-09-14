@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const preloader = document.getElementById("preloader");
     if (preloader) {
       preloader.classList.add("hidden"); // Smooth fade-out
-      setTimeout(() => (preloader.style.display = "none"), 800);
+      setTimeout(() => (preloader.style.display = "none"), 2000);
     }
   });
 
