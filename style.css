@@ -21,32 +21,20 @@ section {
 }
 
 /* ================= PRELOADER ================= */
-#preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #0b0c2a, #463e92, #5b63d2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  transition: opacity 0.8s ease;
-}
-
-#preloader.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
 :root {
   --cube-size: 28px;
   --duration: 2000ms;
-  --top-gradient: linear-gradient(160deg, #f97316, #000080); /* orange gradient */
-  --side-gradient: linear-gradient(135deg, #FFF1DE, #f59e0b);
+  --top-gradient: linear-gradient(135deg, #f97316, #f59e0b); /* Orange top */
+  --side-gradient: linear-gradient(135deg, #1e3a8a, #0f172a); /* Dark blue sides */
 }
 
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #0f172a, #312e81);
+  overflow: hidden;
+}
+
+/* Preloader Overlay */
 .preloader-overlay {
   position: fixed;
   inset: 0;
@@ -57,7 +45,7 @@ section {
   z-index: 9999;
 }
 
-/* Cloth-like wave animation */
+/* Cloth-like wave motion */
 @keyframes clothWave {
   0% { transform: rotateX(40deg) rotateZ(-45deg) translateY(0) translateX(0); }
   25% { transform: rotateX(40deg) rotateZ(-45deg) translateY(-20px) translateX(10px); }
@@ -91,7 +79,7 @@ section {
   animation: jumpWithWave 2s ease-in-out infinite;
 }
 
-/* Faces with gradients */
+/* Cube Faces */
 .face {
   position: absolute;
   width: var(--cube-size);
@@ -100,38 +88,26 @@ section {
   border: 1px solid rgba(0,0,0,0.1);
 }
 
-/* top = orange gradient + glow */
+/* Top face - Orange Gradient + Glow */
 .top {
-  background: linear-gradient(135deg, #f97316, #f59e0b); /* Orange gradient */
+  background: var(--top-gradient);
   box-shadow: 0 0 10px rgba(255, 140, 0, 0.7), 0 0 20px rgba(255, 140, 0, 0.5);
   transform: rotateX(90deg) translateZ(calc(var(--cube-size)/2));
 }
 
-
-/* sides = dark blue */ 
-.bottom { background: var(--side-gradient); transform: rotateX(-90deg) translateZ(calc(var(--cube-size)/2)); } 
-.left { background: var(--side-gradient); transform: rotateY(-90deg) translateZ(calc(var(--cube-size)/2)); } 
-.right { background: var(--side-gradient); transform: rotateY(90deg) translateZ(calc(var(--cube-size)/2)); } 
-.front { background: var(--side-gradient); transform: translateZ(calc(var(--cube-size)/2)); } 
+/* Side faces - Dark Blue */
+.bottom { background: var(--side-gradient); transform: rotateX(-90deg) translateZ(calc(var(--cube-size)/2)); }
+.left { background: var(--side-gradient); transform: rotateY(-90deg) translateZ(calc(var(--cube-size)/2)); }
+.right { background: var(--side-gradient); transform: rotateY(90deg) translateZ(calc(var(--cube-size)/2)); }
+.front { background: var(--side-gradient); transform: translateZ(calc(var(--cube-size)/2)); }
 .back { background: var(--side-gradient); transform: rotateY(180deg) translateZ(calc(var(--cube-size)/2)); }
 
-/* Ripple delays for natural wave motion */
-.cube:nth-child(1)  { animation-delay: 0s; }
-.cube:nth-child(2)  { animation-delay: 0.1s; }
-.cube:nth-child(3)  { animation-delay: 0.2s; }
-.cube:nth-child(4)  { animation-delay: 0.3s; }
-.cube:nth-child(5)  { animation-delay: 0.2s; }
-.cube:nth-child(6)  { animation-delay: 0.3s; }
-.cube:nth-child(7)  { animation-delay: 0.4s; }
-.cube:nth-child(8)  { animation-delay: 0.5s; }
-.cube:nth-child(9)  { animation-delay: 0.4s; }
-.cube:nth-child(10) { animation-delay: 0.5s; }
-.cube:nth-child(11) { animation-delay: 0.6s; }
-.cube:nth-child(12) { animation-delay: 0.7s; }
-.cube:nth-child(13) { animation-delay: 0.6s; }
-.cube:nth-child(14) { animation-delay: 0.7s; }
-.cube:nth-child(15) { animation-delay: 0.8s; }
-.cube:nth-child(16) { animation-delay: 0.9s; }
+/* Fade out animation for preloader */
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+}
 
 /* ================= NAVBAR ================= */
 nav {
