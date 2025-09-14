@@ -375,8 +375,10 @@ nav ul li a.active {
   filter: brightness(0.95);
 }
 
-/* Hide extra projects */
-.portfolio-item.hidden { display: none; }
+/* Portfolio hidden items */
+.portfolio-item.hidden {
+  display: none;
+}
 
 /* See More button */
 #seeMoreBtn {
