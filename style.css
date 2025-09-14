@@ -35,10 +35,12 @@ section {
   transition: opacity 0.8s ease;
 }
 
-#preloader.hidden {
+#preloader.fade-out {
   opacity: 0;
   pointer-events: none;
+  transition: opacity 0.8s ease;
 }
+
 
 :root {
   --cube-size: 28px;
