@@ -250,7 +250,7 @@ nav ul li a.active {
 
 /* ===== HERO BUTTON ===== */
 .hero-text .btn {
-  background: (135deg, #FFF1DE, #f59e0b);
+  background: (90deg, #FFF1DE, #f59e0b);
   color: #fff;
   padding: 12px 30px;
   text-decoration: none;
@@ -440,7 +440,7 @@ nav ul li a.active {
   display: block;
   margin: 20px auto;
   padding: 10px 20px;
-  background: (135deg, #FFF1DE, #f59e0b);
+  background: (90deg, #FFF1DE, #f59e0b);
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -657,7 +657,7 @@ nav ul li a.active {
 }
 
 .contact button {
-  background: (135deg, #FFF1DE, #f59e0b);
+  background: 90deg, #FFF1DE, #f59e0b);
   color: #fff;
   border: none;
   padding: 12px;
@@ -703,7 +703,7 @@ nav ul li a.active {
 .logo-col .tagline {
   font-weight: 700;
   font-size: 18px;
-  color: grey;
+  color: white;
   margin: 0;
 }
 
