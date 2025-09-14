@@ -250,8 +250,8 @@ nav ul li a.active {
 
 /* ===== HERO BUTTON ===== */
 .hero-text .btn {
-  background: (90deg, #FFF1DE, #f59e0b);
-  color: #ff9800;
+  background: (135deg, #FFF1DE, #f59e0b);
+  color: #fff;
   padding: 12px 30px;
   text-decoration: none;
   border-radius: 5px;
@@ -440,7 +440,7 @@ nav ul li a.active {
   display: block;
   margin: 20px auto;
   padding: 10px 20px;
-  background: #007BFF;
+  background: (135deg, #FFF1DE, #f59e0b);
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -450,7 +450,8 @@ nav ul li a.active {
 }
 
 .see-more-btn:hover {
-  background: #0056b3;
+  background: #fff;
+  color: #ff9800;
 }
 
 /* Hidden items */
@@ -656,7 +657,7 @@ nav ul li a.active {
 }
 
 .contact button {
-  background: #ff9800;
+  background: (135deg, #FFF1DE, #f59e0b);
   color: #fff;
   border: none;
   padding: 12px;
