@@ -1,12 +1,15 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // ================= PRELOADER =================
-  window.addEventListener("load", () => {
-    const preloader = document.getElementById("preloader");
-    if (preloader) {
-      preloader.classList.add("hidden"); // Smooth fade-out
-      setTimeout(() => (preloader.style.display = "none"), 2000);
-    }
-  });
+// ================= PRELOADER =================
+  wfunction hidePreloader() {
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    setTimeout(() => {
+      preloader.classList.add('fade-out');
+      setTimeout(() => preloader.remove(), 1000);
+    }, 4000);
+  }
+}
+
+window.addEventListener('load', hidePreloader);
 
   // ================= PARTICLES BACKGROUND =================
   tsParticles.load("particles-js", {
@@ -114,41 +117,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ================= CUBE GRID GENERATION =================
-  const cubeGrid = document.getElementById("cubeGrid");
-const nDim = 4; // 4x4 = 16 cubes
-const edge = 2.75;
-const dist = edge + 0.75;
-
-for (let i = 0; i < nDim * nDim; i++) {
-  const cube = document.createElement("div");
-  cube.className = "cube";
-
-  const lifter = document.createElement("div");
-  lifter.className = "lifter";
-
-  // Cube faces
-  for (let j = 0; j < 3; j++) {
-    const face = document.createElement("div");
-    face.className = "cube__face";
-    lifter.appendChild(face);
-  }
-
-  // Shadow face
-  const shadow = document.createElement("div");
-  shadow.className = "cube__shadow";
-  lifter.appendChild(shadow);
-
-  cube.appendChild(lifter);
-  cubeGrid.appendChild(cube);
-
-  const row = Math.floor(i / nDim);
-  const col = i % nDim;
-
-  cube.style.transform = `translate3d(${(col - (nDim - 1) / 2) * dist}em, 0, ${(row - (nDim - 1) / 2) * dist}em)`;
-
-  // Wave delay
-  const delay = (col + (nDim - 1 - row)) * 0.2;
-  lifter.style.animationDelay = `${delay}s`;
-  shadow.style.animationDelay = `${delay}s`; // shadow same delay par chalega
-}
