@@ -1,10 +1,12 @@
 // ================= PRELOADER =================
 window.addEventListener("load", () => {
   const preloader = document.getElementById("preloader");
-  preloader.classList.add("hidden"); // smooth fade-out
-  setTimeout(() => {
-    preloader.style.display = "none"; // completely remove after fade
-  }, 800); // matches CSS transition
+  if (preloader) {
+    preloader.classList.add("hidden"); // smooth fade-out
+    setTimeout(() => {
+      preloader.style.display = "none"; // completely remove after fade
+    }, 800); // matches CSS transition
+  }
 });
 
 // ================= PARTICLES BACKGROUND =================
@@ -136,8 +138,10 @@ function nextReview() {
 }
 
 // Auto-slide every 5s
-setInterval(nextReview, 5000);
-if (reviews.length > 0) showReview(currentReview);
+if (reviews.length > 0) {
+  showReview(currentReview);
+  setInterval(nextReview, 5000);
+}
 
 // ===== Portfolio See More Button =====
 const seeMoreBtn = document.getElementById("seeMoreBtn");
