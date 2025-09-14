@@ -160,14 +160,11 @@ nav .logo span {
   color: #ff9800;
 }
 
-@media(max-width: 768px) {
   nav ul { 
-    flex-direction: column; 
-    gap: 15px; 
-    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    gap: 30px;
   }
-}
-
 
 nav ul li a {
   text-decoration: none;
