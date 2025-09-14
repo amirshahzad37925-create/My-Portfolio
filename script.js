@@ -7,7 +7,6 @@ window.addEventListener("load", () => {
   }, 800); // matches CSS transition
 });
 
-
 // ================= PARTICLES BACKGROUND =================
 tsParticles.load("particles-js", {
   background: { color: { value: "#000080" } },
@@ -144,34 +143,38 @@ if (reviews.length > 0) showReview(currentReview);
 const seeMoreBtn = document.getElementById("seeMoreBtn");
 const hiddenProjects = document.querySelectorAll(".portfolio-item.hidden");
 
-seeMoreBtn.addEventListener("click", () => {
-  hiddenProjects.forEach(item => item.classList.toggle("hidden"));
-  seeMoreBtn.textContent =
-    seeMoreBtn.textContent === "See More" ? "See Less" : "See More";
-});
+if (seeMoreBtn) {
+  seeMoreBtn.addEventListener("click", () => {
+    hiddenProjects.forEach(item => item.classList.toggle("hidden"));
+    seeMoreBtn.textContent =
+      seeMoreBtn.textContent === "See More" ? "See Less" : "See More";
+  });
+}
 
 // ===== Portfolio Modal =====
 const modal = document.getElementById("portfolioModal");
 const modalTitle = document.getElementById("modalTitle");
 const modalDesc = document.getElementById("modalDesc");
 const modalImg = document.getElementById("modalImg");
-const closeBtn = document.querySelector(".close");
+const closeBtn = document.querySelector(".modal .close");
 
-document.querySelectorAll(".portfolio-item").forEach(item => {
-  item.addEventListener("click", () => {
-    modalTitle.textContent = item.getAttribute("data-title");
-    modalDesc.textContent = item.getAttribute("data-desc");
-    modalImg.src = item.querySelector("img").src;
-    modal.style.display = "flex";
+if (modal && closeBtn) {
+  document.querySelectorAll(".portfolio-item").forEach(item => {
+    item.addEventListener("click", () => {
+      modalTitle.textContent = item.getAttribute("data-title");
+      modalDesc.textContent = item.getAttribute("data-desc");
+      modalImg.src = item.querySelector("img").src;
+      modal.classList.add("active");
+    });
   });
-});
 
-closeBtn.addEventListener("click", () => {
-  modal.style.display = "none";
-});
+  closeBtn.addEventListener("click", () => {
+    modal.classList.remove("active");
+  });
 
-window.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
-  }
-});
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.classList.remove("active");
+    }
+  });
+}
