@@ -73,6 +73,22 @@ section {
   transform: translateZ(1.375em);
 }
 
+.cube__shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  transform: translateZ(-1em) scale(1.1); /* neeche aur thoda bada */
+  filter: blur(4px);
+  border-radius: 2px;
+  animation: shadowAnim 1.5s infinite ease-in-out;
+}
+
+@keyframes shadowAnim {
+  0%, 100% { transform: translateZ(-1em) scale(1.1); opacity: 0.3; }
+  50%      { transform: translateZ(-1em) scale(1.2); opacity: 0.6; }
+}
+
 @keyframes lift {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-1em); }
