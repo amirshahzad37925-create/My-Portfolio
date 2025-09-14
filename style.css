@@ -21,20 +21,32 @@ section {
 }
 
 /* ================= PRELOADER ================= */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0b0c2a, #463e92, #5b63d2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease;
+}
+
+#preloader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 :root {
   --cube-size: 28px;
   --duration: 2000ms;
-  --top-gradient: linear-gradient(135deg, #f97316, #f59e0b); /* Orange top */
-  --side-gradient: linear-gradient(135deg, #1e3a8a, #0f172a); /* Dark blue sides */
+  --top-gradient: linear-gradient(160deg, #f97316, #000080); /* orange gradient */
+  --side-gradient: linear-gradient(135deg, #FFF1DE, #f59e0b);
 }
 
-body {
-  margin: 0;
-  background: linear-gradient(135deg, #0f172a, #312e81);
-  overflow: hidden;
-}
-
-/* Preloader Overlay */
 .preloader-overlay {
   position: fixed;
   inset: 0;
@@ -45,7 +57,7 @@ body {
   z-index: 9999;
 }
 
-/* Cloth-like wave motion */
+/* Cloth-like wave animation */
 @keyframes clothWave {
   0% { transform: rotateX(40deg) rotateZ(-45deg) translateY(0) translateX(0); }
   25% { transform: rotateX(40deg) rotateZ(-45deg) translateY(-20px) translateX(10px); }
@@ -79,7 +91,7 @@ body {
   animation: jumpWithWave 2s ease-in-out infinite;
 }
 
-/* Cube Faces */
+/* Faces with gradients */
 .face {
   position: absolute;
   width: var(--cube-size);
@@ -88,26 +100,38 @@ body {
   border: 1px solid rgba(0,0,0,0.1);
 }
 
-/* Top face - Orange Gradient + Glow */
+/* top = orange gradient + glow */
 .top {
-  background: var(--top-gradient);
+  background: linear-gradient(135deg, #f97316, #f59e0b); /* Orange gradient */
   box-shadow: 0 0 10px rgba(255, 140, 0, 0.7), 0 0 20px rgba(255, 140, 0, 0.5);
   transform: rotateX(90deg) translateZ(calc(var(--cube-size)/2));
 }
 
-/* Side faces - Dark Blue */
-.bottom { background: var(--side-gradient); transform: rotateX(-90deg) translateZ(calc(var(--cube-size)/2)); }
-.left { background: var(--side-gradient); transform: rotateY(-90deg) translateZ(calc(var(--cube-size)/2)); }
-.right { background: var(--side-gradient); transform: rotateY(90deg) translateZ(calc(var(--cube-size)/2)); }
-.front { background: var(--side-gradient); transform: translateZ(calc(var(--cube-size)/2)); }
+
+/* sides = dark blue */ 
+.bottom { background: var(--side-gradient); transform: rotateX(-90deg) translateZ(calc(var(--cube-size)/2)); } 
+.left { background: var(--side-gradient); transform: rotateY(-90deg) translateZ(calc(var(--cube-size)/2)); } 
+.right { background: var(--side-gradient); transform: rotateY(90deg) translateZ(calc(var(--cube-size)/2)); } 
+.front { background: var(--side-gradient); transform: translateZ(calc(var(--cube-size)/2)); } 
 .back { background: var(--side-gradient); transform: rotateY(180deg) translateZ(calc(var(--cube-size)/2)); }
 
-/* Fade out animation for preloader */
-.fade-out {
-  opacity: 0;
-  transition: opacity 1s ease;
-  pointer-events: none;
-}
+/* Ripple delays for natural wave motion */
+.cube:nth-child(1)  { animation-delay: 0s; }
+.cube:nth-child(2)  { animation-delay: 0.1s; }
+.cube:nth-child(3)  { animation-delay: 0.2s; }
+.cube:nth-child(4)  { animation-delay: 0.3s; }
+.cube:nth-child(5)  { animation-delay: 0.2s; }
+.cube:nth-child(6)  { animation-delay: 0.3s; }
+.cube:nth-child(7)  { animation-delay: 0.4s; }
+.cube:nth-child(8)  { animation-delay: 0.5s; }
+.cube:nth-child(9)  { animation-delay: 0.4s; }
+.cube:nth-child(10) { animation-delay: 0.5s; }
+.cube:nth-child(11) { animation-delay: 0.6s; }
+.cube:nth-child(12) { animation-delay: 0.7s; }
+.cube:nth-child(13) { animation-delay: 0.6s; }
+.cube:nth-child(14) { animation-delay: 0.7s; }
+.cube:nth-child(15) { animation-delay: 0.8s; }
+.cube:nth-child(16) { animation-delay: 0.9s; }
 
 /* ================= NAVBAR ================= */
 nav {
@@ -115,13 +139,13 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
   padding: 15px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  backdrop-filter: blur(6px);
 }
 
 nav .logo {
@@ -226,7 +250,7 @@ nav ul li a.active {
 
 /* ===== HERO BUTTON ===== */
 .hero-text .btn {
-  background: (90deg, #FFF1DE, #f59e0b);
+  background: linear-gradient(90deg, #FFF1DE, #f59e0b);
   color: #fff;
   padding: 12px 30px;
   text-decoration: none;
@@ -368,7 +392,7 @@ nav ul li a.active {
 
 .portfolio-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
   margin-top: 30px;
 }
@@ -416,7 +440,7 @@ nav ul li a.active {
   display: block;
   margin: 20px auto;
   padding: 10px 20px;
-  background: (90deg, #FFF1DE, #f59e0b);
+  background: linear-gradient(90deg, #FFF1DE, #f59e0b);
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -487,12 +511,13 @@ nav ul li a.active {
   text-align: center;
   position: absolute;
   top: 50%; left: 50%;
-  transform: translate(-50%, -50%); /* perfect center */
+  transform: translate(-50%, -50%) scale(0.9);
+  transition: all 0.3s ease;
   animation: popUp 0.3s ease;
 }
 
 .modal.active .modal-content {
-  transform: scale(1);
+  transform: translate(-50%, -50%) scale(1);
   opacity: 1;
 }
 
@@ -633,7 +658,7 @@ nav ul li a.active {
 }
 
 .contact button {
-  background: 90deg, #FFF1DE, #f59e0b);
+  background: linear-gradient(90deg, #FFF1DE, #f59e0b);
   color: #fff;
   border: none;
   padding: 12px;
@@ -711,7 +736,7 @@ nav ul li a.active {
 
 .footer-col ul li a,
 .footer-col ul li span {
-  color: grey;
+  color: #ccc;
   text-decoration: none;
   display: flex;
   align-items: center;
