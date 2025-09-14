@@ -1,270 +1,147 @@
-// ================= PRELOADER =================
-window.addEventListener("load", () => {
-  const preloader = document.getElementById("preloader");
-  if (preloader) {
-    preloader.classList.add("hidden"); // smooth fade-out
-    setTimeout(() => {
-      preloader.style.display = "none"; // completely remove after fade
-    }, 800); // matches CSS transition
-  }
-});
-
-// ================= PARTICLES BACKGROUND =================
-tsParticles.load("particles-js", {
-  background: { color: { value: "#000080" } },
-  particles: {
-    number: { value: 90, density: { enable: true, area: 800 } },
-    color: { value: "#ffffff" },
-    links: {
-      enable: true,
-      distance: 150,
-      color: "#ffffff",
-      opacity: 0.5,
-      width: 1
-    },
-    move: {
-      enable: true,
-      speed: 2,
-      direction: "none",
-      outModes: { default: "out" },
-      attract: { enable: true, rotateX: 600, rotateY: 1200 }
-    },
-    size: { value: { min: 1, max: 3 } }
-  },
-  interactivity: {
-    events: {
-      onHover: { enable: true, mode: "grab" },
-      onClick: { enable: true, mode: "push" }
-    },
-    modes: { grab: { distance: 200, links: { opacity: 0.8 } } }
-  }
-});
-
-// ================= SCROLL ACTIVE LINK =================
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav a");
-
-window.addEventListener("scroll", () => {
-  let current = "";
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 120;
-    const sectionHeight = section.clientHeight;
-    if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-      current = section.getAttribute("id");
+document.addEventListener("DOMContentLoaded", () => {
+  // ================= PRELOADER =================
+  window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+    if (preloader) {
+      preloader.classList.add("hidden"); // Smooth fade-out
+      setTimeout(() => (preloader.style.display = "none"), 800);
     }
   });
-  navLinks.forEach(link => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === "#" + current) link.classList.add("active");
-  });
-});
 
-// ================= SMOOTH SCROLL =================
-navLinks.forEach(link => {
-  link.addEventListener("click", e => {
-    e.preventDefault();
-    const target = document.querySelector(link.getAttribute("href"));
-    if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
-});
-
-// ================= TYPING TEXT EFFECT WITH 5S INTERVAL =================
-const texts = ["Lead Generation Specialist", "Web Research Expert", "Freelancer"];
-let count = 0;
-let index = 0;
-let currentText = "";
-const typingEl = document.querySelector(".typing-text");
-
-function typeText() {
-  if (!typingEl) return;
-  currentText = texts[count];
-  typingEl.textContent = currentText.slice(0, index + 1);
-  index++;
-
-  if (index === currentText.length) {
-    setTimeout(() => {
-      index = 0;
-      count = (count + 1) % texts.length;
-      typeText();
-    }, 5000); // 5-second pause
-  } else {
-    setTimeout(typeText, 100); // typing speed
-  }
-}
-
-if (typingEl) typeText();
-
-// ================= COUNTER ANIMATION =================
-const counters = document.querySelectorAll(".counter");
-
-const startCounter = (counter) => {
-  let target = +counter.getAttribute("data-target");
-  let countNum = 0;
-  let speed = target / 60;
-  const updateCount = () => {
-    if (countNum < target) {
-      countNum += speed;
-      counter.innerText = Math.floor(countNum);
-      requestAnimationFrame(updateCount);
-    } else {
-      counter.innerText = target;
-    }
-  };
-  updateCount();
-};
-
-const observer = new IntersectionObserver((entries, obs) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      startCounter(entry.target);
-      obs.unobserve(entry.target);
+  // ================= PARTICLES BACKGROUND =================
+  tsParticles.load("particles-js", {
+    background: { color: { value: "#000080" } },
+    particles: {
+      number: { value: 90, density: { enable: true, area: 800 } },
+      color: { value: "#ffffff" },
+      links: { enable: true, distance: 150, color: "#ffffff", opacity: 0.5, width: 1 },
+      move: { enable: true, speed: 2, direction: "none", outModes: { default: "out" } },
+      size: { value: { min: 1, max: 3 } }
+    },
+    interactivity: {
+      events: { onHover: { enable: true, mode: "grab" }, onClick: { enable: true, mode: "push" } },
+      modes: { grab: { distance: 200, links: { opacity: 0.8 } } }
     }
   });
-}, { threshold: 0.5 });
 
-counters.forEach(counter => observer.observe(counter));
+  // ================= SCROLL ACTIVE LINK =================
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll("nav a");
 
-// ================= REVIEWS SLIDER =================
-let currentReview = 0;
-const reviews = document.querySelectorAll(".review");
-
-function showReview(index) {
-  reviews.forEach((review, i) => review.classList.toggle("active", i === index));
-}
-
-function nextReview() {
-  currentReview = (currentReview + 1) % reviews.length;
-  showReview(currentReview);
-}
-
-// Auto-slide every 5s
-if (reviews.length > 0) {
-  showReview(currentReview);
-  setInterval(nextReview, 5000);
-}
-
-// ===== Portfolio See More Button =====
-const seeMoreBtn = document.getElementById("seeMoreBtn");
-const hiddenProjects = document.querySelectorAll(".portfolio-item.hidden");
-
-if (seeMoreBtn) {
-  seeMoreBtn.addEventListener("click", () => {
-    hiddenProjects.forEach(item => item.classList.toggle("hidden"));
-    seeMoreBtn.textContent =
-      seeMoreBtn.textContent === "See More" ? "See Less" : "See More";
-  });
-}
-
-// ===== Portfolio Modal =====
-const modal = document.getElementById("portfolioModal");
-const modalTitle = document.getElementById("modalTitle");
-const modalDesc = document.getElementById("modalDesc");
-const modalImg = document.getElementById("modalImg");
-const closeBtn = document.querySelector(".modal .close");
-
-// Agar modal aur close button exist karte hain tabhi chalayein
-if (modal && closeBtn) {
-  // Portfolio items par click hone par modal open hoga
-  document.querySelectorAll(".portfolio-item").forEach(item => {
-    item.addEventListener("click", () => {
-      modalTitle.textContent = item.getAttribute("data-title");
-      modalDesc.textContent = item.getAttribute("data-desc");
-      modalImg.src = item.querySelector("img").src;
-      modal.classList.add("active");
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 120;
+      if (pageYOffset >= sectionTop && pageYOffset < sectionTop + section.clientHeight) {
+        current = section.getAttribute("id");
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.toggle("active", link.getAttribute("href") === "#" + current);
     });
   });
 
-  // Modal close button
-  closeBtn.addEventListener("click", () => {
-    modal.classList.remove("active");
+  // ================= SMOOTH SCROLL =================
+  navLinks.forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute("href"));
+      if (target) target.scrollIntoView({ behavior: "smooth" });
+    });
   });
 
-  // Modal backdrop click
-  window.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.classList.remove("active");
-    }
-  });
-}
+  // ================= TYPING TEXT =================
+  const texts = ["Lead Generation Specialist", "Web Research Expert", "Freelancer"];
+  let count = 0, index = 0;
+  const typingEl = document.querySelector(".typing-text");
 
-// ===== Portfolio See More Button =====
-document.addEventListener("DOMContentLoaded", () => {
+  function typeText() {
+    if (!typingEl) return;
+    typingEl.textContent = texts[count].slice(0, ++index);
+    if (index === texts[count].length) {
+      setTimeout(() => { index = 0; count = (count + 1) % texts.length; typeText(); }, 5000);
+    } else setTimeout(typeText, 100);
+  }
+  if (typingEl) typeText();
+
+  // ================= COUNTER ANIMATION =================
+  const counters = document.querySelectorAll(".counter");
+  const startCounter = counter => {
+    let target = +counter.dataset.target, count = 0, speed = target / 60;
+    const update = () => {
+      if (count < target) { count += speed; counter.innerText = Math.floor(count); requestAnimationFrame(update); }
+      else counter.innerText = target;
+    };
+    update();
+  };
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if (entry.isIntersecting) { startCounter(entry.target); observer.unobserve(entry.target); } });
+  }, { threshold: 0.5 });
+  counters.forEach(counter => observer.observe(counter));
+
+  // ================= REVIEWS SLIDER =================
+  let currentReview = 0;
+  const reviews = document.querySelectorAll(".review");
+  const showReview = i => reviews.forEach((r, idx) => r.classList.toggle("active", idx === i));
+  const nextReview = () => { currentReview = (currentReview + 1) % reviews.length; showReview(currentReview); };
+  if (reviews.length) { showReview(currentReview); setInterval(nextReview, 5000); }
+
+  // ================= PORTFOLIO MODAL =================
+  const modal = document.getElementById("portfolioModal");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalDesc = document.getElementById("modalDesc");
+  const modalImg = document.getElementById("modalImg");
+  const closeBtn = document.querySelector(".modal .close");
+  if (modal && closeBtn) {
+    document.querySelectorAll(".portfolio-item").forEach(item => {
+      item.addEventListener("click", () => {
+        modalTitle.textContent = item.dataset.title;
+        modalDesc.textContent = item.dataset.desc;
+        modalImg.src = item.querySelector("img").src;
+        modal.classList.add("active");
+      });
+    });
+    closeBtn.addEventListener("click", () => modal.classList.remove("active"));
+    window.addEventListener("click", e => { if (e.target === modal) modal.classList.remove("active"); });
+  }
+
+  // ================= SEE MORE BUTTON (SINGLE) =================
   const seeMoreBtn = document.getElementById("seeMoreBtn");
-  const hiddenProjects = document.querySelectorAll(".portfolio-item.hidden");
-
   if (seeMoreBtn) {
     seeMoreBtn.addEventListener("click", () => {
-      hiddenProjects.forEach(project => {
-        project.classList.remove("hidden"); // hidden class hatao
-      });
-
-      // Button hide after showing all
+      document.querySelectorAll(".portfolio-item.hidden").forEach(p => p.classList.remove("hidden"));
       seeMoreBtn.style.display = "none";
     });
   }
-});
 
-const colorWrapper = document.getElementById("colorWrapper");
-const buttons = document.querySelectorAll(".button");
-const cubeGrid = document.getElementById("cubeGrid");
+  // ================= CUBE GRID GENERATION =================
+  const colorWrapper = document.getElementById("colorWrapper");
+  const buttons = document.querySelectorAll(".button");
+  const cubeGrid = document.getElementById("cubeGrid");
+  const nDim = 4, edge = 2.75, dist = edge + 0.75;
 
-const nDim = 4;  // 4x4 Grid
-const edge = 2.75; // em
-const dist = edge + 0.75; // spacing
+  for (let i = 0; i < nDim * nDim; i++) {
+    const cube = document.createElement("div");
+    cube.className = "cube";
+    const lifter = document.createElement("div");
+    lifter.className = "lifter";
+    for (let j = 0; j < 3; j++) lifter.appendChild(Object.assign(document.createElement("div"), { className: "cube__face" }));
+    cube.appendChild(lifter);
+    cubeGrid.appendChild(cube);
 
-// Generate Cubes Dynamically
-for (let i = 0; i < nDim * nDim; i++) {
-  const cube = document.createElement("div");
-  cube.className = "cube";
-
-  const lifter = document.createElement("div");
-  lifter.className = "lifter";
-
-  for (let j = 0; j < 3; j++) {
-    const face = document.createElement("div");
-    face.className = "cube__face";
-    lifter.appendChild(face);
+    const row = Math.floor(i / nDim), col = i % nDim;
+    cube.style.transform = `translate3d(${(col - (nDim - 1) / 2) * dist}em, 0, ${(row - (nDim - 1) / 2) * dist}em)`;
+    lifter.style.animationDelay = `${(col + (nDim - 1 - row)) * 0.0466 * 3.15}s`;
   }
 
-  cube.appendChild(lifter);
-  cubeGrid.appendChild(cube);
-
-  // Positioning Cubes
-  const row = Math.floor(i / nDim);
-  const col = i % nDim;
-  const tx = (col - (nDim - 1) / 2) * dist;
-  const tz = (row - (nDim - 1) / 2) * dist;
-  cube.style.transform = `translate3d(${tx}em, 0, ${tz}em)`;
-
-  // Animation Delay
-  lifter.style.animationDelay = `${(col + (nDim - 1 - row)) * 0.0466 * 3.15}s`;
-  lifter.querySelector(".cube__face").style.animationDelay = `${(col + (nDim - 1 - row)) * 0.0466 * 3.15}s`;
-}
-
-// Theme Change + Ripple Effect
-buttons.forEach(button => {
-  button.addEventListener("click", e => {
-    colorWrapper.className = "";
-
-    if (button.classList.contains("whtSlate_B")) colorWrapper.classList.add("whtSlate");
-    if (button.classList.contains("honeyComb_B")) colorWrapper.classList.add("honeyComb");
-    if (button.classList.contains("phosGreen-II_B")) colorWrapper.classList.add("phosGreen-II");
-    if (button.classList.contains("gemBlue_B")) colorWrapper.classList.add("gemBlue");
-
-    // Ripple Effect
-    let ink = button.querySelector(".ink");
-    if (!ink) {
-      ink = document.createElement("span");
-      ink.classList.add("ink");
-      button.prepend(ink);
-    }
+  // Theme change + ripple
+  buttons.forEach(btn => btn.addEventListener("click", e => {
+    colorWrapper.className = btn.className.split("_B")[0]; // theme class
+    let ink = btn.querySelector(".ink") || btn.prepend(Object.assign(document.createElement("span"), { className: "ink" }));
     ink.classList.remove("animateInk");
     ink.style.height = ink.style.width = "12em";
-
-    let x = e.pageX - button.offsetLeft - ink.offsetWidth / 2;
-    let y = e.pageY - button.offsetTop - ink.offsetHeight / 2;
-    ink.style.top = y + "px";
-    ink.style.left = x + "px";
+    ink.style.top = `${e.pageY - btn.offsetTop - 6}em`;
+    ink.style.left = `${e.pageX - btn.offsetLeft - 6}em`;
     ink.classList.add("animateInk");
-  });
+  }));
 });
