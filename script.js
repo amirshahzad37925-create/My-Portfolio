@@ -116,19 +116,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ================= CUBE GRID GENERATION =================
   const cubeGrid = document.getElementById("cubeGrid");
-  const nDim = 4, edge = 2.75, dist = edge + 0.75;
+const nDim = 4; // 4x4 = 16 cubes
+const edge = 2.75;
+const dist = edge + 0.75;
 
-  for (let i = 0; i < nDim * nDim; i++) {
-    const cube = document.createElement("div");
-    cube.className = "cube";
-    const lifter = document.createElement("div");
-    lifter.className = "lifter";
-    for (let j = 0; j < 3; j++) lifter.appendChild(Object.assign(document.createElement("div"), { className: "cube__face" }));
-    cube.appendChild(lifter);
-    cubeGrid.appendChild(cube);
+for (let i = 0; i < nDim * nDim; i++) {
+  const cube = document.createElement("div");
+  cube.className = "cube";
 
-    const row = Math.floor(i / nDim), col = i % nDim;
-    cube.style.transform = `translate3d(${(col - (nDim - 1) / 2) * dist}em, 0, ${(row - (nDim - 1) / 2) * dist}em)`;
-    lifter.style.animationDelay = `${(col + (nDim - 1 - row)) * 0.0466 * 3.15}s`;
+  const lifter = document.createElement("div");
+  lifter.className = "lifter";
+
+  // Cube faces
+  for (let j = 0; j < 3; j++) {
+    const face = document.createElement("div");
+    face.className = "cube__face";
+    lifter.appendChild(face);
   }
-});
+
+  // Shadow face
+  const shadow = document.createElement("div");
+  shadow.className = "cube__shadow";
+  lifter.appendChild(shadow);
+
+  cube.appendChild(lifter);
+  cubeGrid.appendChild(cube);
+
+  const row = Math.floor(i / nDim);
+  const col = i % nDim;
+
+  cube.style.transform = `translate3d(${(col - (nDim - 1) / 2) * dist}em, 0, ${(row - (nDim - 1) / 2) * dist}em)`;
+
+  // Wave delay
+  const delay = (col + (nDim - 1 - row)) * 0.2;
+  lifter.style.animationDelay = `${delay}s`;
+  shadow.style.animationDelay = `${delay}s`; // shadow same delay par chalega
+}
