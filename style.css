@@ -425,19 +425,24 @@ nav ul li a.active {
   cursor: pointer; 
 }
 
-/* Modal (Details Popup) */
+/* Modal wrapper (backdrop) */
 .modal {
   display: none;
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
   background: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
+  justify-content: center;   /* center horizontally */
+  align-items: center;       /* center vertically */
   z-index: 9999;
 }
-.modal.active { display: flex; }
 
+/* When active -> flex visible */
+.modal.active {
+  display: flex;
+}
+
+/* Modal content */
 .modal-content {
   background: #fff;
   padding: 25px;
@@ -447,6 +452,9 @@ nav ul li a.active {
   text-align: center;
   position: relative;
   animation: popUp 0.3s ease;
+  
+  /* ye line important hai */
+  margin: auto; /* flex parent me center karne ke liye */
 }
 
 .modal-content img {
