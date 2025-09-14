@@ -203,3 +203,68 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+const colorWrapper = document.getElementById("colorWrapper");
+const buttons = document.querySelectorAll(".button");
+const cubeGrid = document.getElementById("cubeGrid");
+
+const nDim = 4;  // 4x4 Grid
+const edge = 2.75; // em
+const dist = edge + 0.75; // spacing
+
+// Generate Cubes Dynamically
+for (let i = 0; i < nDim * nDim; i++) {
+  const cube = document.createElement("div");
+  cube.className = "cube";
+
+  const lifter = document.createElement("div");
+  lifter.className = "lifter";
+
+  for (let j = 0; j < 3; j++) {
+    const face = document.createElement("div");
+    face.className = "cube__face";
+    lifter.appendChild(face);
+  }
+
+  cube.appendChild(lifter);
+  cubeGrid.appendChild(cube);
+
+  // Positioning Cubes
+  const row = Math.floor(i / nDim);
+  const col = i % nDim;
+  const tx = (col - (nDim - 1) / 2) * dist;
+  const tz = (row - (nDim - 1) / 2) * dist;
+  cube.style.transform = `translate3d(${tx}em, 0, ${tz}em)`;
+
+  // Animation Delay
+  lifter.style.animationDelay = `${(col + (nDim - 1 - row)) * 0.0466 * 3.15}s`;
+  lifter.querySelector(".cube__face").style.animationDelay = `${(col + (nDim - 1 - row)) * 0.0466 * 3.15}s`;
+}
+
+// Theme Change + Ripple Effect
+buttons.forEach(button => {
+  button.addEventListener("click", e => {
+    colorWrapper.className = "";
+
+    if (button.classList.contains("whtSlate_B")) colorWrapper.classList.add("whtSlate");
+    if (button.classList.contains("honeyComb_B")) colorWrapper.classList.add("honeyComb");
+    if (button.classList.contains("phosGreen-II_B")) colorWrapper.classList.add("phosGreen-II");
+    if (button.classList.contains("gemBlue_B")) colorWrapper.classList.add("gemBlue");
+
+    // Ripple Effect
+    let ink = button.querySelector(".ink");
+    if (!ink) {
+      ink = document.createElement("span");
+      ink.classList.add("ink");
+      button.prepend(ink);
+    }
+    ink.classList.remove("animateInk");
+    ink.style.height = ink.style.width = "12em";
+
+    let x = e.pageX - button.offsetLeft - ink.offsetWidth / 2;
+    let y = e.pageY - button.offsetTop - ink.offsetHeight / 2;
+    ink.style.top = y + "px";
+    ink.style.left = x + "px";
+    ink.classList.add("animateInk");
+  });
+});
