@@ -654,19 +654,22 @@ nav ul li a.active {
 /* Left side (logo + tagline) */
 .footer-left {
   flex: 1 1 250px;
+  display: flex;
+  align-items: center;
+  gap: 12px;       /* logo aur tagline ke beech gap */
   text-align: left;
 }
-
 .footer-left img {
-  max-width: 150px;
-  margin-bottom: 10px;
+  max-width: 60px;  /* thoda chhota logo taake line me fit ho */
+  margin-bottom: 0; /* remove bottom margin */
 }
-
 .footer-left .tagline {
   color: grey;
   font-size: 15px;
   font-style: italic;
+  margin: 0;       /* reset */
 }
+
 
 /* Right side (About + Resources) */
 .footer-right {
