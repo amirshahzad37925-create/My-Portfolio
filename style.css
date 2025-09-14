@@ -432,17 +432,13 @@ nav ul li a.active {
   top: 0; left: 0;
   width: 100%; height: 100%;
   background: rgba(0,0,0,0.6);
-  justify-content: center;   /* center horizontally */
-  align-items: center;       /* center vertically */
   z-index: 9999;
 }
 
-/* When active -> flex visible */
 .modal.active {
-  display: flex;
+  display: block; /* visible */
 }
 
-/* Modal content */
 .modal-content {
   background: #fff;
   padding: 25px;
@@ -450,11 +446,10 @@ nav ul li a.active {
   max-width: 600px;
   width: 90%;
   text-align: center;
-  position: relative;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%); /* perfect center */
   animation: popUp 0.3s ease;
-  
-  /* ye line important hai */
-  margin: auto; /* flex parent me center karne ke liye */
 }
 
 .modal-content img {
