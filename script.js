@@ -1,5 +1,5 @@
 // ================= PRELOADER =================
-  wfunction hidePreloader() {
+  function hidePreloader() {
   const preloader = document.getElementById('preloader');
   if (preloader) {
     setTimeout(() => {
@@ -35,7 +35,7 @@ window.addEventListener('load', hidePreloader);
     let current = "";
     sections.forEach(section => {
       const sectionTop = section.offsetTop - 120;
-      if (pageYOffset >= sectionTop && pageYOffset < sectionTop + section.clientHeight) {
+      if (window.scrollY >= sectionTop && window.scrollY < sectionTop + section.clientHeight) {
         current = section.getAttribute("id");
       }
     });
@@ -46,12 +46,16 @@ window.addEventListener('load', hidePreloader);
 
   // ================= SMOOTH SCROLL =================
   navLinks.forEach(link => {
-    link.addEventListener("click", e => {
-      e.preventDefault();
-      const target = document.querySelector(link.getAttribute("href"));
-      if (target) target.scrollIntoView({ behavior: "smooth" });
-    });
+  link.addEventListener("click", e => {
+    e.preventDefault();
+    const id = link.getAttribute("href");
+    const target = document.querySelector(id);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+      history.pushState(null, null, id);
+    }
   });
+});
 
   // ================= TYPING TEXT =================
   const texts = ["Lead Generation Specialist", "Web Research Expert", "Freelancer"];
@@ -68,19 +72,31 @@ window.addEventListener('load', hidePreloader);
   if (typingEl) typeText();
 
   // ================= COUNTER ANIMATION =================
-  const counters = document.querySelectorAll(".counter");
-  const startCounter = counter => {
-    let target = +counter.dataset.target, count = 0, speed = target / 60;
-    const update = () => {
-      if (count < target) { count += speed; counter.innerText = Math.floor(count); requestAnimationFrame(update); }
-      else counter.innerText = target;
-    };
-    update();
+const counters = document.querySelectorAll(".counter");
+const startCounter = counter => {
+  let target = +counter.dataset.target;
+  let count = 0;
+  let speed = Math.max(10, target / 100);
+  const update = () => {
+    if (count < target) {
+      count += speed;
+      counter.innerText = Math.floor(count);
+      requestAnimationFrame(update);
+    } else {
+      counter.innerText = target;
+    }
   };
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => { if (entry.isIntersecting) { startCounter(entry.target); observer.unobserve(entry.target); } });
-  }, { threshold: 0.5 });
-  counters.forEach(counter => observer.observe(counter));
+  update();
+};
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => { 
+    if (entry.isIntersecting) { 
+      startCounter(entry.target); 
+      observer.unobserve(entry.target); 
+    } 
+  });
+}, { threshold: 0.5 });
+counters.forEach(counter => observer.observe(counter));
 
   // ================= REVIEWS SLIDER =================
   let currentReview = 0;
@@ -90,23 +106,34 @@ window.addEventListener('load', hidePreloader);
   if (reviews.length) { showReview(currentReview); setInterval(nextReview, 5000); }
 
   // ================= PORTFOLIO MODAL =================
-  const modal = document.getElementById("portfolioModal");
-  const modalTitle = document.getElementById("modalTitle");
-  const modalDesc = document.getElementById("modalDesc");
-  const modalImg = document.getElementById("modalImg");
-  const closeBtn = document.querySelector(".modal .close");
-  if (modal && closeBtn) {
-    document.querySelectorAll(".portfolio-item").forEach(item => {
-      item.addEventListener("click", () => {
-        modalTitle.textContent = item.dataset.title;
-        modalDesc.textContent = item.dataset.desc;
-        modalImg.src = item.querySelector("img").src;
-        modal.classList.add("active");
-      });
+const modal = document.getElementById("portfolioModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalDesc = document.getElementById("modalDesc");
+const modalImg = document.getElementById("modalImg");
+const closeBtn = document.querySelector(".modal .close");
+
+if (modal && closeBtn) {
+  document.querySelectorAll(".portfolio-item").forEach(item => {
+    item.addEventListener("click", () => {
+      modalTitle.textContent = item.dataset.title;
+      modalDesc.textContent = item.dataset.desc;
+      modalImg.src = item.querySelector("img").src;
+      modal.classList.add("active");
     });
-    closeBtn.addEventListener("click", () => modal.classList.remove("active"));
-    window.addEventListener("click", e => { if (e.target === modal) modal.classList.remove("active"); });
-  }
+  });
+
+  closeBtn.addEventListener("click", () => {
+    modal.classList.remove("active");
+    modalImg.src = ""; // image reset yahan aayega
+  });
+
+  window.addEventListener("click", e => {
+    if (e.target === modal) {
+      modal.classList.remove("active");
+      modalImg.src = ""; // yahan bhi image reset
+    }
+  });
+} 
 
   // ================= SEE MORE BUTTON (SINGLE) =================
   const seeMoreBtn = document.getElementById("seeMoreBtn");
@@ -116,4 +143,3 @@ window.addEventListener('load', hidePreloader);
       seeMoreBtn.style.display = "none";
     });
   }
-
