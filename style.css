@@ -250,8 +250,8 @@ nav ul li a.active {
 
 /* ===== HERO BUTTON ===== */
 .hero-text .btn {
-  background: #ff9800;
-  color: #fff;
+  linear-gradient(135deg, #FFF1DE, #f59e0b);
+  color: #ff9800;
   padding: 12px 30px;
   text-decoration: none;
   border-radius: 5px;
