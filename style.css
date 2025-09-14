@@ -602,7 +602,10 @@ nav ul li a.active {
   margin-bottom: 30px;
   flex-wrap: wrap;
   text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.1); /* 👈 ye line add karein */
+  padding-bottom: 25px; /* thoda spacing */
 }
+
 
 .contact-item {
   flex: 1 1 200px;
