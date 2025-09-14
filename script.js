@@ -158,7 +158,9 @@ const modalDesc = document.getElementById("modalDesc");
 const modalImg = document.getElementById("modalImg");
 const closeBtn = document.querySelector(".modal .close");
 
+// Agar modal aur close button exist karte hain tabhi chalayein
 if (modal && closeBtn) {
+  // Portfolio items par click hone par modal open hoga
   document.querySelectorAll(".portfolio-item").forEach(item => {
     item.addEventListener("click", () => {
       modalTitle.textContent = item.getAttribute("data-title");
@@ -168,10 +170,12 @@ if (modal && closeBtn) {
     });
   });
 
+  // Modal close button
   closeBtn.addEventListener("click", () => {
     modal.classList.remove("active");
   });
 
+  // Modal backdrop click
   window.addEventListener("click", (e) => {
     if (e.target === modal) {
       modal.classList.remove("active");
@@ -179,16 +183,19 @@ if (modal && closeBtn) {
   });
 }
 
+// ===== Portfolio See More Button =====
 document.addEventListener("DOMContentLoaded", () => {
   const seeMoreBtn = document.getElementById("seeMoreBtn");
   const hiddenProjects = document.querySelectorAll(".portfolio-item.hidden");
 
-  seeMoreBtn.addEventListener("click", () => {
-    hiddenProjects.forEach(project => {
-      project.classList.remove("hidden");
-    });
+  if (seeMoreBtn) {
+    seeMoreBtn.addEventListener("click", () => {
+      hiddenProjects.forEach(project => {
+        project.classList.remove("hidden"); // hidden class hatao
+      });
 
-    // Button ko hata do baad me
-    seeMoreBtn.style.display = "none";
-  });
+      // Button hide after showing all
+      seeMoreBtn.style.display = "none";
+    });
+  }
 });
