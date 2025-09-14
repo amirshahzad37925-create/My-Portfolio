@@ -178,3 +178,17 @@ if (modal && closeBtn) {
     }
   });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const seeMoreBtn = document.getElementById("seeMoreBtn");
+  const hiddenProjects = document.querySelectorAll(".portfolio-item.hidden");
+
+  seeMoreBtn.addEventListener("click", () => {
+    hiddenProjects.forEach(project => {
+      project.classList.remove("hidden");
+    });
+
+    // Button ko hata do baad me
+    seeMoreBtn.style.display = "none";
+  });
+});
