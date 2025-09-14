@@ -426,16 +426,42 @@ nav ul li a.active {
 }
 
 /* Modal wrapper (backdrop) */
-.modal-content {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%) scale(0.8); /* start me chhota */
-  opacity: 0;
-  transition: all 0.3s ease; /* smooth transition */
+/* Overlay */
+.modal {
+  display: none; /* default hidden */
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;   /* vertical center */
+  justify-content: center; /* horizontal center */
 }
 
+/* Active modal */
+.modal.active {
+  display: flex;
+}
+
+/* Content */
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+
+  transform: scale(0.8);  /* start small */
+  opacity: 0;
+  transition: all 0.3s ease; /* smooth effect */
+}
+
+/* When modal active */
 .modal.active .modal-content {
-  transform: translate(-50%, -50%) scale(1); /* final position + size */
+  transform: scale(1);  /* zoom to normal */
   opacity: 1;
 }
 
