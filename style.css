@@ -531,7 +531,9 @@ nav ul li a.active {
   color: #fff;
 }
 
-.reviews h2 span { color: #ff9800; }
+.reviews h2 span { 
+  color: #ff9800; 
+}
 
 .review-slider {
   max-width: 700px;
@@ -550,9 +552,20 @@ nav ul li a.active {
   animation: fadeIn 1s ease-in-out;
 }
 
+/* 👇 New styles for client images */
+.review .client-pic {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 15px auto;
+  border: 2px solid #ff9800; /* optional highlight */
+}
+
 .review h4 {
-  margin-top: 15px;
+  margin-top: 10px;
   color: #ff9800;
+  font-weight: 600;
 }
 
 @keyframes fadeIn {
