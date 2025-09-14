@@ -589,62 +589,14 @@ nav ul li a.active {
 .footer {
   background: linear-gradient(135deg, #2c003e, #0b0c2a);
   color: #fff;
-  padding: 40px 20px 0;   /* bottom padding 0 kar diya */
-  text-align: center;
+  padding: 40px 20px 0;
   font-family: 'Poppins', sans-serif;
 }
 
-/* Top Contact Info */
+/* Top (Logo + Columns) */
 .footer-top {
   display: flex;
-  justify-content: center;
-  gap: 60px;
-  margin-bottom: 30px;
-  flex-wrap: wrap;
-  text-align: center;
-  border-bottom: 1px solid rgba(255,255,255,0.1); /* 👈 ye line add karein */
-  padding-bottom: 20px; /* thoda spacing */
-}
-
-
-.contact-item {
-  flex: 1 1 200px;
-}
-
-.contact-item i {
-  font-size: 35px; /* big icons */
-  color: orange;
-  margin-bottom: 10px;
-  display: block;
-  transition: 0.3s;
-}
-
-.contact-item i:hover {
-  color: white;
-}
-
-.contact-item h5 {
-  font-size: 16px;
-  color: orange;
-  margin: 5px 0;
-}
-
-.contact-item a,
-.contact-item span {
-  color: white;
-  font-size: 16px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.contact-item a:hover,
-.contact-item span:hover {
-  color: orange;
-}
-
-.footer-mid {
-  display: flex;
-  justify-content: space-between;  /* left logo aur right group ke liye */
+  justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 30px;
   padding: 0 40px;
@@ -658,23 +610,25 @@ nav ul li a.active {
 }
 
 .logo-col img {
-  max-width: 100px;   /* size thoda bada (pehle 80px tha) */
+  max-width: 100px;
   margin-bottom: 12px;
 }
 
 .logo-col .tagline {
-  font-weight: 700;   /* aur bold */
-  font-size: 18px;    /* thoda bada (pehle 16px tha) */
+  font-weight: 700;
+  font-size: 18px;
   color: grey;
   margin: 0;
 }
 
-/* Right side group (About + Resources) */
+/* Right side group (Contact + About + Resources) */
 .footer-right {
   display: flex;
   gap: 60px;
-  flex: 1 1 300px;
-  justify-content: center;   /* pehle flex-end tha */
+  flex: 2 1 500px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  text-align: left;
 }
 
 .footer-col h4 {
@@ -686,13 +640,20 @@ nav ul li a.active {
 .footer-col ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
-.footer-col ul li a {
+.footer-col ul li {
+  margin: 6px 0;
+}
+
+.footer-col ul li a,
+.footer-col ul li span {
   color: grey;
   text-decoration: none;
-  display: block;
-  margin: 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   transition: 0.3s;
 }
 
@@ -702,7 +663,7 @@ nav ul li a.active {
 
 /* Responsive Fix */
 @media (max-width: 768px) {
-  .footer-mid {
+  .footer-top {
     flex-direction: column;
     text-align: center;
     align-items: center;
@@ -715,25 +676,30 @@ nav ul li a.active {
 
   .footer-right {
     justify-content: center;
+    text-align: center;
+  }
+
+  .footer-col ul li a,
+  .footer-col ul li span {
+    justify-content: center;
   }
 }
-
 
 /* Bottom Section */
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,0.1);
-  padding: 12px 0 15px;   /* thoda neat aur compact bottom */
+  padding: 12px 0 15px;
   text-align: center;
 }
 
 .social-icons {
-  margin-bottom: 5px;    /* icons aur text ke beech thoda gap */
+  margin-bottom: 5px;
 }
 
 .social-icons a {
   color: orange;
-  font-size: 16px;       /* balanced icon size */
-  margin: 0 6px;         /* kam spacing between icons */
+  font-size: 16px;
+  margin: 0 6px;
   transition: 0.3s;
 }
 
@@ -742,9 +708,9 @@ nav ul li a.active {
 }
 
 .footer-bottom p {
-  margin: 0;             /* extra space hata diya */
-  font-size: 13px;       /* thoda chhota font for neat look */
-  line-height: 1.4;      /* readable but compact */
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
 }
 
 .footer-bottom a {
@@ -755,7 +721,6 @@ nav ul li a.active {
 .footer-bottom a:hover {
   color: #fff;
 }
-
 
 /* ================= RESPONSIVE ================= */
 @media(max-width: 768px) {
