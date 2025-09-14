@@ -641,35 +641,37 @@ nav ul li a.active {
 
 .footer-mid {
   display: flex;
-  justify-content: center;   /* center horizontally */
-  align-items: flex-start;   /* top align */
-  gap: 80px;                 /* columns ke beech gap */
+  justify-content: space-between;  /* left logo aur right group ke liye */
+  align-items: flex-start;
   margin-bottom: 30px;
-  flex-wrap: wrap;           /* responsive ke liye */
-  text-align: left;          /* text left aligned */
+  padding: 0 40px;
+  flex-wrap: wrap;
 }
 
-/* Column: Logo + Tagline */
-.footer-mid .logo-col {
+/* Logo column */
+.logo-col {
   flex: 1 1 200px;
-  text-align: center;
+  text-align: left;
 }
 
-.footer-mid .logo-col img {
-  max-width: 80px;
-  margin-bottom: 10px;
+.logo-col img {
+  max-width: 100px;   /* size thoda bada (pehle 80px tha) */
+  margin-bottom: 12px;
 }
 
-.footer-mid .logo-col .tagline {
-  font-weight: bold;
-  font-size: 16px;
+.logo-col .tagline {
+  font-weight: 700;   /* aur bold */
+  font-size: 18px;    /* thoda bada (pehle 16px tha) */
   color: grey;
   margin: 0;
 }
 
-/* Column: About + Resources */
-.footer-mid .footer-col {
-  flex: 1 1 150px;
+/* Right side group (About + Resources) */
+.footer-right {
+  display: flex;
+  gap: 60px;                 /* About aur Resources ke beech space */
+  justify-content: flex-end; /* right align */
+  flex: 1 1 300px;
 }
 
 .footer-col h4 {
@@ -699,13 +701,17 @@ nav ul li a.active {
 @media (max-width: 768px) {
   .footer-mid {
     flex-direction: column;
-    align-items: center;
     text-align: center;
+    align-items: center;
   }
 
-  .footer-mid .logo-col {
+  .logo-col {
     text-align: center;
     margin-bottom: 20px;
+  }
+
+  .footer-right {
+    justify-content: center;
   }
 }
 
