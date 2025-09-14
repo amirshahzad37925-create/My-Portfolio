@@ -432,5 +432,37 @@
       document.getElementById("seeMoreBtn").style.display = "none";
     });
   </script>
+  
+  <script>
+  // Create 16 cubes dynamically
+const cubeGrid = document.getElementById("cubeGrid");
+
+for (let i = 0; i < 16; i++) {
+  const cube = document.createElement("div");
+  cube.className = "cube";
+
+  ["top", "bottom", "left", "right", "front", "back"].forEach(face => {
+    const div = document.createElement("div");
+    div.className = "face " + face;
+    cube.appendChild(div);
+  });
+
+  cube.style.animationDelay = `${i * 0.1}s`; // Ripple delay
+  cubeGrid.appendChild(cube);
+}
+
+// Hide Preloader after 4 seconds
+function hidePreloader() {
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    setTimeout(() => {
+      preloader.classList.add('fade-out');
+      setTimeout(() => preloader.remove(), 1000);
+    }, 4000);
+  }
+}
+
+window.addEventListener('load', hidePreloader);
+ </script>
 </body>
 </html>
