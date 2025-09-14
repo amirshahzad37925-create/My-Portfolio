@@ -640,11 +640,40 @@ nav ul li a.active {
 }
 
 /* Middle Links */
+/* Footer Mid (Updated Layout) */
 .footer-mid {
   display: flex;
-  justify-content: center;
-  gap: 80px;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
   margin-bottom: 30px;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+/* Left side (logo + tagline) */
+.footer-left {
+  flex: 1 1 250px;
+  text-align: left;
+}
+
+.footer-left img {
+  max-width: 150px;
+  margin-bottom: 10px;
+}
+
+.footer-left .tagline {
+  color: grey;
+  font-size: 15px;
+  font-style: italic;
+}
+
+/* Right side (About + Resources) */
+.footer-right {
+  display: flex;
+  gap: 60px;
+  flex: 1 1 300px;
+  justify-content: flex-end;
   flex-wrap: wrap;
 }
 
@@ -669,6 +698,23 @@ nav ul li a.active {
 
 .footer-col ul li a:hover {
   color: #fff;
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+  .footer-mid {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-left {
+    text-align: center;
+  }
+
+  .footer-right {
+    justify-content: center;
+  }
 }
 
 /* Bottom Section */
