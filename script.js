@@ -115,8 +115,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ================= CUBE GRID GENERATION =================
-  const colorWrapper = document.getElementById("colorWrapper");
-  const buttons = document.querySelectorAll(".button");
   const cubeGrid = document.getElementById("cubeGrid");
   const nDim = 4, edge = 2.75, dist = edge + 0.75;
 
@@ -133,15 +131,4 @@ document.addEventListener("DOMContentLoaded", () => {
     cube.style.transform = `translate3d(${(col - (nDim - 1) / 2) * dist}em, 0, ${(row - (nDim - 1) / 2) * dist}em)`;
     lifter.style.animationDelay = `${(col + (nDim - 1 - row)) * 0.0466 * 3.15}s`;
   }
-
-  // Theme change + ripple
-  buttons.forEach(btn => btn.addEventListener("click", e => {
-    colorWrapper.className = btn.className.split("_B")[0]; // theme class
-    let ink = btn.querySelector(".ink") || btn.prepend(Object.assign(document.createElement("span"), { className: "ink" }));
-    ink.classList.remove("animateInk");
-    ink.style.height = ink.style.width = "12em";
-    ink.style.top = `${e.pageY - btn.offsetTop - 6}em`;
-    ink.style.left = `${e.pageX - btn.offsetLeft - 6}em`;
-    ink.classList.add("animateInk");
-  }));
 });
