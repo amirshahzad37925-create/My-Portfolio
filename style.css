@@ -639,45 +639,37 @@ nav ul li a.active {
   color: orange;
 }
 
-/* Middle Links */
-/* Footer Mid (Updated Layout) */
 .footer-mid {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 60px;
+  justify-content: center;   /* center horizontally */
+  align-items: flex-start;   /* top align */
+  gap: 80px;                 /* columns ke beech gap */
   margin-bottom: 30px;
-  flex-wrap: wrap;
-  padding: 0 20px;
+  flex-wrap: wrap;           /* responsive ke liye */
+  text-align: left;          /* text left aligned */
 }
 
-/* Left side (logo + tagline) */
-.footer-left {
-  flex: 1 1 250px;
-  display: flex;
-  align-items: center;
-  gap: 12px;       /* logo aur tagline ke beech gap */
-  text-align: left;
+/* Column: Logo + Tagline */
+.footer-mid .logo-col {
+  flex: 1 1 200px;
+  text-align: center;
 }
-.footer-left img {
-  max-width: 60px;  /* thoda chhota logo taake line me fit ho */
-  margin-bottom: 0; /* remove bottom margin */
+
+.footer-mid .logo-col img {
+  max-width: 80px;
+  margin-bottom: 10px;
 }
-.footer-left .tagline {
+
+.footer-mid .logo-col .tagline {
+  font-weight: bold;
+  font-size: 16px;
   color: grey;
-  font-size: 15px;
-  font-style: italic;
-  margin: 0;       /* reset */
+  margin: 0;
 }
 
-
-/* Right side (About + Resources) */
-.footer-right {
-  display: flex;
-  gap: 60px;
-  flex: 1 1 300px;
-  justify-content: flex-end;
-  flex-wrap: wrap;
+/* Column: About + Resources */
+.footer-mid .footer-col {
+  flex: 1 1 150px;
 }
 
 .footer-col h4 {
@@ -711,14 +703,12 @@ nav ul li a.active {
     text-align: center;
   }
 
-  .footer-left {
+  .footer-mid .logo-col {
     text-align: center;
-  }
-
-  .footer-right {
-    justify-content: center;
+    margin-bottom: 20px;
   }
 }
+
 
 /* Bottom Section */
 .footer-bottom {
