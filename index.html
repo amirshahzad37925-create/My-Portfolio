@@ -466,20 +466,78 @@
         setInterval(nextReview, 5000);
         showReview(currentReview);
 
-        // Certifications Scroll
-        const certsContainer = document.querySelector('.certificates-container');
-        const scrollLeftBtn = document.getElementById('cert-scroll-left');
-        const scrollRightBtn = document.getElementById('cert-scroll-right');
-        const scrollAmount = 300; // Adjust as needed
+        // Certifications Scroll with Dots
+const certsContainer = document.querySelector('.certificates-container');
+const certsDotsContainer = document.querySelector('.cert-dots');
+const scrollLeftBtn = document.getElementById('cert-scroll-left');
+const scrollRightBtn = document.getElementById('cert-scroll-right');
+const scrollAmount = 300; // Adjust as needed
 
-        if (certsContainer && scrollLeftBtn && scrollRightBtn) {
-            scrollLeftBtn.addEventListener('click', () => {
-                certsContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-            });
-            scrollRightBtn.addEventListener('click', () => {
-                certsContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-            });
+// Function to generate dots
+function generateDots() {
+    certsDotsContainer.innerHTML = ''; // Pehle se existing dots ko saaf karo
+    const totalCerts = certsContainer.children.length;
+    for (let i = 0; i < totalCerts; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('cert-dot');
+        dot.dataset.index = i; // Dot ka index store karo
+        certsDotsContainer.appendChild(dot);
+    }
+}
+
+// Function to update active dot
+function updateActiveDot() {
+    const certs = Array.from(certsContainer.children);
+    const dots = Array.from(certsDotsContainer.children);
+    
+    // Find the current visible certificate
+    const containerScrollLeft = certsContainer.scrollLeft;
+    
+    certs.forEach((cert, index) => {
+        const certPosition = cert.offsetLeft;
+        const certWidth = cert.offsetWidth;
+        
+        // Agar certificate ka center viewport mein hai
+        if (certPosition <= containerScrollLeft + certsContainer.offsetWidth / 2 && 
+            certPosition + certWidth >= containerScrollLeft + certsContainer.offsetWidth / 2) {
+            
+            dots.forEach(d => d.classList.remove('active'));
+            dots[index].classList.add('active');
         }
+    });
+}
+
+// Event Listeners
+if (certsContainer && certsDotsContainer) {
+    // Generate dots on page load
+    generateDots();
+    updateActiveDot(); // Pehle dot ko active karein
+
+    // Scroll event par dots update karo
+    certsContainer.addEventListener('scroll', updateActiveDot);
+
+    // Left/Right buttons par scroll karo
+    scrollLeftBtn.addEventListener('click', () => {
+        certsContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+    scrollRightBtn.addEventListener('click', () => {
+        certsContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+
+    // Dots par click karne par scroll karo
+    certsDotsContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('cert-dot')) {
+            const dotIndex = e.target.dataset.index;
+            const certElement = certsContainer.children[dotIndex];
+            if (certElement) {
+                certsContainer.scrollTo({
+                    left: certElement.offsetLeft,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    });
+}
     </script>
 </body>
 </html>
