@@ -32,23 +32,21 @@
     </div>
     
     <nav>
-    <div class="logo">Aamir<span>Shahzad</span></div>
-    
-    <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </div>
-
-    <ul class="nav-links">
-        <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
+        <div class="logo">Aamir<span>Shahzad</span></div>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
     <section class="hero" id="home">
         <div id="particles-js"></div>
@@ -474,100 +472,89 @@
         showReview(currentReview);
 
         // Certifications Scroll with Dots
-// Certifications Scroll with Dots
-const certsContainer = document.querySelector('.certificates-container');
-const certsDotsContainer = document.querySelector('.cert-dots');
-const scrollLeftBtn = document.getElementById('cert-scroll-left');
-const scrollRightBtn = document.getElementById('cert-scroll-right');
+        const certsContainer = document.querySelector('.certificates-container');
+        const certsDotsContainer = document.querySelector('.cert-dots');
+        const scrollLeftBtn = document.getElementById('cert-scroll-left');
+        const scrollRightBtn = document.getElementById('cert-scroll-right');
 
-// Scroll amount ko ek certificate item ki width aur gap ke barabar set karein
-// (agar .cert-item milta hai to)
-let certItemWidth = 300; // Default value agar element na mile
-const certItem = document.querySelector('.cert-item');
-if (certItem) {
-    const certGap = 20; // Ye CSS mein aapne set kiya tha
-    certItemWidth = certItem.offsetWidth + certGap;
-}
-const scrollAmount = certItemWidth;
+        let certItemWidth = 300; 
+        const certItem = document.querySelector('.cert-item');
+        if (certItem) {
+            const certGap = 20; 
+            certItemWidth = certItem.offsetWidth + certGap;
+        }
+        const scrollAmount = certItemWidth;
 
-// Function to generate dots
-function generateDots() {
-    certsDotsContainer.innerHTML = '';
-    const totalCerts = certsContainer.children.length;
-    for (let i = 0; i < totalCerts; i++) {
-        const dot = document.createElement('div');
-        dot.classList.add('cert-dot');
-        dot.dataset.index = i;
-        certsDotsContainer.appendChild(dot);
-    }
-}
-
-// Function to update active dot
-function updateActiveDot() {
-    const certs = Array.from(certsContainer.children);
-    const dots = Array.from(certsDotsContainer.children);
-    const containerScrollLeft = certsContainer.scrollLeft;
-
-    certs.forEach((cert, index) => {
-        const certPosition = cert.offsetLeft;
-        const certWidth = cert.offsetWidth;
-
-        // Agar certificate ka center viewport mein hai
-        if (certPosition <= containerScrollLeft + certsContainer.offsetWidth / 2 &&
-            certPosition + certWidth >= containerScrollLeft + certsContainer.offsetWidth / 2) {
-            dots.forEach(d => d.classList.remove('active'));
-            if (dots[index]) {
-                dots[index].classList.add('active');
+        function generateDots() {
+            certsDotsContainer.innerHTML = '';
+            const totalCerts = certsContainer.children.length;
+            for (let i = 0; i < totalCerts; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('cert-dot');
+                dot.dataset.index = i;
+                certsDotsContainer.appendChild(dot);
             }
         }
-    });
-}
 
-// Event Listeners
-if (certsContainer && certsDotsContainer) {
-    generateDots();
-    updateActiveDot();
+        function updateActiveDot() {
+            const certs = Array.from(certsContainer.children);
+            const dots = Array.from(certsDotsContainer.children);
+            const containerScrollLeft = certsContainer.scrollLeft;
 
-    certsContainer.addEventListener('scroll', updateActiveDot);
+            certs.forEach((cert, index) => {
+                const certPosition = cert.offsetLeft;
+                const certWidth = cert.offsetWidth;
 
-    scrollLeftBtn.addEventListener('click', () => {
-        certsContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    });
-    scrollRightBtn.addEventListener('click', () => {
-        certsContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    });
-
-    certsDotsContainer.addEventListener('click', (e) => {
-        if (e.target.classList.contains('cert-dot')) {
-            const dotIndex = e.target.dataset.index;
-            const certElement = certsContainer.children[dotIndex];
-            if (certElement) {
-                certsContainer.scrollTo({
-                    left: certElement.offsetLeft,
-                    behavior: 'smooth'
-                });
-            }
-        }
-    });
-}
-        // Hamburger Menu Functionality
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (hamburger && navLinks) {
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-
-        // Close menu when a link is clicked (for smooth navigation)
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
+                if (certPosition <= containerScrollLeft + certsContainer.offsetWidth / 2 &&
+                    certPosition + certWidth >= containerScrollLeft + certsContainer.offsetWidth / 2) {
+                    dots.forEach(d => d.classList.remove('active'));
+                    if (dots[index]) {
+                        dots[index].classList.add('active');
+                    }
+                }
             });
-        });
-    }
+        }
+
+        if (certsContainer && certsDotsContainer) {
+            generateDots();
+            updateActiveDot();
+            certsContainer.addEventListener('scroll', updateActiveDot);
+            scrollLeftBtn.addEventListener('click', () => {
+                certsContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            });
+            scrollRightBtn.addEventListener('click', () => {
+                certsContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            });
+            certsDotsContainer.addEventListener('click', (e) => {
+                if (e.target.classList.contains('cert-dot')) {
+                    const dotIndex = e.target.dataset.index;
+                    const certElement = certsContainer.children[dotIndex];
+                    if (certElement) {
+                        certsContainer.scrollTo({
+                            left: certElement.offsetLeft,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        }
+        
+        // Hamburger Menu Functionality
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
     </script>
 </body>
 </html>
