@@ -101,3 +101,33 @@ const reviews = document.querySelectorAll(".review");
 const showReview = i => reviews.forEach((r, idx) => r.classList.toggle("active", idx === i));
 const nextReview = () => { currentReview = (currentReview + 1) % reviews.length; showReview(currentReview); };
 if (reviews.length) { showReview(currentReview); setInterval(nextReview, 5000); }
+
+// ================= CERTIFICATE SCROLLING =================
+const certContainer = document.querySelector('.certificates-container');
+const scrollLeftBtn = document.getElementById('cert-scroll-left');
+const scrollRightBtn = document.getElementById('cert-scroll-right');
+
+if (certContainer && scrollLeftBtn && scrollRightBtn) {
+  const checkScroll = () => {
+    scrollLeftBtn.disabled = certContainer.scrollLeft <= 0;
+    scrollRightBtn.disabled = certContainer.scrollLeft + certContainer.clientWidth >= certContainer.scrollWidth;
+  };
+
+  certContainer.addEventListener('scroll', checkScroll);
+  window.addEventListener('resize', checkScroll); // Check on resize
+  checkScroll(); // Initial check
+
+  scrollRightBtn.addEventListener('click', () => {
+    certContainer.scrollBy({
+      left: 300, // Scroll distance (adjust as needed)
+      behavior: 'smooth'
+    });
+  });
+
+  scrollLeftBtn.addEventListener('click', () => {
+    certContainer.scrollBy({
+      left: -300, // Scroll distance (adjust as needed)
+      behavior: 'smooth'
+    });
+  });
+}
