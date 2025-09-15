@@ -400,56 +400,78 @@ nav ul li a.active {
 }
 
 .portfolio-item {
-  position: relative;
-  overflow: hidden;
+  background: #fff; /* White background for the box */
+  padding: 15px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .portfolio-item:hover {
   transform: translateY(-8px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
 }
 
 .portfolio-link {
   text-decoration: none;
-  color: #fff;
+  color: #333;
 }
 
-.portfolio-item img {
+.thumbnail {
   width: 100%;
-  height: 250px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 12px; /* Stylish shape ke liye */
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  display: block;
+  transition: transform 0.4s ease;
 }
 
-.portfolio-item .overlay {
+.portfolio-item:hover .thumbnail img {
+  transform: scale(1.05);
+}
+
+.portfolio-item h3 {
+  font-size: 1.3rem;
+  color: #000080;
+  margin-bottom: 10px;
+}
+
+.hover-text {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 5px;
   opacity: 0;
-  transition: opacity 0.4s ease;
-  padding: 20px;
-  text-align: center;
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* Taaki link par click ho sake */
 }
 
-.portfolio-item:hover .overlay {
+.portfolio-item:hover .hover-text {
   opacity: 1;
 }
 
-.overlay h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: #ff9800;
+.hover-text p {
+  font-size: 1rem;
+  margin: 0;
 }
 
-.overlay p {
-  font-size: 16px;
-  color: #fff;
+/* Optional: Clean-up */
+.portfolio-item .overlay {
+  display: none; /* Old overlay code hata diya hai */
 }
 
 /* ================= COUNTER ================= */
