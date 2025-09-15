@@ -541,15 +541,17 @@ nav ul li a.active {
 
 /* ================= CERTIFICATIONS ================= */
 .certifications {
-    background-color: #f4f4f4;
+    /* Background ko Services aur Portfolio section se match kiya gaya hai */
+    background: linear-gradient(135deg, rgba(0, 0, 80, 0.85), rgba(0, 0, 30, 0.7));
     padding: 70px 20px;
     text-align: center;
     position: relative;
+    color: #fff; /* Text color ko white kar diya */
 }
 
 .certifications h2 {
     margin-bottom: 30px;
-    color: #000080;
+    color: #fff; /* Heading color ko white kar diya */
 }
 
 .certifications h2 span {
@@ -572,13 +574,14 @@ nav ul li a.active {
 .cert-item {
     min-width: 250px;
     flex-shrink: 0;
-    background: #fff;
+    background: #fff; /* Cert boxes ka color white hi rakha gaya hai */
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 25px;
     transition: transform 0.3s ease;
     white-space: normal;
     text-align: left;
+    color: #333; /* Text color ko dark kiya */
 }
 
 .cert-item:hover {
@@ -597,9 +600,10 @@ nav ul li a.active {
     margin-bottom: 15px;
 }
 
+/* "View Certificate" button ko Hire Me button se match kiya gaya hai */
 .cert-link {
     display: inline-block;
-    background: #ff9800;
+    background: linear-gradient(90deg, #FFF1DE, #f59e0b);
     color: #fff;
     padding: 8px 15px;
     border-radius: 5px;
@@ -609,7 +613,8 @@ nav ul li a.active {
 }
 
 .cert-link:hover {
-    background-color: #e68a00;
+    background: #fff;
+    color: #ff9800;
 }
 
 /* Scroll buttons styling */
@@ -646,6 +651,32 @@ nav ul li a.active {
 .scroll-btn:disabled {
     opacity: 0.4;
     cursor: not-allowed;
+}
+
+/* Dot Indicators Styling */
+.cert-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 8px; /* Dots ke beech ki space */
+}
+
+.cert-dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5); /* Inactive dots ka color white/transparent */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cert-dot.active {
+    background-color: #ff9800; /* Active dot ka color orange */
+    transform: scale(1.2); /* Active dot thoda bada hoga */
+}
+
+.cert-dot:hover {
+    background-color: #ff9800;
 }
 
 /* ================= CONTACT ================= */
