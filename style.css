@@ -550,74 +550,114 @@ nav ul li a.active {
 }
 
 /* ================= CERTIFICATIONS ================= */
+/* ================= CERTIFICATIONS ================= */
 .certifications {
-  background: linear-gradient(135deg, rgba(0, 0, 80, 0.85), rgba(0, 0, 30, 0.7));
-  text-align: center;
+  background-color: #f4f4f4;
   padding: 70px 20px;
-  color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+.certifications h2 {
+  margin-bottom: 30px;
+  color: #000080;
 }
 
 .certifications h2 span {
   color: #ff9800;
 }
 
-.cert-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  margin-top: 40px;
+.certificates-container {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 20px;
+  overflow-x: hidden; /* Hide the default scrollbar */
+  scroll-behavior: smooth; /* Smooth scroll effect */
+  white-space: nowrap; /* Keep elements in a single line */
+}
+
+/* Hide scrollbar for Chrome, Safari, and Edge */
+.certificates-container::-webkit-scrollbar {
+  display: none;
 }
 
 .cert-item {
+  min-width: 250px;
+  flex-shrink: 0; /* Prevent items from shrinking */
   background: #fff;
-  padding: 25px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  transition: transform 0.3s ease;
+  white-space: normal; /* Allow text to wrap within the box */
   text-align: left;
-  transition: all 0.3s ease;
-  color: #333; /* Default text color for the card */
 }
 
 .cert-item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+  transform: translateY(-5px);
 }
 
 .cert-item h3 {
-  font-size: 1.3rem;
-  margin-bottom: 12px;
-  color: #000080; /* Dark blue heading */
+  font-size: 1.2rem;
+  color: #000080;
+  margin-bottom: 10px;
 }
 
 .cert-item p {
-  font-size: 0.95rem;
-  color: #666; /* Light gray text */
-  margin-bottom: 20px;
-  line-height: 1.5;
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
 }
 
 .cert-link {
   display: inline-block;
-  padding: 10px 20px;
-  background: linear-gradient(90deg, #FFF1DE, #f59e0b);
+  background: #ff9800;
   color: #fff;
+  padding: 8px 15px;
   border-radius: 5px;
   text-decoration: none;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .cert-link:hover {
-  background: #fff;
-  color: #ff9800;
-  border: 1px solid #ff9800;
+  background-color: #e68a00;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .cert-container {
-    grid-template-columns: 1fr;
-  }
+/* Scroll buttons styling */
+.cert-controls {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  z-index: 10;
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+.scroll-btn {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  pointer-events: all; /* Make buttons clickable */
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-btn:hover {
+  background-color: #000;
+}
+
+.scroll-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 /* ================= CONTACT ================= */
