@@ -1,4 +1,4 @@
-/* ================= GENERAL STYLES ================= */
+       /* ================= GENERAL STYLES ================= */
         * {
             margin: 0;
             padding: 0;
@@ -767,6 +767,7 @@
             margin: 0;
         }
 
+        /* Right side group (Contact + About + Resources) */
         .footer-right {
             display: flex;
             gap: 30px;
@@ -844,76 +845,118 @@
             color: #fff;
         }
 
-/* ================= RESPONSIVE STYLES ================= */
-@media (max-width: 1024px) {
-    /* Navbar fixed for tablet view */
-    nav {
-        flex-direction: column;
-        align-items: center;
-    }
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: 10px 0 0;
-        gap: 20px;
-    }
-    
-    .about { flex-direction: column; }
-    .hero-text h1 { font-size: 32px; }
-    .hero-text h2 { font-size: 20px; }
-    .service-container, .portfolio-container, .counter-container {
-        grid-template-columns: 1fr;
-    }
-    
-    /* Footer responsiveness */
-    .footer-top {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 0 20px;
-    }
-    .logo-col {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    .footer-right {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-        text-align: left;
-    }
-    .footer-col {
-        width: 100%;
-        text-align: center;
-    }
-    .footer-col ul li a, .footer-col ul li span {
-        justify-content: center;
-    }
-}
+        /* ================= RESPONSIVE STYLES ================= */
 
-/* Styles specifically for mobile phones (up to 768px) */
-@media (max-width: 768px) {
-    .about {
-        padding: 20px 15px;
-    }
-    .about-text {
-        padding: 20px 0;
-    }
-    .about-img img {
-        max-width: 100%;
-    }
-    .logo-col {
-        margin-bottom: 20px;
-        text-align: center;
-    }
-    .logo-col img {
-        max-width: 100px;
-    }
-    .logo-col .tagline {
-        font-size: 16px;
-    }
-  }  
+        /* Styles for tablets and smaller screens (up to 1024px) */
+        @media (max-width: 1024px) {
+            /* Navbar fixed for tablet view */
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                margin: 10px 0 0;
+                gap: 20px;
+            }
+            
+            .about { flex-direction: column; }
+            .hero-text h1 { font-size: 32px; }
+            .hero-text h2 { font-size: 20px; }
+            .service-container, .portfolio-container, .counter-container {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Footer responsiveness */
+            .footer-top {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 0 20px;
+            }
+            .logo-col {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .footer-right {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                text-align: left;
+            }
+            .footer-col {
+                width: 100%;
+                text-align: center;
+            }
+            .footer-col ul li a, .footer-col ul li span {
+                justify-content: center;
+            }
+        }
+
+        /* Styles specifically for mobile phones (up to 768px) */
+        @media (max-width: 768px) {
+            /* Navbar links fix */
+            nav {
+                padding: 10px 0; /* Reduced padding on top/bottom */
+            }
+            nav .logo {
+                margin: 0 20px; /* Add margin for logo */
+            }
+            nav ul {
+                width: 100%;
+                gap: 0;
+                justify-content: space-around;
+                padding: 0 10px;
+            }
+            nav ul li a {
+                font-size: 14px;
+                padding: 5px;
+            }
+
+            /* About section padding fix */
+            .about {
+                padding: 20px 15px;
+            }
+            .about-text {
+                padding: 20px 0;
+            }
+            .about-img img {
+                max-width: 100%;
+            }
+
+            /* Footer Fix for Mobile Phones */
+            .footer-top {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .footer-right {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .footer-col {
+                flex: 1 1 30%;
+                max-width: 150px;
+            }
+
+            .footer-col h4 {
+                font-size: 16px;
+                text-align: center;
+            }
+            .footer-col ul li a,
+            .footer-col ul li span {
+                font-size: 12px;
+                justify-content: center;
+                text-align: left;
+            }
+        }
 
 html, body { 
     overflow-x: hidden; 
