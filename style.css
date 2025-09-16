@@ -913,27 +913,28 @@ nav ul li a.active {
 
     /* Footer Fix for Mobile Phones */
     .footer-top {
-        /* Set to column so logo is on top, and columns are below */
-        flex-direction: column;
-        align-items: center; /* This will center everything inside */
+        flex-direction: column; /* This stacks the logo on top */
+        align-items: center; /* This centers the logo and footer-right container */
         gap: 20px;
     }
+
     .footer-right {
-        /* Align the columns horizontally in the center */
+        /* The main fix: this container will make the columns horizontal */
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-        width: 100%; /* Ensure it takes full width to center its content */
+        justify-content: space-around; /* Space out the columns evenly */
+        width: 100%;
+        padding: 0 5px; /* Add some small padding to the sides */
     }
+
     .footer-col {
-        flex: 1 1 120px; /* Allow columns to grow/shrink with a minimum width */
-        max-width: 150px; /* Optional: Prevents columns from getting too wide */
-        text-align: left; /* Aligns text within each column */
+        /* Let columns have a minimum width and grow equally */
+        flex: 1 1 30%; /* This is the key change to align all three on one line */
+        max-width: 150px; 
+        text-align: center; /* Center-align the text in each column */
     }
     .footer-col h4 {
         font-size: 16px;
-        text-align: center; /* Center the headings */
     }
     .footer-col ul {
         padding-left: 0;
@@ -941,9 +942,10 @@ nav ul li a.active {
     .footer-col ul li a,
     .footer-col ul li span {
         font-size: 12px;
-        justify-content: left; /* Align links to the left inside the column */
+        justify-content: center; /* Center the links and icons */
     }
 }
+ 
 html, body {
     max-width: 100%;
     overflow-x: hidden;
