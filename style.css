@@ -276,6 +276,16 @@ nav ul li a.active {
     align-items: center;
 }
 
+* Add this media query for mobile devices */
+@media (max-width: 768px) {
+    .about {
+        padding: 20px 15px; /* Adjust padding for smaller screens */
+    }
+    .about-img img {
+        max-width: 100%; /* Ensure image is not wider than the screen */
+    }
+}
+
 .about-img img {
     max-width: 500px;
 }
@@ -300,7 +310,7 @@ nav ul li a.active {
 }
 
 .about-text .btn {
-    color: #ff9800:
+    color: #ff9800;
 }
 
 /* ================= SERVICES ================= */
@@ -844,6 +854,16 @@ nav ul li a.active {
     .service-container, .portfolio-container, .counter-container {
         grid-template-columns: 1fr;
     }
+
+    nav ul {
+        flex-wrap: wrap; /* Ya toh wrap kar dein */
+        justify-content: center; /* Center me align kar sakte hain */
+        gap: 15px; /* Links ke beech ka gap kam kar dein */
+    }
+    nav ul li a {
+        font-size: 16px; /* Buttons ka font size bhi kam kar sakte hain */
+    }
+    
     .footer-top {
         flex-direction: column;
         text-align: center;
