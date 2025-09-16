@@ -883,8 +883,6 @@ nav ul li a.active {
     }
 }
 
----
-
 /* Styles specifically for mobile phones (up to 768px) */
 @media (max-width: 768px) {
     /* Navbar links fix */
@@ -897,37 +895,46 @@ nav ul li a.active {
     }
 
     /* About section padding fix */
-    .about { padding: 20px 15px; }
-    .about-text { padding: 20px 0; }
-    .about-img img { max-width: 100%; }
+    .about {
+        padding: 20px 15px;
+    }
+    .about-text {
+        padding: 20px 0;
+    }
+    .about-img img {
+        max-width: 100%;
+    }
 
-    /* The ultimate fix for the footer columns */
+    /* Footer Fix for Mobile Phones */
     .footer-top {
         flex-direction: column;
         align-items: center;
         gap: 20px;
-    }
+    }}
+
     .footer-right {
-        flex-direction: row;
+        /* This is the key change: Ensure columns are in a row */
+        flex-direction: row; 
         flex-wrap: wrap;
-        justify-content: space-around;
-        width: 100%;
-        padding: 0 5px;
+        justify-content: space-around;;
+        gap: 15px; /* Reduced gap for smaller screens */
+        text-align: center;
     }
+
     .footer-col {
-        **flex: 1 1 30%;**
-        max-width: 150px;
+        /* This will make the columns fit on a single line on mobile */
+        flex: 1 1 auto;
+        min-width: 80px; /* Smallest they can be */
+        padding: 0 5px; /* Add some padding to prevent text from touching */
     }
 
     .footer-col h4 {
-        font-size: 16px;
+        font-size: 16px; /* Reduced font size for mobile */
         text-align: center;
     }
-    .footer-col ul {
-        padding-left: 0;
-    }
-    .footer-col ul li a, .footer-col ul li span {
-        font-size: 12px;
+    .footer-col ul li a,
+    .footer-col ul li span {
+        font-size: 12px; /* Reduced link font size */
         justify-content: center;
         text-align: left;
     }
