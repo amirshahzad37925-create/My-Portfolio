@@ -897,7 +897,9 @@
 @media (max-width: 768px) {
     /* About section padding fix */
        .footer {
-        padding: 10px 0; /* Footer ka overall padding kam kar diya */
+        padding: 20px 0; /* Bottom padding bilkul kam kar di */
+        height: auto; /* Ensure height is not fixed */
+        min-height: auto;
     }
     .about {
         padding: 20px 15px;
@@ -911,15 +913,16 @@
 
     /* 👇 Corrected Footer CSS for Mobile 👇 */
     .footer-top {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        padding: 0; /* Isko zero kar do! */
+        display: flex; /* Flexbox ko force kiya */
+        flex-direction: column; /* Logo aur columns ko aik ke neeche aik rakho */
+        align-items: center; /* Sab ko center me rakho */
+        padding: 0; /* Iski padding bilkul zero kar di */
+        margin: 0;
     }
        
     .logo-col {
         text-align: center;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
     }
     .logo-col img {
         max-width: 100px;
@@ -929,17 +932,20 @@
     }
        
     .footer-right {
-        justify-content: space-around; /* Columns ko barabar jagah dene ke liye */
+        display: flex;
+        flex-direction: row; /* Columns aik row mein hain */
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 5px;
         width: 100%;
-        gap: 5px; /* Columns ke beech ki space kam kar di */
-        padding: 0;
+        padding: 10px 0; /* Isko bhi kam padding di */
     }
        
     .footer-col {
-        flex: 1; /* Har column ko barabar space do */
-        max-width: none; /* Max-width hata di, taake woh chote na hon */
-        text-align: center;
+        flex: 1 1 30%; /* Har column ko barabar space do */
+        max-width: none;
         padding: 0 5px;
+        margin: 0;
     }
        
     .footer-col h4 {
