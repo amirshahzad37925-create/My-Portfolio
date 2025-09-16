@@ -767,7 +767,7 @@
             margin: 0;
         }
 
-        .footer-columns {
+        .footer-right {
             display: flex;
             gap: 30px;
             flex: 2 1 500px;
@@ -876,7 +876,7 @@
         text-align: center;
         margin-bottom: 20px;
     }
-    .footer-columns {
+    .footer-right {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
@@ -894,9 +894,6 @@
 
 /* Styles specifically for mobile phones (up to 768px) */
 @media (max-width: 768px) {
-    .footer {
-        padding: 20px 0 0; /* Top padding is 20px, but no bottom padding */
-    }
     .about {
         padding: 20px 15px;
     }
@@ -906,19 +903,6 @@
     .about-img img {
         max-width: 100%;
     }
-
-    .footer-top {
-        flex-direction: column; /* This will stack the logo and columns */
-        align-items: center; /* Center them horizontally */
-        gap: 20px;
-        padding: 0;
-    }
-    .footer-main-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }   
     .logo-col {
         margin-bottom: 20px;
         text-align: center;
@@ -929,63 +913,7 @@
     .logo-col .tagline {
         font-size: 16px;
     }
-       
-    .footer-columns {
-        display: flex;
-        flex-direction: column; /* All columns will stack vertically */
-        align-items: flex-start; /* Aligns content to the left */
-        width: 100%;
-        gap: 15px; /* Adds space between each column */
-        padding: 0 20px;
-    }
-       
-    .footer-col {
-        width: 100%; /* Each column takes full width */
-        margin-bottom: 0;
-        padding: 0;
-    }
-       
-    .footer-col h4 {
-        font-size: 14px;
-        text-align: center;
-        margin-bottom: 5px;
-    }
-    .footer-col ul li {
-        margin: 3px 0;
-    }
-       
-    .footer-col ul li a,
-    .footer-col ul li span {
-        font-size: 11px;
-        justify-content: center;
-        text-align: center;
-        gap: 4px;
-    }
-       
-    .social-icons {
-        justify-content: center;
-        display: flex;
-        margin-top: 10px;
-    }
-       
-    .social-icons a {
-        font-size: 14px;
-        margin: 0 8px; /* Correct spacing for social icons */
-    }
-       
-    .footer-bottom {
-        text-align: center;
-        padding: 10px 0;
-        margin-top: 15px;
-    }  
-    .footer-bottom p {
-        font-size: 11px;
-    }
-       logo-col, .footer-col {
-        padding-bottom: 0;
-        margin-bottom: 0;
-    }
-}
+  }  
 
 html, body { 
     overflow-x: hidden; 
