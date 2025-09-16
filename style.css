@@ -767,8 +767,7 @@
             margin: 0;
         }
 
-        /* Right side group (Contact + About + Resources) */
-        .footer-right {
+        .footer-columns {
             display: flex;
             gap: 30px;
             flex: 2 1 500px;
@@ -877,7 +876,7 @@
         text-align: center;
         margin-bottom: 20px;
     }
-    .footer-right {
+    .footer-columns {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
@@ -895,11 +894,8 @@
 
 /* Styles specifically for mobile phones (up to 768px) */
 @media (max-width: 768px) {
-    /* About section padding fix */
-       .footer {
-        padding: 20px 0 0; /* Bottom padding bilkul kam kar di */
-        height: auto; /* Ensure height is not fixed */
-        min-height: auto;
+    .footer {
+        padding: 20px 0 0; /* Top padding is 20px, but no bottom padding */
     }
     .about {
         padding: 20px 15px;
@@ -911,20 +907,21 @@
         max-width: 100%;
     }
 
-    /* 👇 Corrected Footer CSS for Mobile 👇 */
     .footer-top {
-        display: flex; /* Flexbox ko force kiya */
-        flex-direction: column; /* Logo aur columns ko aik ke neeche aik rakho */
-        align-items: center; /* Sab ko center me rakho */
-        padding: 0; /* Iski padding bilkul zero kar di */
-        margin: 0;
-        padding-bottom: 0;
-        margin-bottom: 0;
+        flex-direction: column; /* This will stack the logo and columns */
+        align-items: center; /* Center them horizontally */
+        gap: 20px;
+        padding: 0;
     }
-       
+    .footer-main-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }   
     .logo-col {
+        margin-bottom: 20px;
         text-align: center;
-        margin-bottom: 10px;
     }
     .logo-col img {
         max-width: 100px;
@@ -933,21 +930,19 @@
         font-size: 16px;
     }
        
-    .footer-right {
+    .footer-columns {
         display: flex;
-        flex-direction: row; /* Columns aik row mein hain */
-        flex-wrap: wrap;
-        justify-content: space-around;
-        gap: 5px;
+        flex-direction: column; /* All columns will stack vertically */
+        align-items: flex-start; /* Aligns content to the left */
         width: 100%;
-        padding: 10px 0; /* Isko bhi kam padding di */
+        gap: 15px; /* Adds space between each column */
+        padding: 0 20px;
     }
        
     .footer-col {
-        flex: 1 1 30%; /* Har column ko barabar space do */
-        max-width: none;
-        padding: 0 5px;
-        margin: 0;
+        width: 100%; /* Each column takes full width */
+        margin-bottom: 0;
+        padding: 0;
     }
        
     .footer-col h4 {
@@ -975,14 +970,14 @@
        
     .social-icons a {
         font-size: 14px;
+        margin: 0 8px; /* Correct spacing for social icons */
     }
        
     .footer-bottom {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        margin-top: 0;
-    }
-       
+        text-align: center;
+        padding: 10px 0;
+        margin-top: 15px;
+    }  
     .footer-bottom p {
         font-size: 11px;
     }
