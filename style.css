@@ -756,7 +756,7 @@ nav ul li a.active {
 }
 
 .logo-col img {
-    max-width: 150px;
+    max-width: 1350px;
     margin-bottom: 12px;
 }
 
@@ -856,33 +856,33 @@ nav ul li a.active {
     }
     
     .footer-top {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
+        flex-direction: row; /* Set the main footer container to row */
+        flex-wrap: wrap; /* Allow columns to wrap to the next line */
+        justify-content: center; /* Center the columns */
+        align-items: flex-start; /* Align columns to the top */
         padding: 0 20px;
+        gap: 30px; /* Add a gap between the columns */
     }
+
     .logo-col {
+        flex: 1 1 100%;
         text-align: center;
         margin-bottom: 20px;
     }
+    
     .footer-right {
-        /* This is the change: Columns will now be in a row. */
-        flex-direction: row; 
-        
-        /* Flex-wrap will ensure columns move to a new line if the screen is too narrow. */
-        flex-wrap: wrap; 
-
-        /* Align items to the center horizontally for a clean look. */
-        justify-content: center; 
-        
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 20px;
-        align-items: center;
         text-align: center;
     }
     
     .footer-col {
-        width: 100%;
+        flex: 1 1 150px; /* Allow columns to grow and shrink, with a minimum width */
+        width: auto;
     }
+    
     .footer-col ul li a,
     .footer-col ul li span {
         justify-content: center;
@@ -895,15 +895,13 @@ nav ul li a.active {
         gap: 15px;
     }
 
-    /* About section fix:
-       Added padding for the inner text block to prevent it from touching the edge */
     .about {
         padding: 20px 15px;
     }
     .about-text {
-        padding: 20px 0; /* Left and right padding removed here,
-                            relying on the parent `.about` padding */
+        padding: 20px 0;
     }
+    
     .about-img img {
         max-width: 100%;
     }
