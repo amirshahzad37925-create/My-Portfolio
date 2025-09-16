@@ -4,16 +4,18 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-}
+
 
 body {
     line-height: 1.6;
     color: #333;
     background: #fff;
+    overflow-x: hidden; 
 }
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 section {
@@ -162,6 +164,8 @@ nav ul {
     list-style: none;
     display: flex;
     gap: 30px;
+    /* Fix: Add a small horizontal margin to ensure spacing from the edges */
+    margin: 0 10px;
 }
 
 nav ul li a {
@@ -846,10 +850,19 @@ nav ul li a.active {
 }
 
 /* ================= RESPONSIVE STYLES ================= */
-
-/* Styles for tablets and smaller screens (up to 1024px) */
 @media (max-width: 1024px) {
-    nav { flex-direction: column; }
+    /* Navbar fixed for tablet view */
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 10px 0 0;
+        gap: 20px;
+    }
+    
     .about { flex-direction: column; }
     .hero-text h1 { font-size: 32px; }
     .hero-text h2 { font-size: 20px; }
@@ -857,6 +870,7 @@ nav ul li a.active {
         grid-template-columns: 1fr;
     }
     
+    /* Footer responsiveness */
     .footer-top {
         flex-direction: column;
         align-items: center;
@@ -886,12 +900,23 @@ nav ul li a.active {
 /* Styles specifically for mobile phones (up to 768px) */
 @media (max-width: 768px) {
     /* Navbar links fix */
+    nav {
+        padding: 10px 0; /* Reduced padding on top/bottom */
+    }
+    nav .logo {
+        margin: 0 20px; /* Add margin for logo */
+    }
     nav ul {
-        gap: 10px;
-        justify-content: space-between;
+        /* This is the key change for nav bar spacing */
+        width: 100%;
+        gap: 0; /* Remove gap */
+        justify-content: space-around; /* Use space-around for even spacing */
+        padding: 0 10px; /* Add padding to the nav ul itself */
     }
     nav ul li a {
         font-size: 14px;
+        /* Ensure links don't get too close to each other */
+        padding: 5px;
     }
 
     /* About section padding fix */
@@ -910,35 +935,30 @@ nav ul li a.active {
         flex-direction: column;
         align-items: center;
         gap: 20px;
-    }}
+    }
 
     .footer-right {
-        /* This is the key change: Ensure columns are in a row */
-        flex-direction: row; 
+        flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-around;
-        gap: 15px; /* Reduced gap for smaller screens */
+        justify-content: center;
+        gap: 15px;
         text-align: center;
     }
 
     .footer-col {
-        **flex: 1 1 30%;**
+        /* Change this to a percentage or a max-width to control wrapping */
+        flex: 1 1 30%;
         max-width: 150px;
     }
 
     .footer-col h4 {
-        font-size: 16px; /* Reduced font size for mobile */
+        font-size: 16px;
         text-align: center;
     }
     .footer-col ul li a,
     .footer-col ul li span {
-        font-size: 12px; /* Reduced link font size */
+        font-size: 12px;
         justify-content: center;
         text-align: left;
     }
-}
-
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
 }
