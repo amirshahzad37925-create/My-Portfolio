@@ -1742,6 +1742,10 @@
 /* Styles specifically for mobile phones (up to 768px) */
 @media (max-width: 768px) {
     /* About section padding fix */
+       footer {
+        height: auto !important; /* height: 770px; ko is se replace kar do */
+        min-height: auto;
+    }
     .about {
         padding: 20px 15px;
     }
