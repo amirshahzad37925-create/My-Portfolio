@@ -856,20 +856,15 @@ nav ul li a.active {
     }
     
     .footer-top {
-        flex-direction: row; /* Set the main footer container to row */
-        flex-wrap: wrap; /* Allow columns to wrap to the next line */
-        justify-content: center; /* Center the columns */
-        align-items: flex-start; /* Align columns to the top */
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
         padding: 0 20px;
-        gap: 30px; /* Add a gap between the columns */
     }
-
     .logo-col {
-        flex: 1 1 100%;
         text-align: center;
         margin-bottom: 20px;
     }
-    
     .footer-right {
         flex-direction: row;
         flex-wrap: wrap;
@@ -877,19 +872,19 @@ nav ul li a.active {
         gap: 20px;
         text-align: left;
     }
-    
     .footer-col {
-        flex: 1 1 150px; /* Allow columns to grow and shrink, with a minimum width */
-        width: auto;
+        width: 100%;
         text-align: center;
     }
-    
     .footer-col ul li a,
     .footer-col ul li span {
         justify-content: center;
     }
 }
 
+---
+### **Final CSS for Mobile Devices**
+/* Styles specifically for mobile phones (up to 768px) */
 @media (max-width: 768px) {
     /* Navbar links fix */
     nav ul {
@@ -913,28 +908,24 @@ nav ul li a.active {
 
     /* Footer Fix for Mobile Phones */
     .footer-top {
-        flex-direction: column; /* This stacks the logo on top */
-        align-items: center; /* This centers the logo and footer-right container */
+        flex-direction: column;
+        align-items: center;
         gap: 20px;
     }
-
     .footer-right {
-        /* The main fix: this container will make the columns horizontal */
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-around; /* Space out the columns evenly */
+        justify-content: space-around;
         width: 100%;
-        padding: 0 5px; /* Add some small padding to the sides */
+        padding: 0 5px;
     }
-
     .footer-col {
-        /* Let columns have a minimum width and grow equally */
-        flex: 1 1 30%; /* This is the key change to align all three on one line */
-        max-width: 150px; 
-        text-align: center; /* Center-align the text in each column */
+        flex: 1 1 30%;
+        max-width: 150px;
     }
     .footer-col h4 {
         font-size: 16px;
+        text-align: center;
     }
     .footer-col ul {
         padding-left: 0;
@@ -942,7 +933,7 @@ nav ul li a.active {
     .footer-col ul li a,
     .footer-col ul li span {
         font-size: 12px;
-        justify-content: center; /* Center the links and icons */
+        justify-content: left;
     }
 }
  
