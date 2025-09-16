@@ -141,7 +141,7 @@ nav {
     width: 100%;
     background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(10px);
-    padding: 15px 20px;
+    padding: 12px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -272,13 +272,14 @@ nav ul li a.active {
     background: #ffffff;
     display: flex;
     flex-wrap: wrap;
-    padding: 60px 20px;
+    padding: 30px 20px;
     align-items: center;
 }
 
 .about-img img {
     max-width: 500px;
     img-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    animation: zoomInOut 3s ease-in-out infinite;
 }
 
 .about-text {
