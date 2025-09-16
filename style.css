@@ -278,8 +278,6 @@ nav ul li a.active {
 
 .about-img img {
     max-width: 500px;
-    img-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    animation: zoomInOut 3s ease-in-out infinite;
 }
 
 .about-text {
@@ -299,6 +297,10 @@ nav ul li a.active {
 .about-text .info li {
     margin-bottom: 8px;
     color: #333;
+}
+
+.about-text .btn {
+    color: #ff9800:
 }
 
 /* ================= SERVICES ================= */
