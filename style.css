@@ -916,16 +916,14 @@ nav ul li a.active {
         /* This is the key change: Ensure columns are in a row */
         flex-direction: row; 
         flex-wrap: wrap;
-        justify-content: space-around;;
+        justify-content: space-around;
         gap: 15px; /* Reduced gap for smaller screens */
         text-align: center;
     }
 
     .footer-col {
-        /* This will make the columns fit on a single line on mobile */
-        flex: 1 1 auto;
-        min-width: 80px; /* Smallest they can be */
-        padding: 0 5px; /* Add some padding to prevent text from touching */
+        **flex: 1 1 30%;**
+        max-width: 150px;
     }
 
     .footer-col h4 {
