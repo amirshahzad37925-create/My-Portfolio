@@ -276,18 +276,6 @@ nav ul li a.active {
     align-items: center;
 }
 
-.about-img img {
-    max-width: 280px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    animation: zoomInOut 3s ease-in-out infinite;
-}
-
-@keyframes zoomInOut {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-
 .about-text {
     flex: 1;
     padding: 20px;
