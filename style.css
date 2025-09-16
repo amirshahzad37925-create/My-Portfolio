@@ -1691,74 +1691,56 @@
         .footer-bottom a:hover {
             color: #fff;
         }
-
-        /* ================= RESPONSIVE STYLES ================= */
+/* ================= RESPONSIVE STYLES ================= */
 @media (max-width: 1024px) {
-            /* Navbar fixed for tablet view */
-            nav {
-                flex-direction: column;
-                align-items: center;
-            }
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-                margin: 10px 0 0;
-                gap: 20px;
-            }
-            
-            .about { flex-direction: column; }
-            .hero-text h1 { font-size: 32px; }
-            .hero-text h2 { font-size: 20px; }
-            .service-container, .portfolio-container, .counter-container {
-                grid-template-columns: 1fr;
-            }
-            
-            /* Footer responsiveness */
-            .footer-top {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: 0 20px;
-            }
-            .logo-col {
-                text-align: center;
-                margin-bottom: 20px;
-            }
-            .footer-right {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 20px;
-                text-align: left;
-            }
-            .footer-col {
-                width: 100%;
-                text-align: center;
-            }
-            .footer-col ul li a, .footer-col ul li span {
-                justify-content: center;
-            }
-        }
-
-@media (max-width: 768px) {
-    /* Navbar links fix */
+    /* Navbar fixed for tablet view */
     nav {
-        padding: 10px 0;
-    }
-    nav .logo {
-        margin: 0 20px;
+        flex-direction: column;
+        align-items: center;
     }
     nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 10px 0 0;
+        gap: 20px;
+    }
+    
+    .about { flex-direction: column; }
+    .hero-text h1 { font-size: 32px; }
+    .hero-text h2 { font-size: 20px; }
+    .service-container, .portfolio-container, .counter-container {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Footer responsiveness */
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0 20px;
+    }
+    .logo-col {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .footer-right {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        text-align: left;
+    }
+    .footer-col {
         width: 100%;
-        gap: 0;
-        justify-content: space-around;
-        padding: 0 10px;
+        text-align: center;
     }
-    nav ul li a {
-        font-size: 14px;
-        padding: 5px;
+    .footer-col ul li a, .footer-col ul li span {
+        justify-content: center;
     }
+}
 
+/* Styles specifically for mobile phones (up to 768px) */
+@media (max-width: 768px) {
     /* About section padding fix */
     .about {
         padding: 20px 15px;
@@ -1770,78 +1752,67 @@
         max-width: 100%;
     }
 
-    /* 👇 Updated Footer CSS for Mobile 👇 */
+    /* 👇 Corrected Footer CSS for Mobile 👇 */
     .footer-top {
         flex-direction: column;
         align-items: center;
-        gap: 15px; /* Reduced gap */
-        padding: 20px 10px; /* Reduced padding on all sides */
+        gap: 15px;
+        padding: 20px 10px;
     }
-
     .logo-col {
         text-align: center;
-        margin-bottom: 15px; /* Reduced bottom margin */
+        margin-bottom: 15px;
     }
-
     .logo-col img {
-        max-width: 100px; /* Smaller logo size */
+        max-width: 100px;
     }
-
     .logo-col .tagline {
-        font-size: 16px; /* Smaller font size for tagline */
+        font-size: 16px;
     }
-
     .footer-right {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 10px; /* Reduced gap between columns */
+        gap: 10px;
         width: 100%;
     }
-
     .footer-col {
         flex: 1 1 30%;
-        max-width: 120px; /* Reduced max-width for each column */
+        max-width: 120px;
         text-align: center;
         padding: 0 5px;
     }
-    
     .footer-col h4 {
-        font-size: 14px; /* Smaller heading font size */
+        font-size: 14px;
         text-align: center;
-        margin-bottom: 5px; /* Reduced bottom margin */
+        margin-bottom: 5px;
     }
-    
     .footer-col ul li {
-        margin: 3px 0; /* Minimized space between list items */
+        margin: 3px 0;
     }
-    
     .footer-col ul li a,
     .footer-col ul li span {
-        font-size: 11px; /* Very small font size for links */
+        font-size: 11px;
         justify-content: center;
         text-align: center;
         gap: 4px;
     }
-    
     .social-icons {
         justify-content: center;
         display: flex;
-        margin-top: 10px; /* Added margin to separate from links */
+        margin-top: 10px;
     }
-
     .social-icons a {
-        font-size: 14px; /* Smaller icon size */
+        font-size: 14px;
     }
-
     .footer-bottom {
-        padding: 10px 0; /* Reduced padding */
+        padding: 10px 0;
     }
-
     .footer-bottom p {
-        font-size: 11px; /* Reduced copyright text font size */
+        font-size: 11px;
     }
 }
+
 html, body { 
     overflow-x: hidden; 
 }
