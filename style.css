@@ -1743,7 +1743,7 @@
 @media (max-width: 768px) {
     /* About section padding fix */
        footer {
-        height: auto !important; /* height: 770px; ko is se replace kar do */
+        height: 400; /* height: 770px; ko is se replace kar do */
         min-height: auto;
     }
     .about {
