@@ -854,15 +854,6 @@ nav ul li a.active {
     .service-container, .portfolio-container, .counter-container {
         grid-template-columns: 1fr;
     }
-
-    nav ul {
-        flex-wrap: wrap; /* Ya toh wrap kar dein */
-        justify-content: center; /* Center me align kar sakte hain */
-        gap: 15px; /* Links ke beech ka gap kam kar dein */
-    }
-    nav ul li a {
-        font-size: 16px; /* Buttons ka font size bhi kam kar sakte hain */
-    }
     
     .footer-top {
         flex-direction: column;
@@ -875,17 +866,46 @@ nav ul li a.active {
         margin-bottom: 20px;
     }
     .footer-right {
-        flex-direction: column;
+        /* This is the change: Columns will now be in a row. */
+        flex-direction: row; 
+        
+        /* Flex-wrap will ensure columns move to a new line if the screen is too narrow. */
+        flex-wrap: wrap; 
+
+        /* Align items to the center horizontally for a clean look. */
+        justify-content: center; 
+        
         gap: 20px;
         align-items: center;
         text-align: center;
     }
+    
     .footer-col {
         width: 100%;
     }
     .footer-col ul li a,
     .footer-col ul li span {
         justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Navbar fix */
+    nav ul {
+        gap: 15px;
+    }
+
+    /* About section fix:
+       Added padding for the inner text block to prevent it from touching the edge */
+    .about {
+        padding: 20px 15px;
+    }
+    .about-text {
+        padding: 20px 0; /* Left and right padding removed here,
+                            relying on the parent `.about` padding */
+    }
+    .about-img img {
+        max-width: 100%;
     }
 }
 
