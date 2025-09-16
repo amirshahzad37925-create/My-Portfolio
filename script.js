@@ -56,7 +56,7 @@ navLinks.forEach(link => {
 });
 
 // ================= TYPING TEXT =================
-const texts = ["Lead Generation Specialist", "Market Expert", "Top Talent Freelancer"];
+const texts = ["Lead Generation Specialist", "Web Research Expert", "Freelancer"];
 let count = 0, index = 0;
 const typingEl = document.querySelector(".typing-text");
 function typeText() {
