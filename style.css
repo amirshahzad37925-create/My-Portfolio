@@ -897,7 +897,7 @@
 @media (max-width: 768px) {
     /* About section padding fix */
        .footer {
-        padding: 50px 0; /* Bottom padding bilkul kam kar di */
+        padding: 20px 0 0; /* Bottom padding bilkul kam kar di */
         height: auto; /* Ensure height is not fixed */
         min-height: auto;
     }
@@ -918,6 +918,8 @@
         align-items: center; /* Sab ko center me rakho */
         padding: 0; /* Iski padding bilkul zero kar di */
         margin: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
     }
        
     .logo-col {
@@ -976,11 +978,17 @@
     }
        
     .footer-bottom {
-        padding: 10px 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-top: 0;
     }
        
     .footer-bottom p {
         font-size: 11px;
+    }
+       logo-col, .footer-col {
+        padding-bottom: 0;
+        margin-bottom: 0;
     }
 }
 
