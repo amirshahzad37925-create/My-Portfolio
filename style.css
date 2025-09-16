@@ -276,6 +276,11 @@ nav ul li a.active {
     align-items: center;
 }
 
+.about-img img {
+    max-width: 500px;
+    img-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
 .about-text {
     flex: 1;
     padding: 20px;
