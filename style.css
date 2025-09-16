@@ -890,22 +890,54 @@ nav ul li a.active {
 }
 
 @media (max-width: 768px) {
+    /* Navbar links fix */
     nav ul {
-        gap: 10px; /* Reduced gap to fit all links */
-        justify-content: space-between; /* This will distribute links evenly */
+        gap: 10px;
+        justify-content: space-between;
     }
     nav ul li a {
-        font-size: 14px; /* Reduced font size to make them fit on one line */
+        font-size: 14px;
     }
 
+    /* About section padding fix */
     .about {
-        padding: 20px 15px; 
+        padding: 20px 15px;
     }
     .about-text {
-        padding: 20px 0; /* Ensures the inner text doesn't have extra padding */
+        padding: 20px 0;
     }
     .about-img img {
         max-width: 100%;
+    }
+
+    /* Footer Fix for Mobile Phones */
+    .footer-top {
+        flex-direction: column;
+    }
+
+    .footer-right {
+        /* This is the key change: Ensure columns are in a row */
+        flex-direction: row; 
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px; /* Reduced gap for smaller screens */
+        text-align: center;
+    }
+
+    .footer-col {
+        /* This will make the columns fit on a single line on mobile */
+        flex: 1 1 auto;
+        min-width: 80px; /* Smallest they can be */
+        padding: 0 5px; /* Add some padding to prevent text from touching */
+    }
+
+    .footer-col h4 {
+        font-size: 16px; /* Reduced font size for mobile */
+    }
+    .footer-col ul li a,
+    .footer-col ul li span {
+        font-size: 12px; /* Reduced link font size */
+        justify-content: center;
     }
 }
 
