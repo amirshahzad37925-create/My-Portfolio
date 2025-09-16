@@ -869,3 +869,8 @@ nav ul li a.active {
         justify-content: center;
     }
 }
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
