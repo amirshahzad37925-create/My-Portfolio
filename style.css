@@ -875,12 +875,13 @@ nav ul li a.active {
         flex-wrap: wrap;
         justify-content: center;
         gap: 20px;
-        text-align: center;
+        text-align: left;
     }
     
     .footer-col {
         flex: 1 1 150px; /* Allow columns to grow and shrink, with a minimum width */
         width: auto;
+        text-align: center;
     }
     
     .footer-col ul li a,
@@ -912,35 +913,37 @@ nav ul li a.active {
 
     /* Footer Fix for Mobile Phones */
     .footer-top {
+        /* Set to column so logo is on top, and columns are below */
         flex-direction: column;
+        align-items: center; /* This will center everything inside */
+        gap: 20px;
     }
-
     .footer-right {
-        /* This is the key change: Ensure columns are in a row */
-        flex-direction: row; 
+        /* Align the columns horizontally in the center */
+        flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 15px; /* Reduced gap for smaller screens */
-        text-align: center;
+        gap: 15px;
+        width: 100%; /* Ensure it takes full width to center its content */
     }
-
     .footer-col {
-        /* This will make the columns fit on a single line on mobile */
-        flex: 1 1 auto;
-        min-width: 80px; /* Smallest they can be */
-        padding: 0 5px; /* Add some padding to prevent text from touching */
+        flex: 1 1 120px; /* Allow columns to grow/shrink with a minimum width */
+        max-width: 150px; /* Optional: Prevents columns from getting too wide */
+        text-align: left; /* Aligns text within each column */
     }
-
     .footer-col h4 {
-        font-size: 16px; /* Reduced font size for mobile */
+        font-size: 16px;
+        text-align: center; /* Center the headings */
+    }
+    .footer-col ul {
+        padding-left: 0;
     }
     .footer-col ul li a,
     .footer-col ul li span {
-        font-size: 12px; /* Reduced link font size */
-        justify-content: center;
+        font-size: 12px;
+        justify-content: left; /* Align links to the left inside the column */
     }
 }
-
 html, body {
     max-width: 100%;
     overflow-x: hidden;
