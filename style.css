@@ -756,7 +756,7 @@ nav ul li a.active {
 }
 
 .logo-col img {
-    max-width: 1350px;
+    max-width: 135px;
     margin-bottom: 12px;
 }
 
@@ -890,18 +890,20 @@ nav ul li a.active {
 }
 
 @media (max-width: 768px) {
-    /* Navbar fix */
     nav ul {
-        gap: 15px;
+        gap: 10px; /* Reduced gap to fit all links */
+        justify-content: space-between; /* This will distribute links evenly */
+    }
+    nav ul li a {
+        font-size: 14px; /* Reduced font size to make them fit on one line */
     }
 
     .about {
-        padding: 20px 15px;
+        padding: 20px 15px; 
     }
     .about-text {
-        padding: 20px 0;
+        padding: 20px 0; /* Ensures the inner text doesn't have extra padding */
     }
-    
     .about-img img {
         max-width: 100%;
     }
