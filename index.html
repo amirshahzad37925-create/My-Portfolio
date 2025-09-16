@@ -538,5 +538,22 @@ if (certsContainer && certsDotsContainer) {
     });
 }
     </script>
+    <script>
+    // Get the contact form element by its ID
+    const form = document.getElementById('contactForm');
+
+    // Add a keydown event listener to the form
+    form.addEventListener('keydown', function(event) {
+        // Check if the pressed key is the "Enter" key (key code 13)
+        if (event.key === 'Enter') {
+            // Prevent the default form submission behavior (which can sometimes reload the page)
+            event.preventDefault(); 
+            
+            // Trigger a click on the "Send Message" button
+            // This is the same as the user clicking it
+            form.querySelector('button[type="submit"]').click();
+        }
+    });
+</script>
 </body>
 </html>
