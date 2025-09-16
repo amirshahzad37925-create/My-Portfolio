@@ -539,19 +539,17 @@ if (certsContainer && certsDotsContainer) {
 }
     </script>
     <script>
-    // Get the contact form element by its ID
     const form = document.getElementById('contactForm');
+    const messageInput = form.querySelector('textarea[name="message"]');
 
-    // Add a keydown event listener to the form
-    form.addEventListener('keydown', function(event) {
-        // Check if the pressed key is the "Enter" key (key code 13)
-        if (event.key === 'Enter') {
-            // Prevent the default form submission behavior (which can sometimes reload the page)
+    messageInput.addEventListener('keydown', function(event) {
+        // Check if the pressed key is "Enter" AND the "Shift" key is also pressed
+        if (event.key === 'Enter' && event.shiftKey) {
+            // Stop the default behavior of Shift + Enter (which is just to add a new line)
             event.preventDefault(); 
             
-            // Trigger a click on the "Send Message" button
-            // This is the same as the user clicking it
-            form.querySelector('button[type="submit"]').click();
+            // Now, send the form
+            form.submit();
         }
     });
 </script>
