@@ -897,7 +897,7 @@
 @media (max-width: 768px) {
     /* About section padding fix */
        .footer {
-        padding: 20px 0; /* Bottom padding bilkul kam kar di */
+        padding: 50px 0; /* Bottom padding bilkul kam kar di */
         height: auto; /* Ensure height is not fixed */
         min-height: auto;
     }
