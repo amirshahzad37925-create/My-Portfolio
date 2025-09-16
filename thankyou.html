@@ -1,57 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thank You</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: linear-gradient(135deg, #1a1a1a, #333);
-      color: #fff;
-      text-align: center;
-    }
-    .thankyou-box {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
-      max-width: 500px;
-    }
-    h1 {
-      color: #00ff99;
-      margin-bottom: 20px;
-    }
-    p {
-      margin-bottom: 30px;
-      font-size: 18px;
-    }
-    a {
-      display: inline-block;
-      padding: 12px 25px;
-      background: #00ff99;
-      color: #000;
-      text-decoration: none;
-      font-weight: 600;
-      border-radius: 8px;
-      transition: 0.3s;
-    }
-    a:hover {
-      background: #fff;
-      color: #000;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ================= THANK YOU PAGE STYLES ================= */
+        body {
+            /* Main website theme background */
+            background: linear-gradient(135deg, rgba(0, 0, 80, 0.85), rgba(0, 0, 30, 0.7));
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden; /* Prevent any body overflow */
+        }
+        .thankyou-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            max-width: 500px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            animation: fadeInScale 0.8s ease-out;
+        }
+        .thankyou-box h1 {
+            font-size: 3rem;
+            color: #ff9800; /* Orange highlight color */
+            margin-bottom: 20px;
+        }
+        .thankyou-box p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        /* Match the main website's button style */
+        .thankyou-box .btn-back {
+            display: inline-block;
+            background: linear-gradient(90deg, #FFF1DE, #f59e0b);
+            color: #fff;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .thankyou-box .btn-back:hover {
+            background: #fff;
+            color: #ff9800;
+        }
+
+        /* Animation */
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="thankyou-box">
-    <h1>🎉 Thank You!</h1>
-    <p>Your message has been sent successfully. I’ll get back to you as soon as possible.</p>
-    <a href="index.html">Back to Home</a>
-  </div>
+    <div class="thankyou-box">
+        <h1>🎉 Thank You!</h1>
+        <p>Your message has been sent successfully. I’ll get back to you as soon as possible.</p>
+        <a href="index.html" class="btn-back">Back to Home</a>
+    </div>
 </body>
 </html>
