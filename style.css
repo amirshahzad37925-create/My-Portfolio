@@ -1693,6 +1693,53 @@
         }
 
         /* ================= RESPONSIVE STYLES ================= */
+@media (max-width: 1024px) {
+            /* Navbar fixed for tablet view */
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                margin: 10px 0 0;
+                gap: 20px;
+            }
+            
+            .about { flex-direction: column; }
+            .hero-text h1 { font-size: 32px; }
+            .hero-text h2 { font-size: 20px; }
+            .service-container, .portfolio-container, .counter-container {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Footer responsiveness */
+            .footer-top {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 0 20px;
+            }
+            .logo-col {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .footer-right {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                text-align: left;
+            }
+            .footer-col {
+                width: 100%;
+                text-align: center;
+            }
+            .footer-col ul li a, .footer-col ul li span {
+                justify-content: center;
+            }
+        }
+
 @media (max-width: 768px) {
     /* Navbar links fix */
     nav {
