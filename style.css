@@ -896,11 +896,8 @@
 /* Styles specifically for mobile phones (up to 768px) */
 @media (max-width: 768px) {
     /* About section padding fix */
-       footer {
-        height: auto !important;
-        /* Padding aur margin bhi zero kar do takay bilkul bhi extra space na aaye */
-        padding: 0 !important;
-        margin: 0 !important;
+       .footer {
+        padding: 10px 0; /* Footer ka overall padding kam kar diya */
     }
     .about {
         padding: 20px 15px;
@@ -917,8 +914,9 @@
         flex-direction: column;
         align-items: center;
         gap: 15px;
-        padding: 20px 10px;
+        padding: 0; /* Isko zero kar do! */
     }
+       
     .logo-col {
         text-align: center;
         margin-bottom: 15px;
@@ -929,19 +927,21 @@
     .logo-col .tagline {
         font-size: 16px;
     }
+       
     .footer-right {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
+        justify-content: space-around; /* Columns ko barabar jagah dene ke liye */
         width: 100%;
+        gap: 5px; /* Columns ke beech ki space kam kar di */
+        padding: 0;
     }
+       
     .footer-col {
-        flex: 1 1 30%;
-        max-width: 120px;
+        flex: 1; /* Har column ko barabar space do */
+        max-width: none; /* Max-width hata di, taake woh chote na hon */
         text-align: center;
         padding: 0 5px;
     }
+       
     .footer-col h4 {
         font-size: 14px;
         text-align: center;
@@ -950,6 +950,7 @@
     .footer-col ul li {
         margin: 3px 0;
     }
+       
     .footer-col ul li a,
     .footer-col ul li span {
         font-size: 11px;
@@ -957,17 +958,21 @@
         text-align: center;
         gap: 4px;
     }
+       
     .social-icons {
         justify-content: center;
         display: flex;
         margin-top: 10px;
     }
+       
     .social-icons a {
         font-size: 14px;
     }
+       
     .footer-bottom {
         padding: 10px 0;
     }
+       
     .footer-bottom p {
         font-size: 11px;
     }
