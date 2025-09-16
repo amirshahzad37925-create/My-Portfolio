@@ -846,6 +846,8 @@ nav ul li a.active {
 }
 
 /* ================= RESPONSIVE STYLES ================= */
+
+/* Styles for tablets and smaller screens (up to 1024px) */
 @media (max-width: 1024px) {
     nav { flex-direction: column; }
     .about { flex-direction: column; }
@@ -876,14 +878,13 @@ nav ul li a.active {
         width: 100%;
         text-align: center;
     }
-    .footer-col ul li a,
-    .footer-col ul li span {
+    .footer-col ul li a, .footer-col ul li span {
         justify-content: center;
     }
 }
 
 ---
-### **Final CSS for Mobile Devices**
+
 /* Styles specifically for mobile phones (up to 768px) */
 @media (max-width: 768px) {
     /* Navbar links fix */
@@ -896,17 +897,11 @@ nav ul li a.active {
     }
 
     /* About section padding fix */
-    .about {
-        padding: 20px 15px;
-    }
-    .about-text {
-        padding: 20px 0;
-    }
-    .about-img img {
-        max-width: 100%;
-    }
+    .about { padding: 20px 15px; }
+    .about-text { padding: 20px 0; }
+    .about-img img { max-width: 100%; }
 
-    /* Footer Fix for Mobile Phones */
+    /* The ultimate fix for the footer columns */
     .footer-top {
         flex-direction: column;
         align-items: center;
@@ -920,9 +915,10 @@ nav ul li a.active {
         padding: 0 5px;
     }
     .footer-col {
-        flex: 1 1 30%;
+        **flex: 1 1 30%;**
         max-width: 150px;
     }
+
     .footer-col h4 {
         font-size: 16px;
         text-align: center;
@@ -930,13 +926,13 @@ nav ul li a.active {
     .footer-col ul {
         padding-left: 0;
     }
-    .footer-col ul li a,
-    .footer-col ul li span {
+    .footer-col ul li a, .footer-col ul li span {
         font-size: 12px;
-        justify-content: left;
+        justify-content: center;
+        text-align: left;
     }
 }
- 
+
 html, body {
     max-width: 100%;
     overflow-x: hidden;
