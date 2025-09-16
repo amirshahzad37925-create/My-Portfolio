@@ -61,7 +61,8 @@ let count = 0, index = 0;
 const typingEl = document.querySelector(".typing-text");
 function typeText() {
   if (!typingEl) return;
-  typingEl.textContent = texts[count].slice(0, ++index);
+  // This is the line with the issue:
+  typingEl.textContent = texts[count].slice(0, ++index); 
   if (index === texts[count].length) {
     setTimeout(() => { index = 0; count = (count + 1) % texts.length; typeText(); }, 5000);
   } else setTimeout(typeText, 100);
