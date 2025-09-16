@@ -1743,8 +1743,10 @@
 @media (max-width: 768px) {
     /* About section padding fix */
        footer {
-        height: 400; /* height: 770px; ko is se replace kar do */
-        min-height: auto;
+        height: auto !important;
+        /* Padding aur margin bhi zero kar do takay bilkul bhi extra space na aaye */
+        padding: 0 !important;
+        margin: 0 !important;
     }
     .about {
         padding: 20px 15px;
