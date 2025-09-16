@@ -1023,6 +1023,170 @@
         font-size: 1.3rem;
     }
 }
+/* ================= PROJECT DETAIL PAGE STYLES ================= */
+.project-details {
+    padding: 100px 20px;
+    background: #f8f8f8; /* A light background to make content stand out */
+    color: #333;
+}
+
+.project-header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #000080;
+}
+
+.project-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #ff9800; /* Main heading color */
+}
+
+.project-header p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #555;
+}
+
+.project-content {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.project-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-content h2 {
+    font-size: 1.8rem;
+    color: #000080; /* Dark blue heading color */
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.project-content p, .project-content li {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.project-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin-left: 20px;
+}
+
+.project-content ul li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+}
+
+.project-content ul li::before {
+    content: "\f00c"; /* Font Awesome checkmark icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #ff9800; /* Orange color for the icon */
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.project-content strong {
+    color: #000080;
+}
+
+/* Button Styling (Matching Main Page) */
+.project-content .btn {
+    background: linear-gradient(90deg, #FFF1DE, #f59e0b);
+    color: #fff;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: inline-block;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.project-content .btn:hover {
+    background: #fff;
+    color: #ff9800;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* New Scrollable Category Bar */
+.project-categories {
+    max-width: 900px;
+    margin: 0 auto 30px;
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.project-categories::-webkit-scrollbar {
+    height: 6px;
+}
+
+.project-categories::-webkit-scrollbar-thumb {
+    background: #ff9800;
+    border-radius: 3px;
+}
+
+.project-categories::-webkit-scrollbar-track {
+    background: #e8e8e8;
+}
+
+.category-btn {
+    flex-shrink: 0;
+    background: #eee;
+    color: #333;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.category-btn:hover, .category-btn.active {
+    background: #ff9800;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .project-details {
+        padding: 80px 15px;
+    }
+
+    .project-content {
+        padding: 20px;
+    }
+
+    .project-header h1 {
+        font-size: 2rem;
+    }
+
+    .project-content h2 {
+        font-size: 1.5rem;
+    }
+}
 html, body { 
     overflow-x: hidden; 
 }
