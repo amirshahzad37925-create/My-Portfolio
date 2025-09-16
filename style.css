@@ -4,18 +4,16 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-
+}
 
 body {
     line-height: 1.6;
     color: #333;
     background: #fff;
-    overflow-x: hidden; 
 }
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
 }
 
 section {
@@ -962,3 +960,7 @@ nav ul li a.active {
         text-align: left;
     }
 }
+
+body, html {
+    overflow-x: hidden;
+    }
