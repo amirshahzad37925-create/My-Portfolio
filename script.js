@@ -143,27 +143,41 @@ document.addEventListener('DOMContentLoaded', () => {
     if (certificationsSection) observer.observe(certificationsSection);
 
     // ================= COUNTER ANIMATION =================
-    function startCounterAnimation() {
-        const counters = document.querySelectorAll(".counter-box h3");
-        const speed = 200;
+const counterSection = document.querySelector("#counter");
+const counters = document.querySelectorAll(".counter-box h3");
+let counterTriggered = false; // Flag to ensure animation runs only once
 
-        counters.forEach(counter => {
-            const updateCount = () => {
-                const target = +counter.getAttribute("data-target");
-                const currentCount = +counter.innerText;
-                const increment = target / speed;
+const animateCounter = (counter) => {
+    const target = +counter.getAttribute("data-target");
+    const speed = 200; // Animation speed, higher value means faster animation
+    const increment = target / speed;
+    let count = 0;
 
-                if (currentCount < target) {
-                    counter.innerText = Math.ceil(currentCount + increment);
-                    setTimeout(updateCount, 1);
-                } else {
-                    counter.innerText = target;
-                }
-            };
-            updateCount();
+    const updateCount = () => {
+        if (count < target) {
+            count += increment;
+            counter.innerText = Math.ceil(count);
+            setTimeout(updateCount, 1);
+        } else {
+            counter.innerText = target;
+        }
+    };
+    updateCount();
+};
+
+if (counterSection) {
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !counterTriggered) {
+                counters.forEach(animateCounter);
+                counterTriggered = true; // Set flag to true after animation
+                obs.unobserve(entry.target); // Stop observing after animation
+            }
         });
-    }
+    }, { threshold: 0.5 }); // Trigger when 50% of the section is visible
 
+    observer.observe(counterSection);
+}
     // ================= REVIEWS SLIDER =================
     let currentReview = 0;
     const reviews = document.querySelectorAll(".review");
