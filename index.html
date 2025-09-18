@@ -571,47 +571,47 @@ if (certsContainer && certsDotsContainer) {
     }
 </script>
     <script>
-    // Reviews section ke liye slider function
+    // Reviews Slider with Dots
     const reviews = document.querySelectorAll('.review');
     const reviewDotsContainer = document.querySelector('.review-dots');
     let currentReview = 0;
-    
-    // Function to create dots dynamically
-    function createReviewDots() {
-        reviewDotsContainer.innerHTML = ''; // Pehle se bane dots hata dein
-        for (let i = 0; i < reviews.length; i++) {
+
+    // This function handles both creating and updating dots
+    function updateReviewSlider() {
+        // Step 1: Reviews ke hisaab se dots banayenge
+        reviewDotsContainer.innerHTML = '';
+        reviews.forEach((review, index) => {
             const dot = document.createElement('span');
             dot.classList.add('review-dot');
+            dot.dataset.index = index;
             dot.addEventListener('click', () => {
-                showReview(i);
+                currentReview = index;
+                updateReviewSlider();
             });
             reviewDotsContainer.appendChild(dot);
-        }
+        });
+
+        // Step 2: Active review aur dot ko set karenge
+        const reviewDots = document.querySelectorAll('.review-dot');
+        reviews.forEach((review, index) => {
+            review.classList.toggle('active', index === currentReview);
+        });
+        reviewDots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentReview);
+        });
     }
-    
-    // Function to show a specific review
-    function showReview(index) {
-        reviews.forEach(review => review.classList.remove('active'));
-        reviewDots.forEach(dot => dot.classList.remove('active'));
-        
-        reviews[index].classList.add('active');
-        reviewDots[index].classList.add('active');
-        currentReview = index;
-    }
-    
-    // Function to automatically change reviews
+
+    // Function to move to the next review automatically
     function nextReview() {
-        let nextIndex = (currentReview + 1) % reviews.length;
-        showReview(nextIndex);
+        currentReview = (currentReview + 1) % reviews.length;
+        updateReviewSlider();
     }
-    
-    let reviewInterval = setInterval(nextReview, 5000); // Har 5 seconds mein review badlega
-    
+
     // Initial setup
-    createReviewDots();
-    const reviewDots = document.querySelectorAll('.review-dot');
-    showReview(currentReview);
+    if (reviews.length > 0) {
+        updateReviewSlider();
+        setInterval(nextReview, 5000); // Har 5 seconds mein review badlega
+    }
 </script>
-    
 </body>
 </html>
