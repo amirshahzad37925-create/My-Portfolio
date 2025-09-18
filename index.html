@@ -570,5 +570,48 @@ if (certsContainer && certsDotsContainer) {
         window.location.reload();
     }
 </script>
+    <script>
+    // Reviews section ke liye slider function
+    const reviews = document.querySelectorAll('.review');
+    const reviewDotsContainer = document.querySelector('.review-dots');
+    let currentReview = 0;
+    
+    // Function to create dots dynamically
+    function createReviewDots() {
+        reviewDotsContainer.innerHTML = ''; // Pehle se bane dots hata dein
+        for (let i = 0; i < reviews.length; i++) {
+            const dot = document.createElement('span');
+            dot.classList.add('review-dot');
+            dot.addEventListener('click', () => {
+                showReview(i);
+            });
+            reviewDotsContainer.appendChild(dot);
+        }
+    }
+    
+    // Function to show a specific review
+    function showReview(index) {
+        reviews.forEach(review => review.classList.remove('active'));
+        reviewDots.forEach(dot => dot.classList.remove('active'));
+        
+        reviews[index].classList.add('active');
+        reviewDots[index].classList.add('active');
+        currentReview = index;
+    }
+    
+    // Function to automatically change reviews
+    function nextReview() {
+        let nextIndex = (currentReview + 1) % reviews.length;
+        showReview(nextIndex);
+    }
+    
+    let reviewInterval = setInterval(nextReview, 5000); // Har 5 seconds mein review badlega
+    
+    // Initial setup
+    createReviewDots();
+    const reviewDots = document.querySelectorAll('.review-dot');
+    showReview(currentReview);
+</script>
+    
 </body>
 </html>
