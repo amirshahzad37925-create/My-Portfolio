@@ -175,7 +175,9 @@
                 </a>
             </div>
         </div>
+        </section>
 
+        <section id="reviews" class="reviews"> 
         <div class="counter-section">
             <h2>My <span>Achievements</span></h2>
             <div class="counter-container">
@@ -197,7 +199,9 @@
                 </div>
             </div>
         </div>
+        </section>
 
+        <section id="counter" class="counter"> 
         <div class="reviews">
             <h2>Client <span>Reviews</span></h2>
             <div class="review-slider">
@@ -548,13 +552,7 @@ if (certsContainer && certsDotsContainer) {
     });
 }
     </script>
-    <script src="script.js?v=2"></script>
-    <script>
-    function refreshPage() {
-        // Page ko refresh karega
-        window.location.reload();
-    }
-</script>
+    
     <script>
     // Existing script tags jo aapke baaki sections ke liye hai,
     // jaise Preloader, Particles, Smooth Scroll, Counter, woh sab
@@ -598,7 +596,46 @@ if (certsContainer && certsDotsContainer) {
     if (reviews.length > 0) {
         updateReviewSlider(); // Pehle review aur dot ko set karein
         setInterval(nextReview, 5000);
+
+        document.addEventListener("DOMContentLoaded", function() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a');
+
+    // Portfolio, Reviews, aur Counter ko aik group me highlight karein
+    const portfolioGroup = ['portfolio', 'reviews', 'counter'];
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (window.scrollY >= sectionTop - 100) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const linkHref = link.getAttribute('href');
+
+            // Check if the current section is in the portfolio group
+            if (portfolioGroup.includes(current)) {
+                if (linkHref.includes('portfolio')) {
+                    link.classList.add('active');
+                }
+            } else if (linkHref.includes(current)) {
+                link.classList.add('active');
+            }
+        });
+    });
+});
     }
 </script>
+    <script src="script.js?v=2"></script>
+    <script>
+    function refreshPage() {
+        // Page ko refresh karega
+        window.location.reload();
+    }
+   </script>
 </body>
 </html>
