@@ -475,21 +475,6 @@
         }, { threshold: 0.5 });
         counters.forEach(counter => observer.observe(counter));
 
-        // Reviews Slider
-        let currentReview = 0;
-        const reviews = document.querySelectorAll(".review");
-        function showReview(index) {
-            reviews.forEach((r, i) => {
-                r.classList.toggle("active", i === index);
-            });
-        }
-        function nextReview() {
-            currentReview = (currentReview + 1) % reviews.length;
-            showReview(currentReview);
-        }
-        setInterval(nextReview, 5000);
-        showReview(currentReview);
-
         // Certifications Scroll with Dots
 const certsContainer = document.querySelector('.certificates-container');
 const certsDotsContainer = document.querySelector('.cert-dots');
