@@ -152,7 +152,7 @@ nav .logo {
     color: #fff;
     font-size: 28px;
     font-weight: 600;
-    text-decoration: none; /* Add this to remove the underline from the link */
+    text-decoration: none !important; /* !important add kar dein */
     cursor: pointer; /* Add this to show it's clickable */
 }
 
