@@ -505,13 +505,6 @@ nav ul li a.active {
 
 .counter-box p { font-size: 1rem; }
 
-Aapne jo CSS code diya hai, usmein reviews section ka code bilkul sahi hai. Yeh aapke reviews slider ko fade-in effect ke saath display karega aur dots bhi theek se show honge.
-
-Aapke sawaal ke mutabik, maine aapke diye gaye CSS code ko pehle diye gaye poore CSS code mein merge kar diya hai. Ab yeh ek complete aur final version hai jismein koi masla nahi aana chahiye.
-
-Final Merged CSS
-CSS
-
 /* ================= GENERAL STYLES ================= */
 * {
     margin: 0;
