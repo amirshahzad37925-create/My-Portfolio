@@ -165,26 +165,26 @@
     
     <section id="counter" class="counter">
         <h2>My <span>Achievements</span></h2>
-        <div class="counter-container">
-            <div class="counter-box">
-                <h3 class="counter" data-target="150">0</h3>
-                <p>Happy Clients</p>
-            </div>
-            <div class="counter-box">
-                <h3 class="counter" data-target="250">0</h3>
-                <p>Projects Completed</p>
-            </div>
-            <div class="counter-box">
-                <h3 class="counter" data-target="2">0</h3>
-                <p>Years of Experience</p>
-            </div>
-            <div class="counter-box">
-                <h3 class="counter" data-target="20">0</h3>
-                <p>Certifications</p>
-            </div>
+    <div class="counter-container">
+        <div class="counter-box">
+            <h3 data-target="1500">0</h3>
+            <p>Projects Completed</p>
         </div>
-    </section>
-
+        <div class="counter-box">
+            <h3 data-target="25">0</h3>
+            <p>Happy Clients</p>
+        </div>
+        <div class="counter-box">
+            <h3 data-target="50">0</h3>
+            <p>Experience Years</p>
+        </div>
+        <div class="counter-box">
+            <h3 data-target="5">0</h3>
+            <p>Certifiactions</p>
+        </div>
+    </div>
+</section>
+    
     <section id="reviews" class="reviews">
         <h2>Client <span>Reviews</span></h2>
         <div class="review-slider">
@@ -567,5 +567,48 @@
             window.location.reload();
         }
     </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const counters = document.querySelectorAll(".counter-box h3");
+        const speed = 200; // Animation speed ko control karein
+
+        const animateCounter = (counter) => {
+            const updateCount = () => {
+                const target = +counter.getAttribute("data-target");
+                const count = +counter.innerText;
+
+                const inc = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        };
+
+        const counterSection = document.querySelector(".counter-section");
+        const observerOptions = {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0.5 // Jab 50% section view mein ho, tab animate karein
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    counters.forEach(animateCounter);
+                    observer.unobserve(entry.target); // Ek baar chalne ke baad stop kar dein
+                }
+            });
+        }, observerOptions);
+
+        if (counterSection) {
+            observer.observe(counterSection);
+        }
+    });
+</script>
 </body>
 </html>
