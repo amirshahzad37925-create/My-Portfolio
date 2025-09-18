@@ -5,7 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Outreach Campaigns | Aamir Shahzad</title>
 
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://i.postimg.cc/Y94XQYTg/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://i.postimg.cc/MpCXWSqS/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://i.postimg.cc/MKb8cJ7w/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://i.postimg.cc/fW1b7sS0/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="https://i.postimg.cc/kXZWtLqj/android-chrome-512x512.png">
+    <link rel="manifest" href="site.webmanifest">
+    
     <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +23,7 @@
 <body>
 
 <nav>
-    <div class="logo">Aamir<span>Shahzad</span></div>
+        <a href="#" class="logo" onclick="refreshPage()">Aamir<span>Shahzad</span></a>
     <ul>
         <li><a href="index.html#home">Home</a></li>
         <li><a href="index.html#about">About</a></li>
@@ -63,6 +70,7 @@
 <footer class="footer">
     <div class="footer-top">
         <div class="logo-col">
+                  <a href="index.html" class="footer-logo-link">
             <img src="https://i.postimg.cc/rFKm8KLN/Purple-Abstract-A-Letter-Free-Logo-removebg-preview.png" alt="Logo">
             <p class="tagline">Designing Dreams, Crafting Reality</p>
         </div>
@@ -105,6 +113,10 @@
         <p>© 2025 Aamir Shahzad | All Rights Reserved | <a href="privacy.html">Privacy Policy</a></p>
     </div>
 </footer>
-
+<script>
+    function refreshPage() {
+        window.location.reload();
+    }
+</script>
 </body>
 </html>
