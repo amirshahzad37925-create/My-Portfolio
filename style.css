@@ -502,76 +502,71 @@ A
         .counter-box p { font-size: 1rem; }
 
         /* ================= REVIEWS ================= */
-        .reviews {
-            background: linear-gradient(135deg, rgba(0, 0, 80, 0.85), rgba(0, 0, 30, 0.7));
-            text-align: center;
-            padding: 70px 20px;
-            color: #fff;
-        }
-
-        .reviews h2 span {
-            color: #ff9800;
-        }
-
-        .review-slider {
-            max-width: 700px;
-            margin: 40px auto;
-        }
-
-        .review {
-            display: none;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #fff;
-        }
-
-        .review.active {
-            display: block;
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        .review .client-pic {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 15px auto;
-            border: 2px solid #ff9800;
-        }
-
-        .review h4 {
-            margin-top: 10px;
-            color: #ff9800;
-            font-weight: 600;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Reviews Dots Styling */
-.review-dots {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 30px; /* Dots aur reviews ke beech space */
+.reviews {
+  background: linear-gradient(135deg, rgba(0, 0, 80, 0.85), rgba(0, 0, 30, 0.7));
+  text-align: center;
+  padding: 70px 20px;
+  color: #fff;
 }
 
-.dot {
-    width: 12px;
-    height: 12px;
-    background-color: #ffffff; /* White dots */
-    border-radius: 50%; /* Dots ko gol karne ke liye */
-    opacity: 0.5; /* Dots ko thoda transparent banayega */
-    cursor: pointer;
-    transition: opacity 0.3s ease, background-color 0.3s ease;
+.reviews h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
 }
 
-.dot.active {
-    background-color: #ff9800; /* Active dot ko orange karein */
-    opacity: 1;
-}      
+.reviews h2 span {
+  color: #ff9800;
+}
+
+.review-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.review-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px;
+  max-width: 350px;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+  color: #333;
+}
+
+.review-card:hover {
+  transform: translateY(-10px);
+}
+
+.review-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.review-card h3 {
+  margin: 10px 0 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000;
+}
+
+.stars {
+  color: #ff9800;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.review-card p {
+  font-style: italic;
+  color: #555;
+  line-height: 1.6;
+}
+    
         /* ================= CERTIFICATIONS ================= */
         .certifications {
             /* Background ko Services aur Portfolio section se match kiya gaya hai */
