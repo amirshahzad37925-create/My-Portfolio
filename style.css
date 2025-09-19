@@ -294,6 +294,7 @@ A
         .about-text {
             flex: 1;
             padding: 20px;
+            color: #fff;
         }
 
         .about-text h2 span {
