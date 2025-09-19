@@ -387,63 +387,65 @@ A
     background: #fff;
     color: #ff9800;
 }
-
-/* New list container to replace the cards container */
-.about-services-list {
+/* Container for the skills section */
+.skills-container {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 30px; /* Space between each service item */
+    gap: 30px;
     max-width: 450px;
+    margin: auto; /* Centers the container */
 }
 
-.service-item {
-    display: flex;
-    align-items: center; /* Vertically centers the icon and text */
-    gap: 20px; /* Space between the icon and the text */
-    padding: 20px;
-    background: #f7f9fc;
-    border: 3px solid #e0e6ed;
-    border-radius: 12px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Individual skill item */
+.skill-item {
+    width: 100%;
 }
 
-.service-item:hover {
-    transform: translateY(-5px); /* A simple lift effect */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.service-item i {
-    font-size: 36px;
-    color: #4b6cb7;
-}
-
-.service-text h4 {
+.skill-item h3 {
     font-size: 18px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    color: #333;
     font-weight: 600;
 }
 
-.service-text p {
-    font-size: 14px;
-    color: #555;
-    line-height: 1.5;
-    margin: 0; /* Remove default margin from the paragraph */
+/* Outer bar (background) */
+.progress-bar-container {
+    background: #e9ecef;
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
 }
 
-/* Mobile adjustments */
+/* Inner bar (the filling part) */
+.progress-bar {
+    background-color: #ff9800;
+    height: 100%;
+    width: 0; /* Start with 0 width to animate */
+    transition: width 1.5s ease-in-out;
+    border-radius: 6px;
+    position: relative;
+}
+
+/* Add percentage text inside the bar */
+.progress-bar::after {
+    content: attr(data-skill-level);
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Mobile responsive adjustments */
 @media (max-width: 768px) {
-    .about-services-list {
+    .skills-container {
         width: 100%;
         margin-top: 40px;
-    }
-    .service-item {
-        width: 100%;
-    }
-    .service-item:hover {
-        transform: none; /* No lift effect on mobile */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Keep default shadow */
     }
 }
         /* ================= SERVICES ================= */
