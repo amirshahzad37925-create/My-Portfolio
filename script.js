@@ -86,32 +86,7 @@ function typeText() {
 if (typingEl) {
     typeText();
 }
-// ================= COUNTER ANIMATION =================
-const counters = document.querySelectorAll("#counter .counter-box h3");
-const startCounter = (counter) => {
-    let target = +counter.dataset.target;
-    let count = 0;
-    let speed = Math.max(10, target / 100);
-    const update = () => {
-        if (count < target) {
-            count += speed;
-            counter.innerText = Math.floor(count);
-            requestAnimationFrame(update);
-        } else {
-            counter.innerText = target;
-        }
-    };
-    update();
-};
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            startCounter(entry.target);
-            observer.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-counters.forEach(counter => observer.observe(counter));
+
 // ================= REVIEWS SLIDER =================
 let currentReview = 0;
 const reviews = document.querySelectorAll(".review");
