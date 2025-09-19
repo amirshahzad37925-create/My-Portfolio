@@ -233,8 +233,6 @@ A
     height: auto;
     display: block;
     object-fit: cover; /* Yeh lagao */
-    width: 100%; /* Ensure it fills the container's width */
-    height: 100%; /* And its height */
 }
         #particles-js {
             position: absolute;
