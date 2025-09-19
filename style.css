@@ -501,45 +501,50 @@ A
 
         .counter-box p { font-size: 1rem; }
 
-        /* ================= REVIEWS ================= */
+/* ================= REVIEWS ================= */
 .reviews {
   background: linear-gradient(135deg, rgba(0, 0, 80, 0.85), rgba(0, 0, 30, 0.7));
-  text-align: center;
   padding: 70px 20px;
+  text-align: center;
   color: #fff;
 }
 
-.reviews h2 {
-  font-size: 2.5rem; /* same as portfolio/about headings */
-  margin-bottom: 40px;
+.reviews .section-title {
+  font-size: 2.5rem;
   font-weight: 700;
+  margin-bottom: 40px;
 }
 
-.reviews h2 span {
+.reviews .section-title span {
   color: #ff9800;
 }
 
 .review-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 30px;
-  justify-content: center;
-  flex-wrap: wrap;
 }
 
 .review-card {
   background: #fff;
-  border-radius: 20px; /* more rounded */
-  padding: 30px;
-  max-width: 350px;
-  text-align: left;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* softer shadow */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   color: #333;
+  border-radius: 12px;
+  padding: 25px;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .review-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
 }
 
 .review-img {
@@ -547,27 +552,26 @@ A
   height: 60px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 15px;
 }
 
 .review-card h3 {
-  margin: 10px 0 5px;
-  font-size: 1.2rem;
+  margin: 0;
+  font-size: 1.1rem;
   font-weight: 600;
   color: #000;
 }
 
 .stars {
   color: #ff9800;
-  font-size: 1.1rem;
-  margin-bottom: 15px;
+  font-size: 1rem;
 }
 
 .review-card p {
   font-style: italic;
   color: #555;
-  line-height: 1.6;
+  line-height: 1.5;
 }
+
 
         /* ================= CERTIFICATIONS ================= */
         .certifications {
