@@ -83,33 +83,29 @@
 </div>
         </div>
         
-         <div class="about-services-list">
-    <div class="service-item">
-        <i class="fas fa-bullseye"></i>
-        <div class="service-text">
-            <h4>B2B & B2C Lead Generation</h4>
-            <p>High-quality, verified leads to grow your business.</p>
+      <div class="skills-container">
+    <div class="skill-item">
+        <h3>LinkedIn Lead Generation</h3>
+        <div class="progress-bar-container">
+            <div class="progress-bar" data-skill-level="95%"></div>
         </div>
     </div>
-    <div class="service-item">
-        <i class="fas fa-id-card-alt"></i>
-        <div class="service-text">
-            <h4>Targeted List Building</h4>
-            <p>Customized prospect lists for any niche.</p>
+    <div class="skill-item">
+        <h3>Email Sourcing & Outreach</h3>
+        <div class="progress-bar-container">
+            <div class="progress-bar" data-skill-level="90%"></div>
         </div>
     </div>
-    <div class="service-item">
-        <i class="fas fa-envelope-open-text"></i>
-        <div class="service-text">
-            <h4>Outreach Campaigns</h4>
-            <p>Personalized communication strategies.</p>
+    <div class="skill-item">
+        <h3>Targeted List Building</h3>
+        <div class="progress-bar-container">
+            <div class="progress-bar" data-skill-level="98%"></div>
         </div>
     </div>
-    <div class="service-item">
-        <i class="fas fa-rocket"></i>
-        <div class="service-text">
-            <h4>Strategic Growth</h4>
-            <p>Proven methods to expand your network.</p>
+    <div class="skill-item">
+        <h3>B2B & B2C Strategy</h3>
+        <div class="progress-bar-container">
+            <div class="progress-bar" data-skill-level="92%"></div>
         </div>
     </div>
 </div>
@@ -418,6 +414,28 @@
 
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
    
- <script src="script.js"></script>   
+ <script src="script.js"></script> 
+      <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const skillsContainer = document.querySelector('.skills-container');
+        const progressBars = document.querySelectorAll('.progress-bar');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    progressBars.forEach(bar => {
+                        const level = bar.getAttribute('data-skill-level');
+                        bar.style.width = level;
+                    });
+                    observer.unobserve(skillsContainer); // Stop observing after animation
+                }
+            });
+        }, {
+            threshold: 0.5 // Trigger when 50% of the container is visible
+        });
+
+        observer.observe(skillsContainer);
+    });
+</script>
 </body>
 </html>
