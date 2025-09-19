@@ -270,7 +270,7 @@ A
 
 /* ================= ABOUT ================= */
  .about {
-            background: linear-gradient(135deg, rgba(0, 0, 80, 0.85), rgba(0, 0, 30, 0.7));
+            background: #fffff;
             display: flex;
             flex-wrap: wrap;
             padding: 30px 20px;
@@ -308,7 +308,7 @@ A
 
         .about-text .info li {
             margin-bottom: 8px;
-            color: #fff;
+            color: #333;
         }
 
         .about-text .btn {
