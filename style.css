@@ -268,148 +268,52 @@ A
             color: #ff9800;
         }
 
-        /* ================= ABOUT ================= */
-.about {
-    /* Existing background ko hata kar naya gradient background dein */
-    /* background: #ffffff; */
+/* ================= ABOUT ================= */
+ .about {
+            background: linear-gradient(135deg, rgba(0, 0, 80, 0.85), rgba(0, 0, 30, 0.7));
+            display: flex;
+            flex-wrap: wrap;
+            padding: 30px 20px;
+            align-items: center;
+        }
 
-    /* Naya gradient background, jaisa ki Services aur Reviews mein hai */
-    background: linear-gradient(135deg, rgba(0, 0, 80, 0.85), rgba(0, 0, 30, 0.7));
-    
-    display: flex;
-    flex-wrap: wrap;
-    padding: 70px 20px; /* Padding badhaya taaki content ko space mile */
-    align-items: center;
-    color: #fff; /* Poore section ka default text color white karein */
-}
+        /* Add this media query for mobile devices */
+        @media (max-width: 768px) {
+            .about {
+                padding: 20px 15px; /* Adjust padding for smaller screens */
+            }
+            .about-img img {
+                max-width: 100%; /* Ensure image is not wider than the screen */
+            }
+        }
 
-/* About Image Container */
-.about-img {
-    flex: 1 1 500px;
-    padding: 20px;
-    text-align: center;
-}
+        .about-img img {
+            max-width: 500px;
+        }
 
-.about-img img {
-    max-width: 500px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    display: block;
-    margin: 0 auto;
-}
+        .about-text {
+            flex: 1;
+            padding: 20px;
+        }
 
-/* About Text Container (Yeh "pyara sa box" hoga) */
-.about-text {
-    flex: 1 1 500px;
-    padding: 40px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    margin-left: 30px;
-    color: #fff;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
+        .about-text h2 span {
+            color: #ff9800;
+        }
 
-.about-text h2 {
-    font-size: 2.2rem;
-    color: #fff;
-    margin-bottom: 20px;
-    text-align: left;
-}
+        .about-text .info {
+            margin-top: 15px;
+            list-style: none;
+        }
 
-.about-text h2 span {
-    color: #ff9800;
-}
+        .about-text .info li {
+            margin-bottom: 8px;
+            color: #fff;
+        }
 
-.about-text p {
-    font-size: 1.1rem;
-    color: #e0e0e0;
-    margin-bottom: 20px;
-}
+        .about-text .btn {
+            color: #ff9800;
+        }
 
-.about-text .info {
-    margin-top: 15px;
-    list-style: none;
-    padding: 0;
-    margin-bottom: 20px;
-}
-
-.about-text .info li {
-    margin-bottom: 10px;
-    color: #e0e0e0;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-}
-
-.about-text .info li i {
-    color: #ff9800;
-    margin-right: 10px;
-    font-size: 1.1rem;
-}
-
-/* Download CV button (ya koi bhi button jo About section mein ho) */
-.about-text .btn {
-    background: linear-gradient(90deg, #FFF1DE, #f59e0b);
-    color: #000080;
-    padding: 12px 30px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
-    display: inline-block;
-    transition: 0.3s;
-    font-weight: 600;
-}
-
-.about-text .btn:hover {
-    background: #fff;
-    color: #ff9800;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* --- */
-
-/* Responsive adjustments for About section */
-@media (max-width: 1024px) {
-    .about {
-        flex-direction: column;
-        padding: 50px 20px;
-    }
-    .about-img {
-        margin-bottom: 30px;
-        padding: 0;
-    }
-    .about-text {
-        margin-left: 0;
-        padding: 30px;
-    }
-    .about-text h2 {
-        text-align: center;
-    }
-}
-
-/* --- */
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    .about {
-        padding: 40px 15px;
-    }
-    .about-text {
-        padding: 25px;
-        margin-top: 20px;
-    }
-    .about-text h2 {
-        font-size: 1.8rem;
-    }
-    .about-text p {
-        font-size: 1rem;
-    }
-    .about-img img {
-        max-width: 100%;
-    }
-}
 
         /* ================= SERVICES ================= */
         .services {
