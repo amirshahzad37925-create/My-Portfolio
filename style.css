@@ -502,23 +502,14 @@ A
         .counter-box p { font-size: 1rem; }
 
 /* ================= REVIEWS ================= */
-.reviews {
+.reviews-section {
   background: linear-gradient(135deg, rgba(0, 0, 80, 0.85), rgba(0, 0, 30, 0.7));
   padding: 70px 20px;
   text-align: center;
   color: #fff;
 }
 
-.reviews .section-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 40px;
-}
-
-.reviews .section-title span {
-  color: #ff9800;
-}
-
+.counter-section h2 span { color: #ff9800; }
 .review-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
