@@ -115,46 +115,64 @@ counters.forEach(counter => observer.observe(counter));
 // ================= REVIEWS SLIDER =================
 let currentReview = 0;
 const reviews = document.querySelectorAll(".review");
-const reviewsSection = document.querySelector('.reviews-section'); // Assumed class for the parent section
+const dotsContainer = document.querySelector(".review-dots");
+const reviewsSection = document.querySelector('.reviews');
 let sliderInterval;
 
-const showReview = i => reviews.forEach((r, idx) => r.classList.toggle("active", idx === i));
+// Create dots and add listeners
+reviews.forEach((review, index) => {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    if (index === 0) {
+        dot.classList.add('active');
+    }
+    dot.addEventListener('click', () => {
+        showReview(index);
+        stopSlider();
+        startSlider();
+    });
+    dotsContainer.appendChild(dot);
+});
+
+const dots = document.querySelectorAll('.dot');
+
+const showReview = (index) => {
+    currentReview = index;
+    reviews.forEach((r, idx) => r.classList.toggle("active", idx === index));
+    dots.forEach((d, idx) => d.classList.toggle("active", idx === index));
+};
 
 const startSlider = () => {
-    // If the slider is already running, do nothing
-    if (sliderInterval) return;
-
-    sliderInterval = setInterval(() => {
-        currentReview = (currentReview + 1) % reviews.length;
-        showReview(currentReview);
-    }, 5000);
+    if (sliderInterval) return;
+    sliderInterval = setInterval(() => {
+        currentReview = (currentReview + 1) % reviews.length;
+        showReview(currentReview);
+    }, 5000);
 };
 
 const stopSlider = () => {
-    clearInterval(sliderInterval);
-    sliderInterval = null;
+    clearInterval(sliderInterval);
+    sliderInterval = null;
 };
 
-// Use IntersectionObserver to start/stop the slider
+// Start/Stop slider on section visibility
 if (reviewsSection && reviews.length) {
-    const sliderObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // The reviews section is visible, start the slider
-                showReview(currentReview); // Show the initial review
-                startSlider();
-            } else {
-                // The reviews section is not visible, stop the slider
-                stopSlider();
-            }
-        });
-    }, {
-        // threshold: 0.5 means the callback will fire when 50% of the element is visible
-        threshold: 0.5
-    });
-
-    sliderObserver.observe(reviewsSection);
+    const sliderObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                showReview(currentReview);
+                startSlider();
+            } else {
+                stopSlider();
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+    sliderObserver.observe(reviewsSection);
 }
+
+
 // ================= CERTIFICATE SCROLLING =================
 const certContainer = document.querySelector('.certificates-container');
 const scrollLeftBtn = document.getElementById('cert-scroll-left');
@@ -184,3 +202,4 @@ if (certContainer && scrollLeftBtn && scrollRightBtn) {
     });
   });
 }
+
