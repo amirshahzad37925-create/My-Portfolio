@@ -201,33 +201,28 @@
     
   <!-- ================= REVIEWS ================= -->
 <section id="reviews" class="reviews animate">
-  <h2>Client <span>Reviews</span></h2>
+  <h2 class="animate">Client <span>Reviews</span></h2>
   <div class="review-container">
-
-    <div class="review-card">
+    <div class="review-card animate">
       <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client Photo" class="review-img">
       <h3>Ben Miller</h3>
       <div class="stars">★★★★★</div>
       <p>"Working with Aamir has been a game-changer. The leads were high-quality, and conversion rates improved drastically."</p>
     </div>
-
-    <div class="review-card">
+    <div class="review-card animate">
       <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Client Photo" class="review-img">
       <h3>James Elliott</h3>
       <div class="stars">★★★★★</div>
       <p>"Professional service, clear communication & excellent results. Highly recommend!"</p>
     </div>
-
-    <div class="review-card">
+    <div class="review-card animate">
       <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="Client Photo" class="review-img">
       <h3>Saurab Khajuria</h3>
       <div class="stars">★★★★★</div>
       <p>"Very impressed with the research depth & responsiveness. My sales enquiries increased."</p>
     </div>
-
   </div>
 </section>
-
 
     <section id="certifications" class="certifications">
         <h2 >My <span>Certificates</span></h2>
@@ -549,68 +544,6 @@
             });
         }
 
-        // ================= REVIEWS SLIDER =================
-        const reviews = document.querySelectorAll(".review");
-        const reviewDotsContainer = document.querySelector(".review-dots");
-        let currentReview = 0;
-        let sliderInterval;
-
-        function updateReviewSlider() {
-            reviews.forEach((review, index) => {
-                review.classList.toggle("active", index === currentReview);
-            });
-            
-            if (reviewDotsContainer) {
-                reviewDotsContainer.innerHTML = '';
-                reviews.forEach((review, index) => {
-                    const dot = document.createElement("span");
-                    dot.classList.add("review-dot");
-                    if (index === currentReview) {
-                        dot.classList.add("active");
-                    }
-                    dot.addEventListener("click", () => {
-                        currentReview = index;
-                        updateReviewSlider();
-                        clearInterval(sliderInterval);
-                        startSlider();
-                    });
-                    reviewDotsContainer.appendChild(dot);
-                });
-            }
-        }
-
-        function nextReview() {
-            currentReview = (currentReview + 1) % reviews.length;
-            updateReviewSlider();
-        }
-
-        function startSlider() {
-            if (sliderInterval) return;
-            sliderInterval = setInterval(nextReview, 5000);
-        }
-
-        function stopSlider() {
-            clearInterval(sliderInterval);
-            sliderInterval = null;
-        }
-
-        // Observer for Reviews Section
-        const reviewsSection = document.querySelector('.reviews');
-        if (reviewsSection && reviews.length > 0) {
-            const sliderObserver = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        updateReviewSlider();
-                        startSlider();
-                    } else {
-                        stopSlider();
-                    }
-                });
-            }, {
-                threshold: 0.5
-            });
-            sliderObserver.observe(reviewsSection);
-        }
         
         // This is the extra Nav Link Highlighting code you had. It is now properly integrated.
         document.addEventListener("DOMContentLoaded", function() {
