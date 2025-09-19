@@ -370,7 +370,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
     <script>
-        // Preloader
+        // ================= PRELOADER =================
         window.addEventListener("load", () => {
             const preloader = document.getElementById("preloader");
             preloader.classList.add("fade-out");
@@ -379,7 +379,7 @@
             }, 800);
         });
 
-        // Particles
+        // ================= PARTICLES BACKGROUND =================
         tsParticles.load("particles-js", {
             background: { color: { value: "#000080" } },
             particles: {
@@ -395,7 +395,7 @@
             }
         });
 
-        // Scroll Active
+        // ================= SCROLL ACTIVE LINK =================
         const sections = document.querySelectorAll("section");
         const navLinks = document.querySelectorAll("nav a");
         window.addEventListener("scroll", () => {
@@ -414,7 +414,7 @@
             });
         });
 
-        // Smooth Scroll
+        // ================= SMOOTH SCROLL =================
         navLinks.forEach(link => {
             link.addEventListener("click", e => {
                 e.preventDefault();
@@ -425,8 +425,11 @@
                 }
             });
         });
+        function refreshPage() {
+            window.location.reload();
+        }
 
-        // Typing Effect
+        // ================= TYPING TEXT =================
         const texts = ["Lead Generation Specialist", "Outreach Expert", "Marketing Expert", "SEO Specialist"];
         let count = 0, index = 0, currentText = "", letter = "";
         const typingEl = document.querySelector(".typing-text");
@@ -448,7 +451,7 @@
             }
         })();
 
-        // Counters
+        // ================= COUNTERS =================
         const counters = document.querySelectorAll(".counter");
         const startCounter = (counter) => {
             let target = +counter.getAttribute("data-target");
@@ -475,191 +478,161 @@
         }, { threshold: 0.5 });
         counters.forEach(counter => observer.observe(counter));
 
-        // Certifications Scroll with Dots
-const certsContainer = document.querySelector('.certificates-container');
-const certsDotsContainer = document.querySelector('.cert-dots');
-const scrollLeftBtn = document.getElementById('cert-scroll-left');
-const scrollRightBtn = document.getElementById('cert-scroll-right');
-const scrollAmount = 300; // Adjust as needed
+        // ================= CERTIFICATE SCROLLING =================
+        const certsContainer = document.querySelector('.certificates-container');
+        const certsDotsContainer = document.querySelector('.cert-dots');
+        const scrollLeftBtn = document.getElementById('cert-scroll-left');
+        const scrollRightBtn = document.getElementById('cert-scroll-right');
+        const scrollAmount = 300; 
 
-// Function to generate dots
-function generateDots() {
-    certsDotsContainer.innerHTML = ''; // Pehle se existing dots ko saaf karo
-    const totalCerts = certsContainer.children.length;
-    for (let i = 0; i < totalCerts; i++) {
-        const dot = document.createElement('div');
-        dot.classList.add('cert-dot');
-        dot.dataset.index = i; // Dot ka index store karo
-        certsDotsContainer.appendChild(dot);
-    }
-}
+        function generateDots() {
+            if (!certsDotsContainer) return;
+            certsDotsContainer.innerHTML = '';
+            const totalCerts = certsContainer.children.length;
+            for (let i = 0; i < totalCerts; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('cert-dot');
+                dot.dataset.index = i;
+                certsDotsContainer.appendChild(dot);
+            }
+        }
 
-// Function to update active dot
-function updateActiveDot() {
-    const certs = Array.from(certsContainer.children);
-    const dots = Array.from(certsDotsContainer.children);
-    
-    // Find the current visible certificate
-    const containerScrollLeft = certsContainer.scrollLeft;
-    
-    certs.forEach((cert, index) => {
-        const certPosition = cert.offsetLeft;
-        const certWidth = cert.offsetWidth;
-        
-        // Agar certificate ka center viewport mein hai
-        if (certPosition <= containerScrollLeft + certsContainer.offsetWidth / 2 && 
-            certPosition + certWidth >= containerScrollLeft + certsContainer.offsetWidth / 2) {
+        function updateActiveDot() {
+            if (!certsContainer || !certsDotsContainer) return;
+            const certs = Array.from(certsContainer.children);
+            const dots = Array.from(certsDotsContainer.children);
+            const containerScrollLeft = certsContainer.scrollLeft;
             
             dots.forEach(d => d.classList.remove('active'));
-            dots[index].classList.add('active');
+
+            certs.forEach((cert, index) => {
+                const certPosition = cert.offsetLeft;
+                const certWidth = cert.offsetWidth;
+                
+                if (certPosition <= containerScrollLeft + certsContainer.offsetWidth / 2 && certPosition + certWidth >= containerScrollLeft + certsContainer.offsetWidth / 2) {
+                    dots[index].classList.add('active');
+                }
+            });
         }
-    });
-}
 
-// Event Listeners
-if (certsContainer && certsDotsContainer) {
-    // Generate dots on page load
-    generateDots();
-    updateActiveDot(); // Pehle dot ko active karein
+        if (certsContainer && certsDotsContainer) {
+            generateDots();
+            updateActiveDot();
+            certsContainer.addEventListener('scroll', updateActiveDot);
 
-    // Scroll event par dots update karo
-    certsContainer.addEventListener('scroll', updateActiveDot);
+            scrollLeftBtn.addEventListener('click', () => {
+                certsContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            });
+            scrollRightBtn.addEventListener('click', () => {
+                certsContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            });
 
-    // Left/Right buttons par scroll karo
-    scrollLeftBtn.addEventListener('click', () => {
-        certsContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    });
-    scrollRightBtn.addEventListener('click', () => {
-        certsContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    });
+            certsDotsContainer.addEventListener('click', (e) => {
+                if (e.target.classList.contains('cert-dot')) {
+                    const dotIndex = e.target.dataset.index;
+                    const certElement = certsContainer.children[dotIndex];
+                    if (certElement) {
+                        certsContainer.scrollTo({
+                            left: certElement.offsetLeft,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        }
 
-    // Dots par click karne par scroll karo
-    certsDotsContainer.addEventListener('click', (e) => {
-        if (e.target.classList.contains('cert-dot')) {
-            const dotIndex = e.target.dataset.index;
-            const certElement = certsContainer.children[dotIndex];
-            if (certElement) {
-                certsContainer.scrollTo({
-                    left: certElement.offsetLeft,
-                    behavior: 'smooth'
+        // ================= REVIEWS SLIDER =================
+        const reviews = document.querySelectorAll(".review");
+        const reviewDotsContainer = document.querySelector(".review-dots");
+        let currentReview = 0;
+        let sliderInterval;
+
+        function updateReviewSlider() {
+            reviews.forEach((review, index) => {
+                review.classList.toggle("active", index === currentReview);
+            });
+            
+            if (reviewDotsContainer) {
+                reviewDotsContainer.innerHTML = '';
+                reviews.forEach((review, index) => {
+                    const dot = document.createElement("span");
+                    dot.classList.add("review-dot");
+                    if (index === currentReview) {
+                        dot.classList.add("active");
+                    }
+                    dot.addEventListener("click", () => {
+                        currentReview = index;
+                        updateReviewSlider();
+                        clearInterval(sliderInterval);
+                        startSlider();
+                    });
+                    reviewDotsContainer.appendChild(dot);
                 });
             }
         }
-    });
-}
-    </script>
-    
-    <script>
-    // Existing script tags jo aapke baaki sections ke liye hai,
-    // jaise Preloader, Particles, Smooth Scroll, Counter, woh sab
-    // aise hi rehne dein. Sirf niche ka code add karein.
 
-    // Reviews Slider with Dots
-    const reviews = document.querySelectorAll(".review");
-    const reviewDotsContainer = document.querySelector(".review-dots");
-    let currentReview = 0;
+        function nextReview() {
+            currentReview = (currentReview + 1) % reviews.length;
+            updateReviewSlider();
+        }
 
-    // Is function se reviews aur dots dono ko ek saath update karenge
-    function updateReviewSlider() {
-        // Active review ko show/hide karein
-        reviews.forEach((review, index) => {
-            review.classList.toggle("active", index === currentReview);
-        });
+        function startSlider() {
+            if (sliderInterval) return;
+            sliderInterval = setInterval(nextReview, 5000);
+        }
 
-        // Review dots ko banaye ya update karein
-        reviewDotsContainer.innerHTML = ''; // Pehle se existing dots ko saaf karo
-        reviews.forEach((review, index) => {
-            const dot = document.createElement("span");
-            dot.classList.add("review-dot");
-            if (index === currentReview) {
-                dot.classList.add("active");
-            }
-            dot.addEventListener("click", () => {
-                currentReview = index;
-                updateReviewSlider();
+        function stopSlider() {
+            clearInterval(sliderInterval);
+            sliderInterval = null;
+        }
+
+        // Observer for Reviews Section
+        const reviewsSection = document.querySelector('.reviews');
+        if (reviewsSection && reviews.length > 0) {
+            const sliderObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        updateReviewSlider();
+                        startSlider();
+                    } else {
+                        stopSlider();
+                    }
+                });
+            }, {
+                threshold: 0.5
             });
-            reviewDotsContainer.appendChild(dot);
-        });
-    }
-
-    // Har 5 seconds mein review badlenge
-    function nextReview() {
-        currentReview = (currentReview + 1) % reviews.length;
-        updateReviewSlider();
-    }
-
-    // Jab page load ho to yeh code chalega
-    if (reviews.length > 0) {
-        updateReviewSlider(); // Pehle review aur dot ko set karein
-        setInterval(nextReview, 5000);
-
+            sliderObserver.observe(reviewsSection);
+        }
+        
+        // This is the extra Nav Link Highlighting code you had. It is now properly integrated.
         document.addEventListener("DOMContentLoaded", function() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('nav a');
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a');
+            const portfolioGroup = ['portfolio', 'reviews', 'counter'];
 
-    // Portfolio, Reviews, aur Counter ko aik group me highlight karein
-    const portfolioGroup = ['portfolio', 'reviews', 'counter'];
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (window.scrollY >= sectionTop - 100) {
+                        current = section.getAttribute('id');
+                    }
+                });
 
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            if (window.scrollY >= sectionTop - 100) {
-                current = section.getAttribute('id');
-            }
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    const linkHref = link.getAttribute('href');
+
+                    if (portfolioGroup.includes(current)) {
+                        if (linkHref.includes('portfolio')) {
+                            link.classList.add('active');
+                        }
+                    } else if (linkHref.includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
         });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            const linkHref = link.getAttribute('href');
-
-            // Check if the current section is in the portfolio group
-            if (portfolioGroup.includes(current)) {
-                if (linkHref.includes('portfolio')) {
-                    link.classList.add('active');
-                }
-            } else if (linkHref.includes(current)) {
-                link.classList.add('active');
-            }
-        });
-    });
-});
-    }
-</script>
-    <script src="script.js?v=2"></script>
-    <script>
-    function refreshPage() {
-        // Page ko refresh karega
-        window.location.reload();
-    }
-   </script>
-    <script>
-// Paste the counter code here
-const counters = document.querySelectorAll(".counter");
-const startCounter = (counter) => {
-    let target = +counter.getAttribute("data-target");
-    let count = 0;
-    let speed = target / 60;
-    const updateCount = () => {
-        if (count < target) {
-            count += speed;
-            counter.innerText = Math.floor(count);
-            requestAnimationFrame(updateCount);
-        } else {
-            counter.innerText = target;
-        }
-    };
-    updateCount();
-};
-const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            startCounter(entry.target);
-            obs.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-counters.forEach(counter => observer.observe(counter));
 </script>
     
 </body>
