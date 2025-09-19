@@ -480,31 +480,6 @@ nav ul li a.active {
     opacity: 1;
 }
 
-/* ================= COUNTER ================= */
-.counter-section {
-    background: linear-gradient(135deg, rgba(0, 0, 80, 0.85), rgba(0, 0, 30, 0.7));
-    text-align: center;
-    padding: 70px 20px;
-    color: #fff;
-}
-
-.counter-section h2 span { color: #ff9800; }
-
-.counter-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.counter-box h3 {
-    font-size: 2.5rem;
-    color: #ff9800;
-    margin-bottom: 10px;
-}
-
-.counter-box p { font-size: 1rem; }
-
 /* ================= GENERAL STYLES ================= */
 * {
     margin: 0;
