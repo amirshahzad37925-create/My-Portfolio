@@ -270,31 +270,30 @@ A
 
 /* ================= ABOUT ================= */
  .about {
-            background: #fffff;
+            background: white;
             display: flex;
             flex-wrap: wrap;
             padding: 30px 20px;
             align-items: center;
         }
 
-        /* Add this media query for mobile devices */
         @media (max-width: 768px) {
             .about {
-                padding: 20px 15px; /* Adjust padding for smaller screens */
+                padding: 20px 15px;
             }
             .about-img img {
-                max-width: 100%; /* Ensure image is not wider than the screen */
+                max-width: 100%;
             }
         }
 
         .about-img img {
-            max-width: 500px;
+            max-width: 350px;
         }
 
         .about-text {
             flex: 1;
             padding: 20px;
-            color: #fff;
+            color: #333;
         }
 
         .about-text h2 span {
@@ -314,7 +313,6 @@ A
         .about-text .btn {
             color: #ff9800;
         }
-
 
         /* ================= SERVICES ================= */
         .services {
