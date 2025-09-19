@@ -387,8 +387,6 @@ A
     background: #fff;
     color: #ff9800;
 }
-
-/
 /* ================= NEW CARDS STYLING (For Diamond Grid) ================= */
 
 /* Right side cards container */
@@ -466,6 +464,12 @@ A
     justify-content: center;
 }
 
+@media (hover: hover) and (pointer: fine) {
+    .card:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on desktop hover */
+    }
+}
+
 /* Mobile responsive (Important) */
 /* Media query for small screens */
 @media (max-width: 768px) {
@@ -488,6 +492,22 @@ A
         width: 100%; /* Make each card take up the full width */
         min-height: auto;
         border-radius: 10px; /* Keep the border-radius for a clean look */
+        /* Set a default shadow for the card on mobile */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        /* Add a smooth transition for the shadow effect */
+        transition: box-shadow 0.3s ease;
+    }
+
+    /* Add a simple tap/active effect for a subtle "press" feel on mobile */
+    .card:active {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly darker shadow on tap */
+    }
+
+    /* Ensure no hover effect on touch devices to avoid buggy behavior */
+    .card:hover {
+        /* This will override any desktop hover styles on mobile */
+        transform: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Keep the default shadow on hover */
     }
 
     .card-content {
@@ -495,7 +515,6 @@ A
         transform: none;
     }
 }
-
         /* ================= SERVICES ================= */
         .services {
             background: linear-gradient(135deg, rgba(0, 0, 80, 0.85), rgba(0, 0, 30, 0.7));
