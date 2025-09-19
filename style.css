@@ -387,132 +387,63 @@ A
     background: #fff;
     color: #ff9800;
 }
-/* ================= NEW CARDS STYLING (For Diamond Grid) ================= */
 
-/* Right side cards container */
-.about-cards-container {
-    display: grid;
-    /* Grid ko diamond shape dene ke liye columns aur rows banate hain */
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 20px; /* Cards ke beech ka gap */
+/* New list container to replace the cards container */
+.about-services-list {
     flex: 1;
-    max-width: 450px;
-    
-    /* Pura container rotate karne ke liye */
-    transform: rotate(45deg);
-}
-
-/* Base card styling */
-.card {
-    /* Isse har card ka content seedha rahega, jabki container rotate ho chuka hai */
-    transform: rotate(-45deg);
-    
-    /* Baki purana styling waise hi rahega */
-    background: #f7f9fc;
-    border: 3px solid #e0e6ed;
-    transition: transform 0.3s ease;
-    min-width: 180px;
-    min-height: 180px;
-    border-radius: 10px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    gap: 30px; /* Space between each service item */
+    max-width: 450px;
+}
+
+.service-item {
+    display: flex;
+    align-items: center; /* Vertically centers the icon and text */
+    gap: 20px; /* Space between the icon and the text */
     padding: 20px;
-    
-    /* Shadow bhi daal sakte hain */
+    background: #f7f9fc;
+    border: 3px solid #e0e6ed;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.card:hover {
-    /* Hover par scale effect */
-    transform: rotate(-45deg) scale(1.05);
+.service-item:hover {
+    transform: translateY(-5px); /* A simple lift effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Specific card positions */
-.card-top {
-    /* Top-left grid cell */
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
+.service-item i {
+    font-size: 36px;
+    color: #4b6cb7;
 }
 
-.card-left {
-    /* Bottom-left grid cell */
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
+.service-text h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-weight: 600;
 }
 
-.card-right {
-    /* Top-right grid cell */
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
+.service-text p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    margin: 0; /* Remove default margin from the paragraph */
 }
 
-.card-bottom {
-    /* Bottom-right grid cell */
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-}
-
-/* Card ke content ka styling (purana hi rahega) */
-.card-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-@media (hover: hover) and (pointer: fine) {
-    .card:hover {
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on desktop hover */
-    }
-}
-
-/* Mobile responsive (Important) */
-/* Media query for small screens */
+/* Mobile adjustments */
 @media (max-width: 768px) {
-    .about-cards-container {
-        /* This will remove the diamond grid and display cards in a single column */
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* This will center the cards horizontally */
+    .about-services-list {
         width: 100%;
-        height: auto;
         margin-top: 40px;
-        transform: none; /* Remove any rotation on the container */
-        gap: 20px; /* Space between each card */
-        padding: 0 10px; /* Adds a small padding on the sides for better view */
     }
-
-    .card {
-        /* Reset all transformations to make the cards simple squares/rectangles */
-        transform: none;
-        width: 100%; /* Make each card take up the full width */
-        min-height: auto;
-        border-radius: 10px; /* Keep the border-radius for a clean look */
-        /* Set a default shadow for the card on mobile */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        /* Add a smooth transition for the shadow effect */
-        transition: box-shadow 0.3s ease;
+    .service-item {
+        width: 100%;
     }
-
-    /* Add a simple tap/active effect for a subtle "press" feel on mobile */
-    .card:active {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly darker shadow on tap */
-    }
-
-    /* Ensure no hover effect on touch devices to avoid buggy behavior */
-    .card:hover {
-        /* This will override any desktop hover styles on mobile */
-        transform: none;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Keep the default shadow on hover */
-    }
-
-    .card-content {
-        /* Reset content transformations to ensure text is straight */
-        transform: none;
+    .service-item:hover {
+        transform: none; /* No lift effect on mobile */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Keep default shadow */
     }
 }
         /* ================= SERVICES ================= */
