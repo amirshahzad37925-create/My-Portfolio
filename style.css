@@ -388,45 +388,7 @@ A
     color: #ff9800;
 }
 
-/* Right side cards container */
-.about-cards-container {
-    /* Isse diamond shape grid banegi */
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 450px; /* Ya jo width aapko pasand ho */
-    height: 450px; /* Ya jo height aapko pasand ho */
-    margin: 0 auto;
-}
-
-.card {
-    /* Base card styling */
-    background: #f7f9fc;
-    border: 3px solid #e0e6ed;
-    transition: transform 0.3s ease;
-    min-width: 180px;
-    min-height: 180px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 20px;
-
-    /* Rhombus shape bananey ke liye */
-    transform: rotate(45deg);
-    overflow: hidden; /* Content ko card ke andar rakhne ke liye */
-    position: absolute; /* Cards ko position karne ke liye */
-}
-
-.card:hover {
-    transform: rotate(45deg) scale(1.05); /* Hover effect bhi rhombus par apply hoga */
-}
-
-/* ================= NEW CARDS STYLING (For Diamond Grid) ================= */
+/
 /* ================= NEW CARDS STYLING (For Diamond Grid) ================= */
 
 /* Right side cards container */
@@ -505,24 +467,35 @@ A
 }
 
 /* Mobile responsive (Important) */
+/* Media query for small screens */
 @media (max-width: 768px) {
     .about-cards-container {
-        /* Mobile par diamond shape off kar do */
-        transform: rotate(0deg);
+        /* This will remove the diamond grid and display cards in a single column */
         display: flex;
         flex-direction: column;
-        height: auto;
+        align-items: center; /* This will center the cards horizontally */
         width: 100%;
+        height: auto;
         margin-top: 40px;
+        transform: none; /* Remove any rotation on the container */
+        gap: 20px; /* Space between each card */
+        padding: 0 10px; /* Adds a small padding on the sides for better view */
     }
 
     .card {
-        /* Mobile par cards seedhe ho jaayenge */
-        transform: rotate(0deg);
-        margin-bottom: 20px;
-        box-shadow: none; /* Shadow off kar sakte hain */
+        /* Reset all transformations to make the cards simple squares/rectangles */
+        transform: none;
+        width: 100%; /* Make each card take up the full width */
+        min-height: auto;
+        border-radius: 10px; /* Keep the border-radius for a clean look */
+    }
+
+    .card-content {
+        /* Reset content transformations to ensure text is straight */
+        transform: none;
     }
 }
+
         /* ================= SERVICES ================= */
         .services {
             background: linear-gradient(135deg, rgba(0, 0, 80, 0.85), rgba(0, 0, 30, 0.7));
