@@ -118,10 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // A single observer to handle all scroll-based animations
     const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                if (entry.target.id === 'counter') {
-                    startCounterAnimation();
-                }
                 if (entry.target.id === 'reviews') {
                     startReviewsSlider();
                 }
@@ -134,50 +130,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.4 }); // Trigger when 40% of the section is visible
 
     // Observe the specific sections
-    const counterSection = document.querySelector("#counter");
     const reviewsSection = document.querySelector('.reviews');
     const certificationsSection = document.querySelector('.certifications');
 
-    if (counterSection) observer.observe(counterSection);
     if (reviewsSection) observer.observe(reviewsSection);
     if (certificationsSection) observer.observe(certificationsSection);
 
-    // ================= COUNTER ANIMATION =================
-const counterSection = document.querySelector("#counter");
-const counters = document.querySelectorAll(".counter-box h3");
-let counterTriggered = false; // Flag to ensure animation runs only once
-
-const animateCounter = (counter) => {
-    const target = +counter.getAttribute("data-target");
-    const speed = 200; // Animation speed, higher value means faster animation
-    const increment = target / speed;
-    let count = 0;
-
-    const updateCount = () => {
-        if (count < target) {
-            count += increment;
-            counter.innerText = Math.ceil(count);
-            setTimeout(updateCount, 1);
-        } else {
-            counter.innerText = target;
-        }
-    };
-    updateCount();
-};
-
-if (counterSection) {
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !counterTriggered) {
-                counters.forEach(animateCounter);
-                counterTriggered = true; // Set flag to true after animation
-                obs.unobserve(entry.target); // Stop observing after animation
-            }
-        });
-    }, { threshold: 0.5 }); // Trigger when 50% of the section is visible
-
-    observer.observe(counterSection);
-}
     // ================= REVIEWS SLIDER =================
     let currentReview = 0;
     const reviews = document.querySelectorAll(".review");
