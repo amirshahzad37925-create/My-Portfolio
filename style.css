@@ -200,35 +200,34 @@ A
 
        /* ================= HERO ================= */
 .hero {
+    padding-top: 60px;
+    min-height: 100vh;
     position: relative;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-    background: #0b0c2a;
     overflow: hidden;
-    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #particles-js {
     position: absolute;
-    width: 100%;
-    height: 100%;
     top: 0;
     left: 0;
-    z-index: 1;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 
 .hero-content {
-    position: relative;
-    z-index: 2;
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
     justify-content: center;
-    gap: 40px;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 100px;
+    flex-direction: column;
+    z-index: 1;
 }
 
 @media (min-width: 768px) {
@@ -245,27 +244,22 @@ A
     box-shadow: 0 0 50px 10px rgba(0, 191, 255, 0.7);
     margin-right: 100px;
     width: 310px; 
-    height: 380px;
+    height: 380px
 }
 
 .hero-img img {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border: 4px solid #ff9800;
-    box-shadow: 0 0 20px rgba(255, 152, 0, 0.6);
-    transition: transform 0.3s ease;
-}
-
-.hero-img img:hover {
-    transform: scale(1.05);
+    object-position: top;
+    display: block;
 }
 
 /* Text Section */
 .hero-text {
     text-align: left;
     color: #fff;
+    text-align: center;
 }
 
 @media (min-width: 768px) {
@@ -275,15 +269,14 @@ A
 }
 
 .hero-text h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+    font-size: 28px;
+    margin-bottom: 5px;
     color: #fff;
 }
 
 .hero-text h1 {
-    font-size: 3rem;
+    font-size: 48px;
     margin: 10px 0;
-    color: #fff;
 }
 
 .hero-text h1 .highlight {
@@ -300,21 +293,20 @@ A
 }
 
 .hero-text p {
-    font-size: 1rem;
-    margin: 15px 0;
-    max-width: 500px;
+    font-size: 18px;
+    margin-bottom: 20px;
 }
 
 /* Hero Button */
 .hero-text .btn {
-    display: inline-block;
-    padding: 12px 30px;
-    background: linear-gradient(45deg, #ff9800, #ff5722);
+    background: linear-gradient(90deg, #FFF1DE, #f59e0b);
     color: #fff;
-    border-radius: 30px;
+    padding: 12px 30px;
     text-decoration: none;
+    border-radius: 12px 5px;
+    margin-top: 20px;
+    display: inline-block;
     transition: 0.3s;
-    margin-top: 15px;
 }
 
 .hero-text .btn:hover {
@@ -328,22 +320,18 @@ A
         margin-right: 0; /* Mobile par image ka right margin hatayein */
         margin-bottom: 30px; /* Mobile par image ke neeche space */
     }
-     .hero-img img {
-        width: 180px;
-        height: 180px;
-    }
-   .hero-text h1 {
-        font-size: 2.2rem;
+    .hero-text h1 {
+        font-size: 36px;
     }
     .hero-text h2, .hero-text .typing-text {
-        font-size: 20px;
+        font-size: 24px;
     }
-     .hero-content {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
+    .hero-content {
+        padding: 0 20px;
     }
 }
+       
+
        
 /* ================= ABOUT ================= */
 .about {
