@@ -197,101 +197,135 @@ A
         nav ul li a.active {
             color: #ffd700;
         }
- /* ================= HERO ================= */
-        .hero {
-            height: 100vh;
-            position: relative;
-            overflow: hidden;
-        }
-    
-        .hero-content {
+
+       /* ================= HERO ================= */
+.hero {
+    padding-top: 60px;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.hero-content {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    padding: 0 50px; /* dono sides se thodi space chhodein */
-    flex-direction: column; /* mobile ke liye column mein rakhein */
+    width: 100%;
+    max-width: 1200px;
+    padding: 100px;
+    flex-direction: column;
+    z-index: 1;
 }
 
 @media (min-width: 768px) {
     .hero-content {
-        flex-direction: row; /* desktop par row mein rakhein */
+        flex-direction: row;
     }
 }
-        
-        .hero-img {
+
+/* IMAGE CONTAINER */
+.hero-img {
     position: relative;
-    border-radius: 50%;
     overflow: hidden;
-    object-fit: contain;
-    /* blue glow */
+    border-radius: 20% 80% 80% 20% / 80% 20% 80% 20%;
     box-shadow: 0 0 50px 10px rgba(0, 191, 255, 0.7);
-    margin-right: 100px; /* text se space */
+    margin-right: 100px;
 }
 
 .hero-img img {
-    max-width: 310px;
+    max-width: 350px;
     height: auto;
     display: block;
 }
-        #particles-js {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
 
-        .hero-text {
+/* Text Section */
+.hero-text {
     text-align: left;
-    z-index: 1;
+    color: #fff;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .hero-text {
+        text-align: left; /* Desktop par left align */
+    }
+}
+
+.hero-text h2 {
+    font-size: 28px;
+    margin-bottom: 5px;
     color: #fff;
 }
 
-        .hero-text h1 {
-            font-size: 48px;
-            margin: 10px 0;
-        }
+.hero-text h1 {
+    font-size: 48px;
+    margin: 10px 0;
+}
 
-        .hero-text h1 .highlight {
-            color: #ff9800;
-        }
+.hero-text h1 .highlight {
+    color: #ff9800; /* Yellow/Orange highlight */
+}
 
-        .hero-text h2 {
-            font-size: 28px;
-            margin-bottom: 15px;
-            color: #fff;
-        }
+.hero-text .typing-text {
+    font-size: 28px;
+    color: #ffffff;
+    font-weight: 500;
+    display: inline-block;
+    margin: 10px 0;
+    min-height: 35px;
+}
 
-        /* ===== TYPING TEXT EFFECT ===== */
-        .hero-text .typing-text {
-            font-size: 28px;
-            color: #ffffff;
-            font-weight: 500;
-            display: inline-block;
-            margin: 10px 0;
-            min-height: 35px;
-        }
+.hero-text p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
 
-        /* ===== HERO BUTTON ===== */
-        .hero-text .btn {
-            background: linear-gradient(90deg, #FFF1DE, #f59e0b);
-            color: #fff;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 12px 5px;
-            margin-top: 20px;
-            display: inline-block;
-            transition: 0.3s;
-        }
+/* Hero Button */
+.hero-text .btn {
+    background: linear-gradient(90deg, #FFF1DE, #f59e0b);
+    color: #fff;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 12px 5px;
+    margin-top: 20px;
+    display: inline-block;
+    transition: 0.3s;
+}
 
-        .hero-text .btn:hover {
-            background: #fff;
-            color: #ff9800;
-        }
+.hero-text .btn:hover {
+    background: #fff;
+    color: #ff9800;
+}
 
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+    .hero-img {
+        margin-right: 0; /* Mobile par image ka right margin hatayein */
+        margin-bottom: 30px; /* Mobile par image ke neeche space */
+    }
+    .hero-text h1 {
+        font-size: 36px;
+    }
+    .hero-text h2, .hero-text .typing-text {
+        font-size: 24px;
+    }
+    .hero-content {
+        padding: 0 20px;
+    }
+}
        
 /* ================= ABOUT ================= */
 .about {
