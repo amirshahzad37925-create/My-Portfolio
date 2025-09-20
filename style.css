@@ -207,11 +207,9 @@ A
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
+/* Particles.js ke liye zaroori CSS */
 #particles-js {
     position: absolute;
     top: 0;
@@ -220,13 +218,10 @@ A
     width: 100%;
     height: 100%;
     z-index: -1;
+    background-color: #000080; /* Aapke JavaScript se match karta hua background color */
 }
 
-.hero.aos-animate {
-    opacity: 1;
-    transform: translateY(0);
-}
-
+/* Main content container */
 .hero-content {
     display: flex;
     justify-content: center;
@@ -251,16 +246,8 @@ A
     border-radius: 20% 80% 80% 20% / 80% 20% 80% 20%;
     box-shadow: 0 0 50px 10px rgba(0, 191, 255, 0.7);
     margin-right: 100px;
-    width: 310px; 
+    width: 310px;
     height: 380px;
-    opacity: 0;
-    transform: scale(0.8);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.hero-img.aos-animate {
-    opacity: 1;
-    transform: scale(1);
 }
 
 .hero-img img {
@@ -271,16 +258,15 @@ A
     display: block;
 }
 
-/* Text Section */
+/* TEXT SECTION */
 .hero-text {
-    text-align: left;
-    color: #fff;
     text-align: center;
+    color: #fff;
 }
 
 @media (min-width: 768px) {
     .hero-text {
-        text-align: left; /* Desktop par left align */
+        text-align: left;
     }
 }
 
@@ -288,31 +274,15 @@ A
     font-size: 28px;
     margin-bottom: 5px;
     color: #fff;
-    opacity: 0;
-    transform: translateX(-50px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;   
-}
-
-.hero-text h2.aos-animate {
-    opacity: 1;
-    transform: translateX(0);
 }
 
 .hero-text h1 {
     font-size: 48px;
     margin: 10px 0;
-    opacity: 0;
-    transform: translateX(50px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;  
-}
-
-.hero-text h1.aos-animate {
-    opacity: 1;
-    transform: translateX(0);
 }
 
 .hero-text h1 .highlight {
-    color: #ff9800; /* Yellow/Orange highlight */
+    color: #ff9800;
 }
 
 .hero-text .typing-text {
@@ -322,14 +292,6 @@ A
     display: inline-block;
     margin: 10px 0;
     min-height: 35px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.hero-text .btn.aos-animate {
-    opacity: 1;
-    transform: scale(1);
 }
 
 .hero-text p {
@@ -337,7 +299,7 @@ A
     margin-bottom: 20px;
 }
 
-/* Hero Button */
+/* HERO BUTTON */
 .hero-text .btn {
     background: linear-gradient(90deg, #FFF1DE, #f59e0b);
     color: #fff;
@@ -354,11 +316,11 @@ A
     color: #ff9800;
 }
 
-/* Responsive Adjustments */
+/* RESPONSIVE ADJUSTMENTS */
 @media (max-width: 767px) {
     .hero-img {
-        margin-right: 0; /* Mobile par image ka right margin hatayein */
-        margin-bottom: 30px; /* Mobile par image ke neeche space */
+        margin-right: 0;
+        margin-bottom: 30px;
     }
     .hero-text h1 {
         font-size: 36px;
