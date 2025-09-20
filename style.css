@@ -648,28 +648,54 @@ A
 
         /* ================= COUNTER ================= */
         .counter-section {
-            background: linear-gradient(135deg, rgba(0, 0, 80, 0.85), rgba(0, 0, 30, 0.7));
-            text-align: center;
-            padding: 70px 20px;
-            color: #fff;
-        }
+    background: linear-gradient(135deg, rgba(0, 0, 80, 0.85), rgba(0, 0, 30, 0.7));
+    text-align: center;
+    padding: 70px 20px;
+    color: #fff;
+}
 
-        .counter-section h2 span { color: #ff9800; }
+.counter-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+}
 
-        .counter-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
+.counter-section h2 span {
+    color: #ff9800;
+}
 
-        .counter-box h3 {
-            font-size: 2.5rem;
-            color: #ff9800;
-            margin-bottom: 10px;
-        }
+.counter-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
 
-        .counter-box p { font-size: 1rem; }
+.counter-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 25px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.counter-box:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.counter-box h3 {
+    font-size: 2.5rem;
+    color: #ff9800;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.counter-box p {
+    font-size: 1rem;
+    color: #f1f1f1;
+    margin-top: 5px;
+}
+
 
 /* ================= REVIEWS ================= */
 .reviews {
