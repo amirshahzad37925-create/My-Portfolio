@@ -60,12 +60,12 @@ A
 
         /* Cloth-like wave animation */
         @keyframes clothWave {
-            0% { transform: rotateX(40deg) rotateZ(-45deg) translateY(0) translateX(0); }
-            25% { transform: rotateX(40deg) rotateZ(-45deg) translateY(-20px) translateX(10px); }
-            50% { transform: rotateX(40deg) rotateZ(-45deg) translateY(0) translateX(20px); }
-            75% { transform: rotateX(40deg) rotateZ(-45deg) translateY(20px) translateX(10px); }
-            100% { transform: rotateX(40deg) rotateZ(-45deg) translateY(0) translateX(0); }
-        }
+    0% { transform: rotateX(40deg) rotateZ(-45deg) translateY(0) translateX(0); }
+    25% { transform: rotateX(40deg) rotateZ(-45deg) translateY(-10px) translateX(5px); }
+    50% { transform: rotateX(40deg) rotateZ(-45deg) translateY(0) translateX(10px); }
+    75% { transform: rotateX(40deg) rotateZ(-45deg) translateY(10px) translateX(5px); }
+    100% { transform: rotateX(40deg) rotateZ(-45deg) translateY(0) translateX(0); }
+}
 
         .cube-grid {
             display: grid;
@@ -73,23 +73,23 @@ A
             gap: 8px;
             transform-style: preserve-3d;
             perspective: 800px;
-            animation: clothWave 5s ease-in-out infinite;
+            animation: clothWave 6s ease-in-out infinite;
         }
 
         /* Cube spring animation */
         @keyframes jumpWithWave {
-            0%, 100% { transform: translateY(0) scaleY(1); }
-            25% { transform: translateY(-25px) scaleY(1.1); }
-            50% { transform: translateY(0) scaleY(0.9); }
-            75% { transform: translateY(15px) scaleY(1.05); }
-        }
+    0%, 100% { transform: translateY(0) scaleY(1); }
+    25% { transform: translateY(-15px) scaleY(1.05); }
+    50% { transform: translateY(0) scaleY(0.95); }
+    75% { transform: translateY(10px) scaleY(1.02); }
+}
 
         .cube {
             position: relative;
             width: var(--cube-size);
             height: var(--cube-size);
             transform-style: preserve-3d;
-            animation: jumpWithWave 2s ease-in-out infinite;
+            animation: jumpWithWave 3s ease-in-out infinite;
         }
 
         /* Faces with gradients */
