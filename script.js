@@ -199,4 +199,191 @@
                 });
             });
         });
+// Preloader: Hides the preloader overlay when the page is fully loaded.
+window.addEventListener("load", () => {
+    document.getElementById("preloader").style.display = "none";
+});
 
+// GSAP Animations
+// Animate hero section elements on page load.
+gsap.from(".hero-text h1", {opacity: 0, y: -50, duration: 1});
+gsap.from(".hero-text p", {opacity: 0, y: 50, duration: 1, delay: 0.5});
+gsap.from(".hero-text .btn", {opacity: 0, scale: 0.8, duration: 1, delay: 1});
+
+// Animate skill progress bars when they come into view.
+document.addEventListener("DOMContentLoaded", () => {
+    const skillBars = document.querySelectorAll(".progress-bar");
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const bar = entry.target;
+                const level = bar.getAttribute("data-skill-level");
+                gsap.to(bar, {
+                    width: level,
+                    duration: 1.5,
+                    ease: "power2.out"
+                });
+                observer.unobserve(bar);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    skillBars.forEach(bar => observer.observe(bar));
+
+    // Service box hover animation.
+    const serviceBoxes = document.querySelectorAll(".service-box");
+    serviceBoxes.forEach((box) => {
+        box.addEventListener("mouseenter", () => {
+            gsap.to(box, { scale: 1.05, duration: 0.3, ease: "power1.out" });
+        });
+        box.addEventListener("mouseleave", () => {
+            gsap.to(box, { scale: 1, duration: 0.3, ease: "power1.out" });
+        });
+    });
+});
+
+// Counter Animation for achievements section
+document.addEventListener("DOMContentLoaded", function() {
+    const counters = document.querySelectorAll('.counter');
+    let started = false;
+
+    function startCounting() {
+        if (!started) {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute("data-target");
+                const countUp = new CountUp(counter, target, { duration: 2 });
+                if (!countUp.error) {
+                    countUp.start();
+                }
+            });
+            started = true;
+        }
+    }
+
+    window.addEventListener("scroll", function() {
+        const section = document.querySelector("#counter");
+        if (section) {
+            const sectionTop = section.getBoundingClientRect().top;
+            const screenPos = window.innerHeight / 1.2;
+            if (sectionTop < screenPos) {
+                startCounting();
+            }
+        }
+    });
+});
+
+// AOS (Animate on Scroll) Initialization
+AOS.init({
+    once: true,
+    offset: 120,
+    duration: 1000,
+    easing: 'ease-in-out'
+});
+
+// Certificate Slider
+const certContainer = document.querySelector('.certificates-container');
+const scrollLeftBtn = document.getElementById('cert-scroll-left');
+const scrollRightBtn = document.getElementById('cert-scroll-right');
+const dotsContainer = document.querySelector('.cert-dots');
+const scrollStep = 300;
+
+// Scroll Buttons
+if (scrollLeftBtn && scrollRightBtn && certContainer) {
+    scrollLeftBtn.addEventListener('click', () => {
+        certContainer.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+    });
+    scrollRightBtn.addEventListener('click', () => {
+        certContainer.scrollBy({ left: scrollStep, behavior: 'smooth' });
+    });
+}
+
+// Dots Navigation (Dynamic)
+function updateDots() {
+    if (!certContainer || !dotsContainer) return;
+    const containerWidth = certContainer.scrollWidth;
+    const viewWidth = certContainer.clientWidth;
+    const dotsCount = Math.ceil(containerWidth / viewWidth);
+    dotsContainer.innerHTML = '';
+
+    for (let i = 0; i < dotsCount; i++) {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+            certContainer.scrollTo({ left: i * viewWidth, behavior: 'smooth' });
+            document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+            dot.classList.add('active');
+        });
+        dotsContainer.appendChild(dot);
+    }
+}
+updateDots();
+
+// Active Dot on Scroll
+if (certContainer) {
+    certContainer.addEventListener('scroll', () => {
+        const viewWidth = certContainer.clientWidth;
+        const index = Math.round(certContainer.scrollLeft / viewWidth);
+        document.querySelectorAll('.dot').forEach((d, i) => {
+            d.classList.toggle('active', i === index);
+        });
+    });
+}
+
+// Contact Form Validation & Submit Animation
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+    const name = document.querySelector('input[name="name"]').value.trim();
+    const email = document.querySelector('input[name="email"]').value.trim();
+    const message = document.querySelector('textarea[name="message"]').value.trim();
+    const btn = document.querySelector('button[type="submit"]');
+
+    // Basic Validation
+    if (!name || !email || !message) {
+        alert("Please fill out all fields!");
+        e.preventDefault();
+        return;
+    }
+
+    // Email Validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address!");
+        e.preventDefault();
+        return;
+    }
+
+    // Button Loading Animation
+    btn.innerHTML = "Sending...";
+    btn.disabled = true;
+});
+
+// Typing Effect for Hero Section
+const typing = document.querySelector(".typing-text");
+const textArray = ["Lead Generation Expert", "Freelancer", "Sourcing Expert", "List Building Specialist"];
+let textIndex = 0, charIndex = 0;
+
+function typeText() {
+    if (charIndex < textArray[textIndex].length) {
+        typing.textContent += textArray[textIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(typeText, 100);
+    } else {
+        setTimeout(eraseText, 1500);
+    }
+}
+
+function eraseText() {
+    if (charIndex > 0) {
+        typing.textContent = textArray[textIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(eraseText, 50);
+    } else {
+        textIndex = (textIndex + 1) % textArray.length;
+        setTimeout(typeText, 500);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    typeText();
+});
