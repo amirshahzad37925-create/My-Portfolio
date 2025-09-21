@@ -209,7 +209,6 @@ A
     justify-content: center;
 }
 
-/* Particles.js ke liye zaroori CSS */
 #particles-js {
     position: absolute;
     top: 0;
@@ -220,7 +219,6 @@ A
     z-index: -1;
 }
 
-/* Main content container */
 .hero-content {
     display: flex;
     justify-content: center;
@@ -245,8 +243,8 @@ A
     border-radius: 20% 80% 80% 20% / 80% 20% 80% 20%;
     box-shadow: 0 0 50px 10px rgba(0, 191, 255, 0.7);
     margin-right: 100px;
-    width: 310px;
-    height: 380px;
+    width: 310px; 
+    height: 380px
 }
 
 .hero-img img {
@@ -257,15 +255,16 @@ A
     display: block;
 }
 
-/* TEXT SECTION */
+/* Text Section */
 .hero-text {
-    text-align: center;
+    text-align: left;
     color: #fff;
+    text-align: center;
 }
 
 @media (min-width: 768px) {
     .hero-text {
-        text-align: left;
+        text-align: left; /* Desktop par left align */
     }
 }
 
@@ -281,7 +280,7 @@ A
 }
 
 .hero-text h1 .highlight {
-    color: #ff9800;
+    color: #ff9800; /* Yellow/Orange highlight */
 }
 
 .hero-text .typing-text {
@@ -298,7 +297,7 @@ A
     margin-bottom: 20px;
 }
 
-/* HERO BUTTON */
+/* Hero Button */
 .hero-text .btn {
     background: linear-gradient(90deg, #FFF1DE, #f59e0b);
     color: #fff;
@@ -315,11 +314,11 @@ A
     color: #ff9800;
 }
 
-/* RESPONSIVE ADJUSTMENTS */
+/* Responsive Adjustments */
 @media (max-width: 767px) {
     .hero-img {
-        margin-right: 0;
-        margin-bottom: 30px;
+        margin-right: 0; /* Mobile par image ka right margin hatayein */
+        margin-bottom: 30px; /* Mobile par image ke neeche space */
     }
     .hero-text h1 {
         font-size: 36px;
