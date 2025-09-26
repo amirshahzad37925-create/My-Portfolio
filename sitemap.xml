@@ -56,4 +56,11 @@
     <priority>0.6</priority>
   </url>
 
+  <!-- FAQs Page URL -->
+  <url>
+    <loc>https://aamirportfolio.site/faqs.html</loc>
+    <lastmod>2025-09-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
