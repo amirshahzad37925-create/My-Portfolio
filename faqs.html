@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQs - Aamir Portfolio</title>
+    <title>FAQs - Aamir Shahzad</title>
 
     <!-- Favicon Links -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -20,95 +21,119 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
-        /* FAQs Section */
-        .faqs {
+        .faqs-section {
+            background: #f9f9f9;
             padding: 50px 20px;
-            background: #0b0c2a;
-            color: #fff;
             font-family: 'Poppins', sans-serif;
-            min-height: 100vh;
         }
-        .faqs .container {
-            max-width: 800px;
+
+        .faqs-section .container {
+            max-width: 900px;
             margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
-        .faqs h1 {
+
+        .faqs-section h1 {
             text-align: center;
             margin-bottom: 20px;
-            font-size: 32px;
-            color: #ff9800;
+            color: #333;
         }
+
         .faq-item {
-            background: #1a1c3a;
-            margin-bottom: 15px;
-            padding: 15px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.3s ease;
+            margin-bottom: 20px;
         }
-        .faq-item:hover {
-            background: #26294d;
-        }
+
         .faq-item h3 {
+            cursor: pointer;
+            padding: 12px;
             margin: 0;
-            display: flex;
-            justify-content: space-between;
-            font-size: 18px;
+            background: #4b0fb0;
             color: #fff;
+            border-radius: 5px;
+            font-size: 18px;
         }
+
         .faq-item p {
-            margin-top: 10px;
             display: none;
-            font-size: 15px;
-            color: #ddd;
+            background: #f3f3f3;
+            padding: 12px;
+            margin: 0;
+            border-radius: 0 0 5px 5px;
+            font-size: 16px;
+            color: #333;
         }
+
         .faq-item.active p {
             display: block;
         }
-        .faq-item i {
-            transition: transform 0.3s ease;
-        }
-        .faq-item.active i {
-            transform: rotate(180deg);
+
+        @media(max-width: 600px) {
+            .faqs-section .container {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <section class="faqs">
-        <div class="container">
-            <h1>Frequently Asked Questions</h1>
+<section class="faqs-section">
+    <div class="container">
+        <h1>Frequently Asked Questions</h1>
 
-            <div class="faq-item">
-                <h3>What services do you offer? <i class="fa-solid fa-chevron-down"></i></h3>
-                <p>I provide lead generation, LinkedIn outreach, SEO support, and digital marketing assistance.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>How can I contact you? <i class="fa-solid fa-chevron-down"></i></h3>
-                <p>You can reach me at <a href="mailto:aamirsinfo@gmail.com" style="color:#ff9800;">aamirsinfo@gmail.com</a> anytime.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Do you work internationally? <i class="fa-solid fa-chevron-down"></i></h3>
-                <p>Yes, I work with clients from all over the world.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>What is your response time? <i class="fa-solid fa-chevron-down"></i></h3>
-                <p>I usually reply within 24 hours or sooner.</p>
-            </div>
-
+        <div class="faq-item">
+            <h3>What services do you provide?</h3>
+            <p>I specialize in Lead Generation, LinkedIn Outreach, SEO Optimization, and Digital Marketing campaigns to help businesses grow.</p>
         </div>
-    </section>
 
-    <script>
-        // Toggle FAQs
-        document.querySelectorAll(".faq-item").forEach(item => {
-            item.addEventListener("click", () => {
-                item.classList.toggle("active");
-            });
+        <div class="faq-item">
+            <h3>How can I contact you for a project?</h3>
+            <p>You can reach me via the Contact Form on my portfolio website or directly at <a href="mailto:aamirsinfo@gmail.com">aamirsinfo@gmail.com</a>.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Do you offer custom lead generation campaigns?</h3>
+            <p>Yes, I create tailored campaigns based on your target audience, industry, and business goals to deliver high-quality leads.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can you help with LinkedIn InMail Outreach?</h3>
+            <p>Absolutely! I am an expert in LinkedIn InMail outreach and can design campaigns to connect with your ideal prospects.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Do you provide SEO services for websites?</h3>
+            <p>Yes, I help optimize websites for better rankings, faster load speeds, and improved visibility on search engines.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How can I view your CV or Resume?</h3>
+            <p>You can download my CV directly from the link in the portfolio footer or through this <a href="aamir-shahzad-cv.pdf">CV Download</a> link.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Do you handle digital marketing for startups?</h3>
+            <p>Yes, I provide affordable digital marketing services for startups, focusing on growth and audience engagement.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Is my data secure when I contact you?</h3>
+            <p>Absolutely! Please read the Privacy Policy page on my website to understand how your data is protected.</p>
+        </div>
+    </div>
+</section>
+
+<script>
+    const faqItems = document.querySelectorAll('.faq-item h3');
+    faqItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const parent = item.parentElement;
+            parent.classList.toggle('active');
         });
-    </script>
+    });
+</script>
+
 </body>
 </html>
