@@ -685,10 +685,14 @@ A
   margin-bottom: 40px;
 }
 
-.reviews .section-title span {
-  color: #ff9800;
+.reviews h2 span.highlight {
+  color: #ff9800;  /* Orange color for 'Reviews' */
 }
 
+.reviews h2 span {
+  color: #fff;  /* White color for 'Client' */
+}
+  
 .review-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
