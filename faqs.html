@@ -1,138 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQs - Aamir Shahzad</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQs - Aamir Shahzad</title>
 
-    <!-- Favicon Links -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
-    <link rel="manifest" href="site.webmanifest">
+  <style>
+    .faqs-section {
+      background: #f9f9f9;
+      padding: 50px 20px;
+      font-family: 'Poppins', sans-serif;
+    }
 
-    <link rel="canonical" href="https://aamirportfolio.site/faqs.html">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    .faqs-section .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
 
-    <style>
-        .faqs-section {
-            background: #f9f9f9;
-            padding: 50px 20px;
-            font-family: 'Poppins', sans-serif;
-        }
+    .faqs-section h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: orange;
+      font-size: 28px;
+    }
 
-        .faqs-section .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
+    .faq-item {
+      margin-bottom: 15px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
 
-        .faqs-section h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #333;
-        }
+    .faq-item h3 {
+      cursor: pointer;
+      padding: 12px 20px;
+      margin: 0;
+      background: linear-gradient(135deg, #ff9800, #ff7300);
+      color: #fff;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: 500;
+      text-align: left;
+      transition: 0.3s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .faq-item {
-            margin-bottom: 20px;
-        }
+    .faq-item h3:hover {
+      background: #fff;
+      color: #ff7300;
+      border: 1px solid #ff7300;
+    }
 
-        .faq-item h3 {
-            cursor: pointer;
-            padding: 12px;
-            margin: 0;
-            background: #4b0fb0;
-            color: #fff;
-            border-radius: 5px;
-            font-size: 18px;
-        }
+    .faq-item p {
+      max-height: 0;
+      overflow: hidden;
+      background: #f3f3f3;
+      padding: 0 20px;
+      margin: 0;
+      border-radius: 0 0 5px 5px;
+      font-size: 15px;
+      color: #333;
+      line-height: 1.6;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
 
-        .faq-item p {
-            display: none;
-            background: #f3f3f3;
-            padding: 12px;
-            margin: 0;
-            border-radius: 0 0 5px 5px;
-            font-size: 16px;
-            color: #333;
-        }
+    .faq-item.active p {
+      max-height: 300px;
+      padding: 12px 20px;
+    }
 
-        .faq-item.active p {
-            display: block;
-        }
+    .faq-item h3 i {
+      transition: transform 0.3s;
+    }
 
-        @media(max-width: 600px) {
-            .faqs-section .container {
-                padding: 20px;
-            }
-        }
-    </style>
+    .faq-item.active h3 i {
+      transform: rotate(180deg);
+    }
+
+    @media(max-width: 600px) {
+      .faqs-section .container {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <section class="faqs-section">
-    <div class="container">
-        <h1>Frequently Asked Questions</h1>
+  <div class="container">
+    <h1>Frequently Asked Questions</h1>
 
-        <div class="faq-item">
-            <h3>What services do you provide?</h3>
-            <p>I specialize in Lead Generation, LinkedIn Outreach, SEO Optimization, and Digital Marketing campaigns to help businesses grow.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>How can I contact you for a project?</h3>
-            <p>You can reach me via the Contact Form on my portfolio website or directly at <a href="mailto:aamirsinfo@gmail.com">aamirsinfo@gmail.com</a>.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Do you offer custom lead generation campaigns?</h3>
-            <p>Yes, I create tailored campaigns based on your target audience, industry, and business goals to deliver high-quality leads.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Can you help with LinkedIn InMail Outreach?</h3>
-            <p>Absolutely! I am an expert in LinkedIn InMail outreach and can design campaigns to connect with your ideal prospects.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Do you provide SEO services for websites?</h3>
-            <p>Yes, I help optimize websites for better rankings, faster load speeds, and improved visibility on search engines.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>How can I view your CV or Resume?</h3>
-            <p>You can download my CV directly from the link in the portfolio footer or through this <a href="aamir-shahzad-cv.pdf">CV Download</a> link.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Do you handle digital marketing for startups?</h3>
-            <p>Yes, I provide affordable digital marketing services for startups, focusing on growth and audience engagement.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Is my data secure when I contact you?</h3>
-            <p>Absolutely! Please read the Privacy Policy page on my website to understand how your data is protected.</p>
-        </div>
+    <div class="faq-item">
+      <h3>What services do you provide? <i class="fa-solid fa-chevron-down"></i></h3>
+      <p>I provide Lead Generation, LinkedIn Outreach, SEO Optimization, and Digital Marketing services tailored for businesses.</p>
     </div>
+
+    <div class="faq-item">
+      <h3>Do you handle international projects? <i class="fa-solid fa-chevron-down"></i></h3>
+      <p>Yes, I work with clients across the globe, especially focusing on SaaS businesses and startups.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How can I view your portfolio? <i class="fa-solid fa-chevron-down"></i></h3>
+      <p>You can visit the Portfolio section on my website to explore my previous work and expertise.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Do you create SEO strategies? <i class="fa-solid fa-chevron-down"></i></h3>
+      <p>Yes, I design SEO strategies that improve ranking, boost organic traffic, and enhance website performance.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Can you set up LinkedIn InMail Outreach campaigns? <i class="fa-solid fa-chevron-down"></i></h3>
+      <p>Absolutely! I create campaigns to connect you with potential leads via LinkedIn InMail outreach.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How can I contact you for collaboration? <i class="fa-solid fa-chevron-down"></i></h3>
+      <p>Use the contact form or email me at <a href="mailto:aamirsinfo@gmail.com">aamirsinfo@gmail.com</a> for collaboration inquiries.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Do you offer content marketing services? <i class="fa-solid fa-chevron-down"></i></h3>
+      <p>Yes, I provide content planning and optimization to boost engagement and conversions.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How can I download your CV? <i class="fa-solid fa-chevron-down"></i></h3>
+      <p>You can download my CV directly from the footer link on my website or from the Portfolio page.</p>
+    </div>
+
+  </div>
 </section>
 
 <script>
-    const faqItems = document.querySelectorAll('.faq-item h3');
-    faqItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const parent = item.parentElement;
-            parent.classList.toggle('active');
-        });
+  const faqHeaders = document.querySelectorAll('.faq-item h3');
+  
+  faqHeaders.forEach(header => {
+    header.addEventListener('click', () => {
+      const parent = header.parentElement;
+
+      // Close all other open items
+      document.querySelectorAll('.faq-item').forEach(item => {
+        if (item !== parent) {
+          item.classList.remove('active');
+        }
+      });
+
+      // Toggle current item
+      parent.classList.toggle('active');
     });
+  });
 </script>
 
 </body>
