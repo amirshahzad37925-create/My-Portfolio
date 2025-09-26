@@ -200,38 +200,3 @@
             });
         });
 
-
-       // Counter Animation with AOS Trigger
-function startCounter(counter) {
-    const target = +counter.getAttribute("data-target");
-    const duration = 2000; // total duration in ms
-    const increment = target / (duration / 50);
-
-    let current = 0;
-    const updateCounter = () => {
-        current += increment;
-        if (current < target) {
-            counter.innerText = Math.ceil(current);
-            setTimeout(updateCounter, 50);
-        } else {
-            counter.innerText = target;
-        }
-    };
-
-    updateCounter();
-}
-
-// Observe counters when they come in viewport using AOS
-document.addEventListener("DOMContentLoaded", () => {
-    const counters = document.querySelectorAll(".counter");
-
-    // Trigger when AOS animation starts
-    counters.forEach(counter => {
-        counter.addEventListener("aos:in", () => {
-            if (!counter.classList.contains("counted")) {
-                startCounter(counter);
-                counter.classList.add("counted");
-            }
-        });
-    });
-});
