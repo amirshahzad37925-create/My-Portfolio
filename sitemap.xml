@@ -49,4 +49,11 @@
     <priority>0.5</priority>
   </url>
 
+  <!-- CV PDF File URL -->
+  <url>
+    <loc>https://aamirportfolio.site/aamir-shahzad-cv.pdf</loc>
+    <lastmod>2025-09-26</lastmod>
+    <priority>0.6</priority>
+  </url>
+
 </urlset>
