@@ -24,6 +24,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -62,15 +65,16 @@
 
     <section class="hero" id="home">
     <div id="particles-js"></div>
-    <div class="hero-content"> <div class="hero-img">
+    <div class="hero-content"> 
+        <div class="hero-img" data-aos="zoom-in" data-aos-delay="200">
             <img src="fading-picture.png" alt="Aamir Shahzad">
         </div>
         <div class="hero-text">
-            <h2>Hello, I'm</h2>
-            <h1>Aamir <span class="highlight">Shahzad</span></h1>
-            <h2 class="typing-text"></h2>
-            <p>Lead Generation Expert | Freelancer | Sourcing Expert | List Building</p>
-            <a href="#contact" class="btn">Hire Me</a>
+            <h2 data-aos="fade-up">Hello, I'm</h2>
+            <h1 data-aos="fade-up" data-aos-delay="200">Aamir <span class="highlight">Shahzad</span></h1>
+            <h2 class="typing-text" data-aos="fade-up" data-aos-delay="400"></h2>
+            <p data-aos="fade-up" data-aos-delay="600">Lead Generation Expert | Freelancer | Sourcing Expert | List Building</p>
+            <a href="#contact" class="btn" data-aos="zoom-in" data-aos-delay="800">Hire Me</a>
         </div>
     </div>
 </section>
@@ -440,5 +444,15 @@
         observer.observe(skillsContainer);
     });
 </script>
+
+ <!-- AOS JS Library -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, // Animation speed in ms
+    once: true      // Animation sirf ek baar chale
+  });
+</script>
+   
 </body>
 </html>
