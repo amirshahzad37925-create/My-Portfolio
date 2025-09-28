@@ -333,19 +333,19 @@ A
        
 /* ================= ABOUT ================= */
 .about {
-    padding: 80px 50px;
-    background: white;
+    background: linear-gradient(135deg, rgba(0, 0, 80, 0.85), rgba(0, 0, 30, 0.7));
+            padding: 70px 30px;
+            color: #fff;
 }
 
 .about h2 {
-    color: #333;
+    color: #fff;
 }
 
 .about h2 span {
     color: #ff9800;
 }
 
-/* This new container will place text and cards side-by-side */
 .container {
     display: flex;
     gap: 40px;
@@ -361,7 +361,6 @@ A
     }
 }
 
-/* Container for the left side text and buttons */
 .about-text-content {
     flex: 1;
     min-width: 300px; /* Ensures it doesn't get too small */
@@ -370,14 +369,14 @@ A
 .about-text-content h2 {
     font-size: 36px;
     margin-bottom: 20px;
-    color: #333;
+    color: #fff;
 }
 
 .about-text-content p {
     font-size: 16px;
     line-height: 1.7;
     margin-bottom: 15px;
-    color: #555;
+    color: #fff;
 }
 
 .about-text-content strong {
@@ -443,7 +442,7 @@ A
 .skill-item h3 {
     font-size: 18px;
     margin-bottom: 10px;
-    color: #333;
+    color: #fff;
     font-weight: 600;
 }
 
@@ -685,6 +684,10 @@ A
   margin-bottom: 40px;
 }
 
+.reviews h2 {
+  margin-bottom: 35px;  /* gap heading aur cards ke beech zyada ho jayega */
+}
+
 .reviews h2 span.highlight {
   color: #ff9800;  /* Orange color for 'Reviews' */
 }
@@ -746,6 +749,11 @@ A
   line-height: 1.5;
 }
 
+@media (max-width: 768px) {
+  .reviews h2 {
+    margin-bottom: 35px; /* mobile screens pe thoda kam gap */
+  }
+}
 
         /* ================= CERTIFICATIONS ================= */
         .certifications {
